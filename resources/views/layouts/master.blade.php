@@ -20,7 +20,7 @@
     https://templatemo.com/tm-546-sixteen-clothing
 
     -->
-
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets')}}/images/icon.png">
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/templatemo-sixteen.css">
