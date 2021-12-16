@@ -14,7 +14,7 @@
                         <li class="sidebar-item" > <a class="sidebar-link" style="color:white;" href="{{route('admin_category')}}" ><i data-feather="tag" class="feather-icon"></i><span
                                     class="hide-menu">Category</span></a>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link"  style="color:white;" href="#"
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link"  style="color:white;" href="{{route('admin_product')}}"
                                 aria-expanded="false"><i class="fab fa-product-hunt"></i><span
                                     class="hide-menu">Products</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" style="color:white;" href="app-calendar.html"
