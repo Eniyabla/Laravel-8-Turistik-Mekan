@@ -7,7 +7,7 @@
 <div class="container-fluid">
 
 <h3 class="card-title">Product List</h3>
-<a href="{{route('admin_product_add')}}"><button style="width:20%;" type="button" class="btn btn-block btn-primary">Add Product</button></a>
+<a href="{{route('admin_product_create')}}"><button style="width:20%;" type="button" class="btn btn-block btn-primary">Add Product</button></a>
 
                 <div class="row">
                     <div class="col-12">

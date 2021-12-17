@@ -1,6 +1,5 @@
 @extends('admin.layouts.master')
 @section('title', 'TUR-MEK | Add Product')
-@section('content')
 @section('header')
 <link href="../assets/admin/extra-libs/c3/c3.min.css" rel="stylesheet">
 <link href="../assets/admin/libs/chartist/dist/chartist.min.css" rel="stylesheet">
@@ -9,22 +8,22 @@
 <link href="../assets/admin/dist/css/style.min.css" rel="stylesheet">
 <link href="../assets/admin/dist/css/style.css" rel="stylesheet">
 @endsection
+@section('content')
 <div class="container-fluid">
 
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h3 class="card-title">Add Category Form</h3>
-                    <form action="{{route('admin_product_store')}}">
+                    <h3 class="card-title">Add Product</h3>
+                    <form action="{{route('admin_product_create')}}">
                         @csrf
                         <div class="form-body">
 
                             <div class="col-md-12">
-                                <label for="Select1">Parent</label>
+                                <label for="Select1">Category</label>
 
-                                <select class="form-control" id="Select1" name="parent_id">
-                                    <option value="0" selected="selected">Parent Category</option>
+                                <select class="form-control" id="Select1" name="category_id">
                                     @foreach ($datalist as $data)
                                     <option value="{{ $data->category_id }}">{{ $data->title}}</option>
                                     @endforeach
@@ -104,7 +103,16 @@
     </div>
 </div>
 
-</div><div class="form-body">
+    <div class="form-body">
+
+        <div class="col-md-12">
+            <label>image </label>
+            <div class="form-group">
+                <input name="image" type="text" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="form-body">
 
                             <div class="col-md-12">
                                 <label for="Select2">status</label>
@@ -129,7 +137,7 @@
                         </div>
                         <div class="form-actions">
                             <div class="text-right">
-                                <button type="submit" class="btn btn-info">Add Category</button>
+                                <button type="submit" class="btn btn-info">Add Product</button>
                             </div>
                         </div>
                     </form>

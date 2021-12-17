@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -16,8 +18,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $datalist= DB::table('products')->get();
-        return view('admin.product', ['datalist' => $datalist]);
+        $datalist = Product::all();
+        $data = Category::all();
+        return view('admin.product', ['datalist'=> $datalist]);
     }
 
     /**
@@ -27,7 +30,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $datalist = Category::where('parent_id',0)->get();
+        return view('admin.product_add',['datalist'=> $datalist]);
     }
 
     /**
@@ -38,19 +42,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $data= new Product();
-        $table->String('title',150);
-        $table->String('keywords')->nullable();
-        $table->String('description')->nullable();
-        $table->String('image',100)->nullable();
-        $table->Integer('category_id')->nullable();
-        $table->Integer('user_id')->nullable();
-        $table->text('detail')->nullable();
-        $table->String('city')->nullable();
-        $table->String('country')->nullable();
-        $table->String('location')->nullable();
-        $table->String('slug',100)->nullable();
-        $table->String('status',5)->nullable()->default('false');
+        $data= new Product;
+        $data->title=$request->Input('title');
+        $data->keywords=$request->Input('keywords');
+        $data->description=$request->Input('description');
+        $data->image=$request->Input('image');
+        $data->category_id=$request->Input('category_id');
+        $data->user_id=Auth::id();
+        $data->detail=$request->Input('detail');
+        $data->city=$request->Input('city');
+        $data->country=$request->Input('country');
+        $data->location=$request->Input('location');
+        $data->slug=$request->Input('slug');
+        $data->status=$request->Input('status');
+        $data->save();
+        return redirect()->route('admin_product');
     }
 
     /**
@@ -70,9 +76,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Product $product,$id)
     {
-        //
+        $data = Product::find($id);
+        $datalist = Category::where('parent_id', 0)->get();
+        return view('admin.product_edit',['datalist'=>$datalist, 'data'=>$data]);
     }
 
     /**
@@ -88,14 +96,20 @@ class ProductController extends Controller
     {
 
         $data=Product::find($id);
-        $data->parent_id = $request->input('parent_id');
-        $data->keywords = $request->input('keywords');
-        $data->description = $request->input('description');
-        $data->slug = $request->input('slug');
-        $data->status = $request->input('status');
-        $data->title = $request->input('title');
+        $data->title=$request->Input('title');
+        $data->keywords=$request->Input('keywords');
+        $data->description=$request->Input('description');
+        $data->image=$request->Input('image');
+        $data->category_id=$request->Input('category_id');
+        $data->user_id=Auth::id();
+        $data->detail=$request->Input('detail');
+        $data->city=$request->Input('city');
+        $data->country=$request->Input('country');
+        $data->location=$request->Input('location');
+        $data->slug=$request->Input('slug');
+        $data->status=$request->Input('status');
         $data->save();
-        return redirect('admin/category');
+        return redirect()->route('admin_product');
     }
 
     /**
