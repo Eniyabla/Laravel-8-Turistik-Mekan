@@ -24,9 +24,9 @@
                                             <label for="Select1">Parent</label>
 
                                         <select class="form-control" id="Select1" name="parent_id">
-                                            <option value="0" selected="selected">Parent Category</option>
-                                            @foreach ($datalist as $data)
-                                            <option value="{{ $data->parent_id}}" @if ( $data->id= $data->parent_id) selected="selected" @endif >{{ $data->title}}</option>
+                                            <option value="{{ $data->parent_id}}" selected="selected">Parent Category</option>
+                                            @foreach ($datalist as $dat)
+                                            <option value="{{ $dat->id}}" @if ( $data->id= $dat->parent_id) selected="selected" @endif >{{ $dat->title}}</option>
                                             @endforeach
                                         </select>
 

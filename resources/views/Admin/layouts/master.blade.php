@@ -7,8 +7,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets')}}/admin/images/icon.png">
-    <title>@yield('title')</title>
+    <!--link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets')}}/admin/images/icon.png"-->
+ <title>@yield('title')</title>
     <!-- Custom CSS -->
     <link href="{{ asset('assets')}}/admin/extra-libs/c3/c3.min.css" rel="stylesheet">
     <link href="{{ asset('assets')}}/admin/libs/chartist/dist/chartist.min.css" rel="stylesheet">

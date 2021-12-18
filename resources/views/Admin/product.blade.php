@@ -13,7 +13,6 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                         <thead>
@@ -23,11 +22,9 @@
                                                 <th>Title</th>
                                                 <th>Country</th>
                                                 <th>City</th>
-                                                <th>Location</th>
                                                 <th>Image</th>
                                                 <th>Status</th>
-                                                <th>Edit</th>
-                                                <th>delete</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -38,11 +35,21 @@
                                                 <td>{{ $data->title }}</td>
                                                 <td>{{ $data->country }}</td>
                                                 <td>{{ $data->city }}</td>
-                                                <td>{{ $data->location }}</td>
-                                                <td>{{ $data->image }}</td>
+                                                <td>
+                                                    @if($data->image)
+                                                    <img src="{{($data->image)}}"height="36">
+                                                    @endif
+                                                </td>
                                                 <td>{{ $data->status }}</td>
-                                                <td><a href="{{route('admin_product_edit',['id'=>$data->id])}}" >Edit</a> </td>
-                                                <td><a href="{{route('admin_product_delete',['id'=>$data->id])}}" onclick="return confirm('Are you sure to delete this record?') ">delete</a> </td>
+                                                <td colspan="2" style="text-align:center;">
+                                                <a href="{{route('admin_product_edit',['id'=>$data->id])}}" >
+                                                      <img rel="icon"  width="20px" src="{{ asset('assets')}}/admin/images/edit.png">
+                                                 </a> 
+                                                 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                 <a href="{{route('admin_product_delete',['id'=>$data->id])}}" onclick="return confirm('Are you sure to delete this record?') ">
+                                                      <img rel="icon"  width="20px" src="{{ asset('assets')}}/admin/images/del.png">
+                                                    </a> 
+                                                </td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -59,7 +66,7 @@
 @section('footer')
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
+    <!-- Bootstrap tether Core JavaScript-->
     <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- apps -->

@@ -46,7 +46,9 @@ class ProductController extends Controller
         $data->title=$request->Input('title');
         $data->keywords=$request->Input('keywords');
         $data->description=$request->Input('description');
-        $data->image=$request->Input('image');
+//$data->image=$request->file('image')->storeAs('images',$request->data()->id);
+        //$data->image=$request->file('image')->store('images');
+        $data->image=Storage::putFile('images',$request->file('image'));
         $data->category_id=$request->Input('category_id');
         $data->user_id=Auth::id();
         $data->detail=$request->Input('detail');
@@ -99,7 +101,7 @@ class ProductController extends Controller
         $data->title=$request->Input('title');
         $data->keywords=$request->Input('keywords');
         $data->description=$request->Input('description');
-        $data->image=$request->Input('image');
+        //$data->image=Storage::putFile('images',$request->file('image'));
         $data->category_id=$request->Input('category_id');
         $data->user_id=Auth::id();
         $data->detail=$request->Input('detail');

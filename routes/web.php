@@ -32,14 +32,18 @@ Route::middleware('auth')->prefix('admin')->group(function (){
 Route::prefix('product')->group(function (){
     Route::get('/', [App\Http\Controllers\Admin\ProductController::class,'index'])->name('admin_product');
     Route::get('/create', [App\Http\Controllers\Admin\ProductController::class,'create'])->name('admin_product_create');
-    Route::post('/store/{id}', [App\Http\Controllers\Admin\ProductController::class,'store'])->name('admin_product_store');
+    Route::post('/store/', [App\Http\Controllers\Admin\ProductController::class,'store'])->name('admin_product_store');
     Route::post('/update/{id}', [App\Http\Controllers\Admin\ProductController::class,'update'])->name('admin_product_update');
     Route::get('/edit/{id}', [App\Http\Controllers\Admin\ProductController::class,'edit'])->name('admin_product_edit');
     Route::get('/category/delete/{id}', [App\Http\Controllers\Admin\ProductController::class,'destroy'])->name('admin_product_delete');
     Route::get('/show', [App\Http\Controllers\Admin\ProductController::class,'show'])->name('admin_product_show');
 });
 
-#---------------------------------------------------------------#
+#-----------------------------Admin-Settings----------------------------------#
+Route::middleware('auth')->prefix('/admin')->group(function (){
+Route::post('setting/update/', [App\Http\Controllers\Admin\SettingController::class,'update'])->name('admin_setting_update');
+Route::get('/setting', [App\Http\Controllers\Admin\SettingController::class,'index'])->name('admin_setting');
+}); 
 
 
 Route::get('/login', function () {

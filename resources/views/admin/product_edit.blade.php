@@ -1,6 +1,10 @@
 @extends('admin.layouts.master')
 @section('title', 'TUR-MEK | Edit Product')
 @section('header')
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <link href="../assets/admin/extra-libs/c3/c3.min.css" rel="stylesheet">
 <link href="../assets/admin/libs/chartist/dist/chartist.min.css" rel="stylesheet">
 <link href="../assets/admin/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
@@ -97,10 +101,17 @@
 
 <div class="form-body">
 
+
+
 <div class="col-md-12">
     <label>Detail </label>
     <div class="form-group">
-        <input value="{{ $data->detail }}" name="detail" type="text" class="form-control">
+    <textarea value="{{ $data->detail }}" name="detail"  name="detail"  class="form-control" id="summernote" class="form-control" ></textarea>
+        <script>
+$(document).ready(function() {
+  $('#summernote').summernote();
+});
+</script>
     </div>
 </div>
 
@@ -109,7 +120,10 @@
         <div class="col-md-12">
             <label>image </label>
             <div class="form-group">
-                <input value="{{ $data->image }}" name="image" type="text" class="form-control">
+                <input value="{{ $data->image }}" name="image" type="file" class="form-control">
+                @if($data->image)
+                    <img src="{{($data->image)}}"height="36">
+                @endif
             </div>
         </div>
     </div>
@@ -152,4 +166,5 @@
 @endsection
 @section('footer')
 
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 @endsection
