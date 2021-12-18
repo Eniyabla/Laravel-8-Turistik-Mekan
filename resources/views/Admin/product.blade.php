@@ -31,7 +31,7 @@
                                         @foreach ($datalist as $data)
                                             <tr>
                                                 <td>{{ $data->id }}</td>
-                                                <td>{{ $data->category_id}}</td>
+                                                <td>{{ $data->category->title}}</td>
                                                 <td>{{ $data->title }}</td>
                                                 <td>{{ $data->country }}</td>
                                                 <td>{{ $data->city }}</td>
@@ -44,11 +44,11 @@
                                                 <td colspan="2" style="text-align:center;">
                                                 <a href="{{route('admin_product_edit',['id'=>$data->id])}}" >
                                                       <img rel="icon"  width="20px" src="{{ asset('assets')}}/admin/images/edit.png">
-                                                 </a> 
+                                                 </a>
                                                  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                  <a href="{{route('admin_product_delete',['id'=>$data->id])}}" onclick="return confirm('Are you sure to delete this record?') ">
                                                       <img rel="icon"  width="20px" src="{{ asset('assets')}}/admin/images/del.png">
-                                                    </a> 
+                                                    </a>
                                                 </td>
                                             </tr>
                                         @endforeach

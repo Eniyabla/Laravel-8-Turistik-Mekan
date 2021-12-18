@@ -29,7 +29,7 @@
 
                                 <select class="form-control" id="Select1" name="category_id">
                                     @foreach ($datalist as $data)
-                                    <option value="{{ $data->category_id }}">{{ $data->title}}</option>
+                                    <option value="{{ $data->id }}">{{ $data->title}}</option>
                                     @endforeach
                                 </select>
 
