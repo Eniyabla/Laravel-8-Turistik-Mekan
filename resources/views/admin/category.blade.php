@@ -30,7 +30,9 @@
                                         @foreach ($datalist as $data)
                                             <tr>
                                                 <td>{{ $data->id }}</td>
-                                                <td>{{ $data->parent_id}}</td>
+
+                                                <td>{{ App\Http\Controllers\Admin\CategoryController::getParentsTree($data,$data->title)}}</td>
+
                                                 <td>{{ $data->title }}</td>
                                                 <td>{{ $data->status }}</td>
                                                 <td colspan="2" style="text-align:center;">

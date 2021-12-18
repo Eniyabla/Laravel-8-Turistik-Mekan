@@ -30,7 +30,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $datalist = Category::where('parent_id',0)->get();
+        
+        $datalist= Category::with('children')->get();
         return view('admin.product_add',['datalist'=> $datalist]);
     }
 
@@ -81,7 +82,7 @@ class ProductController extends Controller
     public function edit(Product $product,$id)
     {
         $data = Product::find($id);
-        $datalist = Category::where('parent_id', 0)->get();
+        $datalist= Category::with('children')->get();
         return view('admin.product_edit',['datalist'=>$datalist, 'data'=>$data]);
     }
 
