@@ -28,9 +28,10 @@
                                 <label for="Select1">Category</label>
 
                                 <select class="form-control" id="Select1" name="category_id">
-                                    <option value="{{ $data->category_id }}">{{ App\Http\Controllers\Admin\CategoryController::getParentsTree($data,$data->title)}}</option>
-                                    @foreach ($datalist as $dat)
-                                    <option value="{{ $dat->category_id }}">{{ App\Http\Controllers\Admin\CategoryController::getParentsTree($dat,$dat->title)}}</option>
+                                   @foreach ($datalist as $dat)
+                                    <option value="{{ $dat->id }}" @if($dat->id==$data->parent_id) selected="selected" @endif >
+                                        {{ App\Http\Controllers\Admin\CategoryController::getParentsTree($dat,$dat->title)}}
+                                    </option>
                                     @endforeach
                                 </select>
 
@@ -122,7 +123,7 @@ $(document).ready(function() {
             <div class="form-group">
                 <input value="{{ $data->image }}" name="image" type="file" class="form-control">
                 @if($data->image)
-                    <img src="{{($data->image)}}"height="36">
+                    <img src="{{Storage::url($data->image)}}"height="36">
                 @endif
             </div>
         </div>
