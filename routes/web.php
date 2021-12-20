@@ -6,7 +6,8 @@ use Inertia\Inertia;
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('aboutus');
-Route::get('/contact', [App\Http\Controllers\HomeController::class,'login'])->name('contactus');
+Route::get('/contact', [App\Http\Controllers\HomeController::class,'contact'])->name('contactus');
+Route::get('/refernce', [App\Http\Controllers\HomeController::class, 'refernces'])->name('refernces');
 Route::get('/product', [App\Http\Controllers\HomeController::class,'product'])->name('product');
 
 
@@ -43,10 +44,15 @@ Route::prefix('product')->group(function (){
 Route::middleware('auth')->prefix('/admin')->group(function (){
 Route::post('setting/update/', [App\Http\Controllers\Admin\SettingController::class,'update'])->name('admin_setting_update');
 Route::get('/setting', [App\Http\Controllers\Admin\SettingController::class,'index'])->name('admin_setting');
-}); 
+});
 
 
-Route::get('/login', function () {
+Route::middleware('auth')->prefix('account')->namespace(',myuser')->group(function (){
+    Route::get('/', [\App\Http\Controllers\UserController::class, 'index'])->name('myaccount');
+});
+
+
+Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -55,6 +61,6 @@ Route::get('/login', function () {
     ]);
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');

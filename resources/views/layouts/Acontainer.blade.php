@@ -1,4 +1,6 @@
-
+@php
+$setting=\App\Http\Controllers\HomeController::getsetting();
+@endphp
 <!-- Page Content -->
 <div class="page-heading about-heading header-text">
     <div class="container">
@@ -6,7 +8,7 @@
             <div class="col-md-12">
                 <div class="text-content">
                     <h4>about us</h4>
-                    <h2>Turistik Mekanlar</h2>
+                    <h2>Turistik  Mekanlar</h2>
                 </div>
             </div>
         </div>
@@ -32,10 +34,12 @@
                     <h4>Who we are &amp; What we do?</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat. Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis.</p>
                     <ul class="social-icons">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        @if(!Empty($setting->facebook))<li><a href="{{$setting->facebook}}"><i class="fa fa-facebook"></i></a></li>@endif
+                        @if(!Empty($setting->linkedin))<li><a href="{{$setting->linkedin}}"><i class="fa fa-linkedin"></i></a></li>@endif
+                        @if(!Empty($setting->twitter))<li><a href="{{$setting->twitter}}"><i class="fa fa-twitter"></i></a></li>@endif
+                        @if(!Empty($setting->instagram))<li><a href="{{$setting->instagram}}"><i class="fa fa-instagram"></i></a></li>@endif
+                        @if(!Empty($setting->youtube))<li><a href="{{$setting->youtube}}"><i class="fa fa-youtube"></i></a></li>@endif
+
                     </ul>
                 </div>
             </div>
@@ -58,12 +62,7 @@
                         <img src="assets/images/team_01.jpg" alt="">
                         <div class="hover-effect">
                             <div class="hover-content">
-                                <ul class="social-icons">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                </ul>
+
                             </div>
                         </div>
                     </div>
@@ -80,12 +79,7 @@
                         <img src="assets/images/team_02.jpg" alt="">
                         <div class="hover-effect">
                             <div class="hover-content">
-                                <ul class="social-icons">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                </ul>
+
                             </div>
                         </div>
                     </div>
@@ -102,12 +96,7 @@
                         <img src="assets/images/team_03.jpg" alt="">
                         <div class="hover-effect">
                             <div class="hover-content">
-                                <ul class="social-icons">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                </ul>
+
                             </div>
                         </div>
                     </div>
@@ -124,12 +113,7 @@
                         <img src="assets/images/team_04.jpg" alt="">
                         <div class="hover-effect">
                             <div class="hover-content">
-                                <ul class="social-icons">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                </ul>
+
                             </div>
                         </div>
                     </div>
@@ -146,12 +130,7 @@
                         <img src="assets/images/team_05.jpg" alt="">
                         <div class="hover-effect">
                             <div class="hover-content">
-                                <ul class="social-icons">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                </ul>
+
                             </div>
                         </div>
                     </div>
@@ -168,12 +147,7 @@
                         <img src="assets/images/team_06.jpg" alt="">
                         <div class="hover-effect">
                             <div class="hover-content">
-                                <ul class="social-icons">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                </ul>
+
                             </div>
                         </div>
                     </div>

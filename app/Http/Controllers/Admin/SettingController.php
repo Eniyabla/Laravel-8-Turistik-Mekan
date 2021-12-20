@@ -11,7 +11,7 @@ class SettingController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
@@ -23,7 +23,7 @@ class SettingController extends Controller
             $data= Setting::first();
         }
         return view('admin.setting_edit',['data'=>$data]);
-        
+
     }
 
     /**
@@ -74,7 +74,7 @@ class SettingController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, Setting $setting)

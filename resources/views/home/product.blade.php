@@ -1,6 +1,5 @@
 @extends('layouts.master')
-
 @section('title', 'Our Products')
 @section('content')
-    @include('layouts.Pcontainer')
+    @include('admin.layouts.Pcontainer')
 @endsection

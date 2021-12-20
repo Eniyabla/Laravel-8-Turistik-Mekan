@@ -31,13 +31,13 @@
                                         @foreach ($datalist as $data)
                                             <tr>
                                                 <td>{{ $data->id }}</td>
-                                                <td>{{ App\Http\Controllers\Admin\CategoryController::getParentsTree($data->category,$data->category->title)}} </td>
+                                                <td>{{ App\Http\Controllers\Admin\CategoryController::getParentsTree($data->category,$data->category->title)}}</td>
                                                 <td>{{ $data->title }}</td>
                                                 <td>{{ $data->country }}</td>
                                                 <td>{{ $data->city }}</td>
                                                 <td>
                                                     @if($data->image)
-                                                    <img src="{{($data->image)}}"height="36">
+                                                    <img src="{{Storage::url($data->image)}}" height="36">
                                                     @endif
                                                 </td>
                                                 <td>{{ $data->status }}</td>

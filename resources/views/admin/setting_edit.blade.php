@@ -293,7 +293,7 @@
 <div class="col-md-12">
     <label>About Us </label>
     <div class="form-group">
-    <textarea value="{{ $data->aboutus }}" name="aboutus" class="form-control" id="summernote1" class="form-control" ></textarea>
+    <textarea name="aboutus" class="form-control" id="summernote1" class="form-control" >{{ $data->aboutus }}</textarea>
 <script>
 $(document).ready(function() {
   $('#summernote1').summernote()});
@@ -307,7 +307,7 @@ $(document).ready(function() {
 <div class="col-md-12">
     <label>Contact Us </label>
     <div class="form-group">
-    <textarea value="{{ $data->contact }}" name="contact" class="form-control" id="summernote2" class="form-control" ></textarea>
+    <textarea  name="contact" id="summernote2" class="form-control" >{{ $data->contact }}</textarea>
 <script>
 $(document).ready(function() {
   $('#summernote2').summernote();
@@ -322,7 +322,7 @@ $(document).ready(function() {
 <div class="col-md-12">
     <label>References </label>
     <div class="form-group">
-    <textarea value="{{ $data->references }}" name="references" class="form-control" id="summernote3" class="form-control" ></textarea>
+    <textarea name="references" id="summernote3" class="form-control" >{{ $data->references }}</textarea>
 <script>
 $(document).ready(function() {
   $('#summernote3').summernote();

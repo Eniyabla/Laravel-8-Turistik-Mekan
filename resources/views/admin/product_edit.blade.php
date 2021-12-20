@@ -26,9 +26,9 @@
 
                             <div class="col-md-12">
                                 <label for="Select1">Category</label>
-                                
+
                                 <select class="form-control" id="Select1" name="category_id">
-                                
+                                    <option value="{{ $data->category_id }}">{{ App\Http\Controllers\Admin\CategoryController::getParentsTree($data,$data->title)}}</option>
                                     @foreach ($datalist as $dat)
                                     <option value="{{ $dat->category_id }}">{{ App\Http\Controllers\Admin\CategoryController::getParentsTree($dat,$dat->title)}}</option>
                                     @endforeach
@@ -131,7 +131,7 @@ $(document).ready(function() {
 
                             <div class="col-md-12">
                                 <label for="Select2">status</label>
-                                
+
                                 <select class="form-control" id="Select2" name="status">
                                 <option value="{{ $data->status }}" >False</option>
                                     <option value="false" >False</option>

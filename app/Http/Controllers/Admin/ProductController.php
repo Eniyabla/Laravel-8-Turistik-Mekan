@@ -8,6 +8,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -30,7 +31,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        
+
         $datalist= Category::with('children')->get();
         return view('admin.product_add',['datalist'=> $datalist]);
     }
@@ -39,7 +40,7 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -47,9 +48,9 @@ class ProductController extends Controller
         $data->title=$request->Input('title');
         $data->keywords=$request->Input('keywords');
         $data->description=$request->Input('description');
-//$data->image=$request->file('image')->storeAs('images',$request->data()->id);
-        //$data->image=$request->file('image')->store('images');
-        //$data->image=Storage::putFile('images',$request->file('image'));
+     //$data->image=$request->file('image')->storeAs('images',$request->data()->id)
+      //$data->image=$request->file('image')->store('images');
+        $data->image=Storage::putFile('images',$request->file('image'));
         $data->category_id=$request->Input('category_id');
         $data->user_id=Auth::id();
         $data->detail=$request->Input('detail');
@@ -102,7 +103,10 @@ class ProductController extends Controller
         $data->title=$request->Input('title');
         $data->keywords=$request->Input('keywords');
         $data->description=$request->Input('description');
-        //$data->image=Storage::putFile('images',$request->file('image'));
+
+        if($request->file('image')!=null){
+        $data->image=Storage::putFile('images',$request->file('image'));
+        }
         $data->category_id=$request->Input('category_id');
         $data->user_id=Auth::id();
         $data->detail=$request->Input('detail');
