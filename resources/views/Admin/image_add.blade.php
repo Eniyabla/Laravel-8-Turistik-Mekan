@@ -1,6 +1,7 @@
 @extends('admin.layouts.master')
 @section('title', 'TUR-MEK | Add Image')
 @section('header')
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <!-- include summernote css/js -->
@@ -19,8 +20,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title">{{$data->title}}</h3>
-                        <form  action="{{route('admin_image_store', ['product_id'=>$data->id])}}" method="post" enctype="multipart/form-data" >
+                        <h3 class="card-title">Add Image to:<em style="color: red;">{{$data->title}}</em></h3>
+                        <form action="{{route('admin_image_store', ['product_id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-body">
 
@@ -30,25 +31,24 @@
                                         <input name="title" type="text" class="form-control">
                                     </div>
                                 </div>
-                            </div>
 
+                            </div>
                             <div class="form-body">
 
-                                    <div class="col-md-12">
-                                        <label>image </label>
-                                        <div class="form-group">
-                                            <input name="image" type="file" class="form-control">
-                                        </div>
+                                <div class="col-md-12">
+                                    <label>image </label>
+                                    <div class="form-group">
+                                        <input name="image" type="file" class="form-control">
                                     </div>
                                 </div>
-
-                                <div class="form-actions">
-                                    <div class="text-right">
-                                        <button type="submit" class="btn btn-info">Add image</button>
-                                    </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-info">Add Image</button>
                                 </div>
-
+                            </div>
                         </form>
+                        <br>
                         <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                             <tr>
@@ -59,20 +59,22 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($images as $rs)
+                            @foreach($images as $img)
                                 <tr>
-                                    <td>{{$rs->id}}</td>
-                                    <td>{{$rs->title}}</td>
+                                    <td>{{$img->id}}</td>
+                                    <td>{{$img->title}}</td>
                                     <td>
-                                        @if($rs->images)
-                                            <img src="{{Storage::url($rs->images)}}" style="height: 30px" alt="">
+                                        @if($img->image)
+                                            <img src="{{Storage::url($img->image)}}" style="height: 30px" alt="">
                                         @endif
                                     </td>
-                                    <td><a href="{{route('admin_image_delete', ['id'=> $rs->id,'product_id'=>$data->id])}}" onclick="return confirm('Delete ! Are You Sure?')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a></td>
+                                    <td><a href="{{route('admin_image_delete', ['id'=> $img->id,'product_id'=>$data->id])}}" onclick="return confirm('Are You Sure to delete this image?')" class=""><i class="fas fa-trash"></i></a></td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
+
+
                     </div>
                 </div>
             </div>

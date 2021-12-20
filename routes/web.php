@@ -55,7 +55,7 @@ Route::middleware('auth')->prefix('account')->namespace(',myuser')->group(functi
 Route::prefix('admin/image')->group(function (){
     Route::get('/create/{product_id}', [App\Http\Controllers\Admin\ImageController::class,'create'])->name('admin_image_add');
     Route::post('/store/{product_id}', [App\Http\Controllers\Admin\ImageController::class,'store'])->name('admin_image_store');
-    Route::get('/delete/{id}', [App\Http\Controllers\Admin\ImageController::class,'destroy'])->name('admin_image_delete');
+    Route::get('/delete/{id}/{product_id}', [App\Http\Controllers\Admin\ImageController::class,'destroy'])->name('admin_image_delete');
     Route::get('/show', [App\Http\Controllers\Admin\ImageController::class,'show'])->name('admin_image_show');
 });
 
