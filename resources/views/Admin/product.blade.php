@@ -23,6 +23,7 @@
                                                 <th>Country</th>
                                                 <th>City</th>
                                                 <th>Image</th>
+                                                <th>Galery</th>
                                                 <th>Status</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -40,6 +41,7 @@
                                                     <img src="{{Storage::url($data->image)}}" height="36">
                                                     @endif
                                                 </td>
+                                                <td style="justify-content:center"><a href="{{route('admin_image_add',['product_id'=>$data->id])}}"><i class="fas fa-images"></i></a></td>
                                                 <td>{{ $data->status }}</td>
                                                 <td colspan="2" style="text-align:center;">
                                                 <a href="{{route('admin_product_edit',['id'=>$data->id])}}" >
