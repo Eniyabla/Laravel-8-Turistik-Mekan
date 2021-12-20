@@ -6,5 +6,5 @@
 @section('title', 'About Us')
 @section('content')
     <strong>ABOUT US </strong><br>
-    @if(!Empty($setting->aboutus)){{!!$setting->aboutus!!}}@endif<br>
+    @if(!Empty($setting->aboutus)){!!$setting->aboutus!!}@endif<br>
 @endsection
