@@ -4,7 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('aboutus');
 Route::get('/contact', [App\Http\Controllers\HomeController::class,'contact'])->name('contactus');
 Route::get('/refernce', [App\Http\Controllers\HomeController::class, 'refernces'])->name('refernces');
@@ -51,6 +51,10 @@ Route::middleware('auth')->prefix('account')->namespace(',myuser')->group(functi
     Route::get('/', [\App\Http\Controllers\UserController::class, 'index'])->name('myaccount');
 });
 
+Route::middleware('auth')->prefix('user')->namespace(',user')->group(function (){
+    Route::get('/profile', [\App\Http\Controllers\UserController::class, 'index'])->name('userprofile');
+});
+
 #--------------------------------------------Image-Galery-----------------------------------------------------#
 Route::prefix('admin/image')->group(function (){
     Route::get('/create/{product_id}', [App\Http\Controllers\Admin\ImageController::class,'create'])->name('admin_image_add');
@@ -60,19 +64,3 @@ Route::prefix('admin/image')->group(function (){
 });
 
 
-Route::get('/log', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
-    return Inertia::render('/');
-})->name('home');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');

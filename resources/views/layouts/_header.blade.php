@@ -49,15 +49,18 @@
                         <a href="#" class="nav-link text-uppercase dropdown-toggle" data-toggle="dropdown"><span><i class="fa fa-user-circle">  </i>  </span>&nbsp;&nbsp;{{Auth::user()->name}}</a>
                         @endauth
                         @guest
-                                <a href="{{route('/login')}}" class="nav-link text-uppercase dropdown-toggle" data-toggle="dropdown">Login</a>/
-                                <a href="{{route('/register')}}" class="nav-link text-uppercase dropdown-toggle" data-toggle="dropdown">Join</a>
-                        @endguest
+                            <div style="margin-left: -100px;background: #d51111 ;color: white">
+                                <a style="color: white;font-family: 'Arial Rounded MT Bold';font-weight: bolder;" href="/login" class="" data-toggle="">Login</a> |
+                                <a style="color: white;font-family: 'Arial Rounded MT Bold';font-weight: bolder;" href="/register" class="" data-toggle="">Join</a>
+
+                            </div>
+                               @endguest
                         <div class="dropdown-menu" style="background-color: #ef2e2e">
                             <a href="{{route('myaccount')}}" class="dropdown-item"><span><i class="fa fa-user"></i>  </span> &nbsp;&nbsp; My Account</a>
                             <a href="{{route('myaccount')}}" class="dropdown-item"><span><i class="fa fa-heart"></i>  </span> &nbsp;&nbsp;Whislist</a>
-                            <a href="{{route('myaccount')}}" class="dropdown-item"><span><i class="fa fa-user-plus"></i>  </span>&nbsp;&nbsp;Create Account</a>
-                            <a href="{{route('myaccount')}}" class="dropdown-item"><span><i class="fa fa-sign-in-alt"></i>  </span>&nbsp;&nbsp;Login</a>
-                            <a href="{{route('home')}}" class="dropdown-item"><span><i class="fa fa-sign-out-alt"></i>  </span>&nbsp;&nbsp; Logout</a>
+                            <a href="/register" class="dropdown-item"><span><i class="fa fa-user-plus"></i>  </span>&nbsp;&nbsp;Create Account</a>
+                            <a href="/login" class="dropdown-item"><span><i class="fa fa-sign-in-alt"></i>  </span>&nbsp;&nbsp;Login</a>
+                            <a href="/" class="dropdown-item"><span><i class="fa fa-sign-out-alt"></i>  </span>&nbsp;&nbsp; Logout</a>
 
                         </div>
                     </div>
