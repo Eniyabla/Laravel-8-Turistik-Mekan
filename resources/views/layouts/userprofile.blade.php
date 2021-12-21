@@ -31,4 +31,7 @@
         </nav>
     </div>
 @endsection
+@section('contnent'))
+    @include('profile.show')
+@endsection
 

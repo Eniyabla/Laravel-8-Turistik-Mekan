@@ -6,25 +6,11 @@ $parentCat=\App\Http\Controllers\HomeController::categorylist();
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-1">
-
             </div>
             <div class="col-md-2">
-                <nav class="navbar bg-light">
-                    <ul class="navbar-nav" style="margin-top: 5px;">
-                        @foreach($parentCat as $pc)
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">{{$pc->title}}</a>
-                        </li>
-                        @endforeach
-                    </ul>
+              @include('layouts._menu')
+                </div>
 
-                    <!--
-                          //if(count($pc->children))
-                                /*include('categorytree',['children'=>$pc->children])*/
-                            //endif
-                            -->
-                </nav>
-            </div>
             <div class="col-md-6">
                 <div class="header-slider normal-slider">
                     <div class="header-slider-item">

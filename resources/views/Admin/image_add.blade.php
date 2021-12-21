@@ -15,12 +15,17 @@
 @endsection
 @section('content')
     <div class="container-fluid">
-        <h3 class="card-title">Add Image</h3>
+        <h3 class="card-title">Add Image to :</h3>
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title">Add Image to:<em style="color: red;">{{$data->title}}</em></h3>
+
+                        @if($data->image)
+                            <img src="{{Storage::url($data->image)}}"style="display: block;margin-left: auto;margin-right: auto;width: 20%;" alt="">
+                        @endif
+                            <br><br>
+                            <h6 style="color: red;text-align: center;" class="card-title">{{$data->title}}</h6>
                         <form action="{{route('admin_image_store', ['product_id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-body">
@@ -42,14 +47,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-actions">
+
+                            <div class="form-body">
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-info">Add Image</button>
                                 </div>
                             </div>
                         </form>
                         <br>
-                        <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
+                        <table id="datatable-buttons" class="center table table-striped table-bordered">
                             <thead>
                             <tr>
                                 <th>Id</th>
@@ -63,9 +69,9 @@
                                 <tr>
                                     <td>{{$img->id}}</td>
                                     <td>{{$img->title}}</td>
-                                    <td>
+                                    <td >
                                         @if($img->image)
-                                            <img src="{{Storage::url($img->image)}}" style="height: 30px" alt="">
+                                            <img src="{{Storage::url($img->image)}}" style="display: block;margin-left: auto;margin-right: auto;width: 100px;" alt="">
                                         @endif
                                     </td>
                                     <td><a href="{{route('admin_image_delete', ['id'=> $img->id,'product_id'=>$data->id])}}" onclick="return confirm('Are You Sure to delete this image?')" class=""><i class="fas fa-trash"></i></a></td>

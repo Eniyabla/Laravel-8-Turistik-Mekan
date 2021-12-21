@@ -38,8 +38,7 @@
             @section('menu')
             @show
             <div class="col-md-9">
-                @section('content')
-                @show
+                @include('profile.show')
             </div>
         </div>
     </div>

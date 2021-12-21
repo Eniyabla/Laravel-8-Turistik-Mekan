@@ -16,10 +16,10 @@
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                         <thead>
-                                            <tr>
+                                            <tr style="width: 80%">
                                                 <th># Id</th>
                                                 <th>Catgory</th>
-                                                <th>Title</th>
+                                                <th style="width: 20px;">Title</th>
                                                 <th>Country</th>
                                                 <th>City</th>
                                                 <th>Image</th>
@@ -33,7 +33,8 @@
                                             <tr>
                                                 <td>{{ $data->id }}</td>
                                                 <td>{{ App\Http\Controllers\Admin\CategoryController::getParentsTree($data->category,$data->category->title)}}</td>
-                                                <td>{{ $data->title }}</td>
+
+                                                <td style="width: 20px;">{{ $data->title }} </td>
                                                 <td>{{ $data->country }}</td>
                                                 <td>{{ $data->city }}</td>
                                                 <td>

@@ -30,8 +30,7 @@
                     <a href="{{route('home')}}" class="nav-item nav-link ">Home</a>
                     <a href="product-list.html" class="nav-item nav-link">Products</a>
                     <a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
-                    <a href="{{route('aboutus')}}" class="nav-item nav-link">About Us</a>
-                    <a href="{{route('contactus')}}" class="nav-item nav-link">Contact Us</a>
+                    <a href="{{route('aboutus')}}" class="nav-item nav-link">About Us</a><a href="{{route('contactus')}}" class="nav-item nav-link">Contact Us</a>
                     <a href="{{route('refernces')}}" class="nav-item nav-link">References</a>
                     <a href="checkout.html" class="nav-item nav-link">Checkout</a>
                     <a href="my-account.html" class="nav-item nav-link">My Account</a>
@@ -44,17 +43,22 @@
                     </div>
                 </div>
                 <div class="navbar-nav ml-auto" style="background-color: black">
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
-                        <div class="dropdown-menu">
-                            <a href="{{route('myaccount')}}" class="dropdown-item"><i class="fa fa-user" aria-hidden="true"></i>Account</a>
-                            <a href="{{route('myaccount')}}" class="dropdown-item"><i class="fa fa-registered" aria-hidden="true"></i>Register</a>
 
-                            <a href="{{route('myaccount')}}" class="dropdown-item"><i class="fa fa-heart" aria-hidden="false"></i>Whishlist</a>
-                            <a href="{{route('myaccount')}}" class="dropdown-item"><i class="fa fa-user" aria-hidden="true"></i>Account</a>
-                            <a href="#" class="dropdown-item">Register</a>
-                            <a href="#" class="dropdown-item">My Account</a>
-                            <a href="#" class="dropdown-item">Whislist</a>
+                    <div class="nav-item dropdown">
+                        @auth
+                        <a href="#" class="nav-link text-uppercase dropdown-toggle" data-toggle="dropdown"><span><i class="fa fa-user-circle">  </i>  </span>&nbsp;&nbsp;{{Auth::user()->name}}</a>
+                        @endauth
+                        @guest
+                                <a href="{{route('/login')}}" class="nav-link text-uppercase dropdown-toggle" data-toggle="dropdown">Login</a>/
+                                <a href="{{route('/register')}}" class="nav-link text-uppercase dropdown-toggle" data-toggle="dropdown">Join</a>
+                        @endguest
+                        <div class="dropdown-menu" style="background-color: #ef2e2e">
+                            <a href="{{route('myaccount')}}" class="dropdown-item"><span><i class="fa fa-user"></i>  </span> &nbsp;&nbsp; My Account</a>
+                            <a href="{{route('myaccount')}}" class="dropdown-item"><span><i class="fa fa-heart"></i>  </span> &nbsp;&nbsp;Whislist</a>
+                            <a href="{{route('myaccount')}}" class="dropdown-item"><span><i class="fa fa-user-plus"></i>  </span>&nbsp;&nbsp;Create Account</a>
+                            <a href="{{route('myaccount')}}" class="dropdown-item"><span><i class="fa fa-sign-in-alt"></i>  </span>&nbsp;&nbsp;Login</a>
+                            <a href="{{route('home')}}" class="dropdown-item"><span><i class="fa fa-sign-out-alt"></i>  </span>&nbsp;&nbsp; Logout</a>
+
                         </div>
                     </div>
                 </div>

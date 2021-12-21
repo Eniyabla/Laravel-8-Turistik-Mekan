@@ -107,7 +107,7 @@
 <div class="col-md-12">
     <label>Detail </label>
     <div class="form-group">
-    <textarea value="{{ $data->detail }}" name="detail"  name="detail"  class="form-control" id="summernote" class="form-control" ></textarea>
+    <textarea  name="detail"  id="summernote" class="form-control" >{{ $data->detail }}</textarea>
         <script>
 $(document).ready(function() {
   $('#summernote').summernote();
