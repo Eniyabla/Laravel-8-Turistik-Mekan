@@ -23,9 +23,10 @@
                         @include('home.message')
                         <form action="{{route('admin_message_update',['id'=>$data->id])}}" method="post">
                             @csrf
-                            <table>
+                            <div class="table-responsive">
+                                <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                 <tr>
-                                    <td># Id</td>{{ $data->id }}<td></td>
+                                    <td># Id</td><td>{{ $data->id }}</td>
                                 </tr>
                                 <tr>
                                     <td>Name</td><td>{{ $data->name }}</td>
@@ -37,20 +38,18 @@
                                     <td>Phone</td><td>{{ $data->phone }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Status</td><td>{{ $data->status }}</td>
-                                </tr>
-                                <tr>
                                     <td>Message</td><td>{{ $data->message }}</td>
                                 </tr>
                             </table>
-                                     <label>Add Note </label>
+                            </div>
+                                     <label>Reply to {{$data->name }} </label>
                                         <div class="form-group">
                                             <textarea  name="note"  id="summernote" class="form-control" >{{ $data->note }}</textarea>
                                         </div>
-                        <
+
                                              <div class="form-actions">
                                     <div class="text-right">
-                                        <button type="submit" class="btn btn-info">Edit message</button>
+                                        <button type="submit" class="btn btn-info">Reply</button>
                                     </div>
                                 </div>
                         </form>

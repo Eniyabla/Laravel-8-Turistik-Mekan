@@ -21,9 +21,9 @@
                                 <th># Id</th>
                                 <th>Name</th>
                                 <th >Email</th>
-                                <th>Phone</th>
                                 <th>Subject</th>
                                 <th>Messages</th>
+                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -33,9 +33,9 @@
                                     <td>{{ $data->id }}</td>
                                     <td>{{ $data->name }}</td>
                                     <td>{{ $data->email}}</td>
-                                    <td>{{ $data->phone}}</td>
                                     <td>{{ $data->subject }}</td>
                                     <td>{{ $data->message}}</td>
+                                    <td>{{ $data->status}}</td>
                                     <td colspan="2" style="text-align:center;">
                                         <a href="{{route('admin_message_edit',['id'=>$data->id])}}" >
                                            <span style="color:seagreen;"><i class="fas fa-edit">></i></span>

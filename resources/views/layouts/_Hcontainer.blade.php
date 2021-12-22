@@ -1,5 +1,6 @@
 @php
 $parentCat=\App\Http\Controllers\HomeController::categorylist();
+$slider=\App\Http\Controllers\HomeController::slider();
 @endphp
 <!-- Main Slider Start -->
 <div class="header">
@@ -13,27 +14,15 @@ $parentCat=\App\Http\Controllers\HomeController::categorylist();
 
             <div class="col-md-6">
                 <div class="header-slider normal-slider">
+                   @foreach($slider as $slider)
                     <div class="header-slider-item">
-                        <img src="{{ asset('assets/home')}}/img/slider-1.jpg" alt="Slider Image" />
-                        <div class="header-slider-caption">
-                            <p>Some text goes here that describes the image</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
+                        <img src="{{ Storage::url($slider->image)}}" alt="{{$slider->title}}" style="height: 400px;width: 600px;" />
+                        <div class="header-slider-caption" >
+                            <p>{{$slider->description}}</p>
+                            <a class="btn" href="">{{$slider->title}}</a>
                         </div>
                     </div>
-                    <div class="header-slider-item">
-                        <img src="{{ asset('assets/home')}}/img/slider-2.jpg" alt="Slider Image" />
-                        <div class="header-slider-caption">
-                            <p>Some text goes here that describes the image</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
-                        </div>
-                    </div>
-                    <div class="header-slider-item">
-                        <img src="{{ asset('assets/home')}}/img/slider-3.jpg" alt="Slider Image" />
-                        <div class="header-slider-caption">
-                            <p>Some text goes here that describes the image</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="col-md-3">

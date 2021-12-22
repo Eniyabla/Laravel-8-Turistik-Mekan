@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Message;
+use App\Models\Product;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,6 +19,11 @@ class HomeController extends Controller
         $setting= Setting::first();
         return $setting;
     }
+    public static function slider(){
+        $slider=Product::select('title','image','country')->limit(3)->get();
+        return $slider;
+    }
+
     public function index(){
         $setting= Setting::first();
         return view('home.index',['setting'=>$setting]);

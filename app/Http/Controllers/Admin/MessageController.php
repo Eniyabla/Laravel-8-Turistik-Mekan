@@ -78,7 +78,7 @@ class MessageController extends Controller
         $data=Message::find($id);
         $data->note=$request->Input('note');
         $data->save();
-        return back()->with('SUCCESS','Message Replied!');
+        return back()->with('Success','Message Replied!');
     }
 
     /**
