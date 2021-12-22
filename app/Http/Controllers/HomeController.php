@@ -2,6 +2,7 @@
 //namespace App\Http\Controllers\Admin\SettingController;
 namespace App\Http\Controllers;
 use App\Models\Category;
+use App\Models\Image;
 use App\Models\Message;
 use App\Models\Product;
 use App\Models\Setting;
@@ -20,13 +21,23 @@ class HomeController extends Controller
         return $setting;
     }
     public static function slider(){
-        $slider=Product::select('title','image','country')->limit(3)->get();
+        $slider=Product::select('id','title','image','country','slug')->limit(3)->get();
         return $slider;
+    }
+    public static function slider2(){
+        $slider2=Image::select('id','title','image',)->limit(2)->get();
+        return $slider2;
     }
 
     public function index(){
         $setting= Setting::first();
         return view('home.index',['setting'=>$setting]);
+    }
+    public function product($id,$slug){
+        $data=Product::find($id);
+        print_r($data);
+        exit();
+        //return view('home.product',['data'=>$data]);
     }
 
     public function sendmessage(Request $request){

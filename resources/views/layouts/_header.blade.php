@@ -54,13 +54,13 @@
                                 <a style="color: white;font-family: 'Arial Rounded MT Bold';font-weight: bolder;" href="/register" class="" data-toggle="">Join</a>
 
                             </div>
-                               @endguest
+                        @endguest
                         <div class="dropdown-menu" style="background-color: #ef2e2e">
                             <a href="{{route('myaccount')}}" class="dropdown-item"><span><i class="fa fa-user"></i>  </span> &nbsp;&nbsp; My Account</a>
-                            <a href="{{route('myaccount')}}" class="dropdown-item"><span><i class="fa fa-heart"></i>  </span> &nbsp;&nbsp;Whislist</a>
+                            <a href="" class="dropdown-item"><span><i class="fa fa-heart"></i>  </span> &nbsp;&nbsp;Whislist</a>
                             <a href="/register" class="dropdown-item"><span><i class="fa fa-user-plus"></i>  </span>&nbsp;&nbsp;Create Account</a>
                             <a href="/login" class="dropdown-item"><span><i class="fa fa-sign-in-alt"></i>  </span>&nbsp;&nbsp;Login</a>
-                            <a href="/" class="dropdown-item"><span><i class="fa fa-sign-out-alt"></i>  </span>&nbsp;&nbsp; Logout</a>
+                            <a href="{{route('logout')}}" class="dropdown-item"><span><i class="fa fa-sign-out-alt"></i>  </span>&nbsp;&nbsp; Logout</a>
 
                         </div>
                     </div>

@@ -9,6 +9,7 @@ Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->nam
 Route::get('/contact', [App\Http\Controllers\HomeController::class,'contact'])->name('contactus');
 Route::get('/refernce', [App\Http\Controllers\HomeController::class, 'refernces'])->name('refernces');
 Route::post('/sendmessage', [App\Http\Controllers\HomeController::class,'sendmessage'])->name('sendmessage');
+Route::get('/Place/{id}/{slug}', [App\Http\Controllers\HomeController::class,'product'])->name('product');
 
 
 Route::get('/admin/', [App\Http\Controllers\Admin\HomeController::class,'index'])->name('admin_home')->middleware('auth');

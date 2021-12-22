@@ -6,22 +6,24 @@ $slider=\App\Http\Controllers\HomeController::slider();
 <div class="header">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-1">
-            </div>
             <div class="col-md-2">
               @include('layouts._menu')
                 </div>
 
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <div class="header-slider normal-slider">
-                   @foreach($slider as $slider)
-                    <div class="header-slider-item">
-                        <img src="{{ Storage::url($slider->image)}}" alt="{{$slider->title}}" style="height: 400px;width: 600px;" />
+
+                   @foreach($slider as $sl)
+
+                    <div class="header-slider-item ">
+                        <img src="{{ Storage::url($sl->image)}}" alt="{{$sl->title}}" style="height: 400px;width: 700px;" />
+
                         <div class="header-slider-caption" >
-                            <p>{{$slider->description}}</p>
-                            <a class="btn" href="">{{$slider->title}}</a>
+                            <p>{{$sl->title}}</p>
+                            <a href="" class="btn">Open</a>
                         </div>
                     </div>
+
                     @endforeach
                 </div>
             </div>
@@ -62,48 +64,7 @@ $slider=\App\Http\Controllers\HomeController::slider();
 <!-- Brand End -->
 
 <!-- Feature Start-->
-<div class="feature">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-lg-3 col-md-6 feature-col">
-                <div class="feature-content">
-                    <i class="fab fa-cc-mastercard"></i>
-                    <h2>Secure Payment</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur elit
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 feature-col">
-                <div class="feature-content">
-                    <i class="fa fa-truck"></i>
-                    <h2>Worldwide Delivery</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur elit
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 feature-col">
-                <div class="feature-content">
-                    <i class="fa fa-sync-alt"></i>
-                    <h2>90 Days Return</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur elit
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 feature-col">
-                <div class="feature-content">
-                    <i class="fa fa-comments"></i>
-                    <h2>24/7 Support</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur elit
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!-- Feature End-->
 
 <!-- Category Start-->
