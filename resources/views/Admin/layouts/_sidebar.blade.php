@@ -17,6 +17,9 @@
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link"  style="color:white;" href="{{route('admin_product')}}"
                                 aria-expanded="false"><i class="fab fa-product-hunt"></i><span
                                     class="hide-menu">Products</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link"  style="color:white;" href="{{route('admin_message')}}"
+                                                     aria-expanded="false"><i class="far fa-envelope"></i><span
+                                    class="hide-menu">Messages</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" style="color:white;" href="app-calendar.html"
                                 aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span
                                     class="hide-menu">Calendar</span></a></li>

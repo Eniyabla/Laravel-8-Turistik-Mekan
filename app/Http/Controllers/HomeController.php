@@ -2,6 +2,7 @@
 //namespace App\Http\Controllers\Admin\SettingController;
 namespace App\Http\Controllers;
 use App\Models\Category;
+use App\Models\Message;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,8 +23,16 @@ class HomeController extends Controller
         return view('home.index',['setting'=>$setting]);
     }
 
-    public function product(){
-        return view('home.product');
+    public function sendmessage(Request $request){
+        $data= new Message;
+        $data->name=$request->Input('name');
+        $data->email=$request->Input('email');
+        $data->phone=$request->Input('phone');
+        $data->subject=$request->Input('subject');
+        $data->message=$request->Input('message');
+        $data->save();
+
+        return redirect()->route('contactus')->with('success','Your Message was successfully sent.Thanks!');
     }
     public function about(){
         return view('home.about');

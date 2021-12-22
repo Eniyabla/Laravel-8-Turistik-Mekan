@@ -8,7 +8,7 @@ Route::get('', [App\Http\Controllers\HomeController::class, 'index'])->name('hom
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('aboutus');
 Route::get('/contact', [App\Http\Controllers\HomeController::class,'contact'])->name('contactus');
 Route::get('/refernce', [App\Http\Controllers\HomeController::class, 'refernces'])->name('refernces');
-Route::get('/product', [App\Http\Controllers\HomeController::class,'product'])->name('product');
+Route::post('/sendmessage', [App\Http\Controllers\HomeController::class,'sendmessage'])->name('sendmessage');
 
 
 Route::get('/admin/', [App\Http\Controllers\Admin\HomeController::class,'index'])->name('admin_home')->middleware('auth');
@@ -63,4 +63,11 @@ Route::prefix('admin/image')->group(function (){
     Route::get('/show', [App\Http\Controllers\Admin\ImageController::class,'show'])->name('admin_image_show');
 });
 
-
+#------------Message----------->
+Route::prefix('messages')->group(function (){
+    Route::get('/', [App\Http\Controllers\Admin\MessageController::class,'index'])->name('admin_message');
+    Route::post('/update/{id}', [App\Http\Controllers\Admin\MessageController::class,'update'])->name('admin_message_update');
+    Route::get('/edit/{id}', [App\Http\Controllers\Admin\MessageController::class,'edit'])->name('admin_message_edit');
+    Route::get('/delete/{id}', [App\Http\Controllers\Admin\MessageController::class,'destroy'])->name('admin_message_delete');
+    Route::get('/show', [App\Http\Controllers\Admin\MessageController::class,'show'])->name('admin_message_show');
+});
