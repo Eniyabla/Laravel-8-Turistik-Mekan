@@ -115,7 +115,7 @@ $(document).ready(function() {
 </script>
     </div>
 </div>
-
+</div>
     <div class="form-body">
 
         <div class="col-md-12">
@@ -128,7 +128,7 @@ $(document).ready(function() {
             </div>
         </div>
     </div>
-    <div class="form-body">
+                       <div class="form-body">
 
                             <div class="col-md-12">
                                 <label for="Select2">status</label>
@@ -150,15 +150,13 @@ $(document).ready(function() {
                                     <input vaulue="{{ $data->slug }}" name="slug" type="text" class="form-control">
                                 </div>
                             </div>
-
+                        </div>
                         <div class="form-actions">
                             <div class="text-right">
                                 <button type="submit" class="btn btn-info">Edit Product</button>
                             </div>
                         </div>
 
-                        </div>
-</div>
                     </form>
                 </div>
             </div>

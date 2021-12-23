@@ -22,7 +22,6 @@
                         <h3 class="card-title">Edit Faq</h3>
                         <form action="{{route('admin_faq_update',['id'=>$data->id])}}" method="post">
                             @csrf
-
                             <div class="form-body">
 
                                 <div class="col-md-12">

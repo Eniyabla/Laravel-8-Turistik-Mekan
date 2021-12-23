@@ -67,8 +67,8 @@ class FaqController extends Controller
      */
     public function edit(Faq $faq,$id)
     {
-        $datalist = Faq::find($id);
-        return view('admin.faq',['datalist'=>$datalist]);
+        $data = Faq::find($id);
+        return view('admin.faq_edit',['data'=>$data]);
     }
 
     /**
@@ -86,7 +86,7 @@ class FaqController extends Controller
         $data->answer=$request->Input('answer');
         $data->status=$request->Input('status');
         $data->save();
-        return redirect()->route('admin_faq_add')->with('Success','Faq updated with success!');
+        return redirect()->route('admin_faq')->with('Success','Faq updated with success!');
     }
 
     /**

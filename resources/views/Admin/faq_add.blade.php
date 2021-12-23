@@ -41,6 +41,7 @@
                                         <input name="question" type="text" class="form-control">
                                     </div>
                                 </div>
+                            </div>
 
                             <div class="form-body">
 
@@ -55,6 +56,7 @@
                                         </script>
                                     </div>
                                 </div>
+                            </div>
 
 
                                 <div class="form-body">
@@ -70,13 +72,12 @@
                                     </div>
 
                                 </div>
-                            </div>
+
                                 <div class="form-actions">
                                     <div class="text-right">
                                         <button type="submit" class="btn btn-info">Add faq</button>
                                     </div>
                                 </div>
-                            </div>
                         </form>
                     </div>
                 </div>

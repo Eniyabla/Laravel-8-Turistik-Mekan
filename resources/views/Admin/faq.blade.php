@@ -36,11 +36,11 @@
                                     <td>{{ $data->status }}</td>
                                     <td colspan="2" style="text-align:center;">
                                         <a href="{{route('admin_faq_edit',['id'=>$data->id])}}" >
-                                            <img rel="icon"  width="20px" src="{{ asset('assets')}}/admin/images/edit.png">
+                                            <span style="color:darkgreen"><i class="fa fa-edit" ></i></span>
                                         </a>
                                         &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="{{route('admin_faq_delete',['id'=>$data->id])}}" onclick="return confirm('Are you sure to delete this record?') ">
-                                            <img rel="icon"  width="20px" src="{{ asset('assets')}}/admin/images/del.png">
+                                        <a href="{{route('admin_faq_delete',['id'=>$data->id])}}" onclick="return confirm('Are you sure to delete this faq?') ">
+                                            <span style="color: red;"><i class="fa fa-trash" ></i></span>
                                         </a>
                                     </td>
                                 </tr>
