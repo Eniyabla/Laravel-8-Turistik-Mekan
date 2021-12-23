@@ -8,9 +8,10 @@
     <meta name="country" content="@yield('country')">
     <meta name="location" content="@yield('location')">
     <title>@yield('title')</title>
-    @section('header')
-    @show
+    @yield('css')
 
+@section('header')
+@show
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
     <!-- Google Fonts -->

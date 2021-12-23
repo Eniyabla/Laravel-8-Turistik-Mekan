@@ -18,7 +18,7 @@ class FaqController extends Controller
     public function index()
     {
         $datalist = Faq::all();
-        return view('admin.faq', ['datalist'=> $datalist]);
+        return view('home.faq', ['datalist'=> $datalist]);
     }
 
     /**

@@ -2,6 +2,7 @@
 //namespace App\Http\Controllers\Admin\SettingController;
 namespace App\Http\Controllers;
 use App\Models\Category;
+use App\Models\Faq;
 use App\Models\Image;
 use App\Models\Message;
 use App\Models\Product;
@@ -19,6 +20,10 @@ class HomeController extends Controller
     public static function getsetting(){
         $setting= Setting::first();
         return $setting;
+    }
+    public function faq(){
+        $datalist= Faq::all()->sortBy('position');
+        return view('home.faq',['datalist'=>$datalist]);
     }
     public static function slider(){
         $slider=Product::select('id','title','image','country','slug')->limit(3)->get();

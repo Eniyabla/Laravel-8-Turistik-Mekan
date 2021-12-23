@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -12,6 +13,8 @@ Route::post('/sendmessage', [App\Http\Controllers\HomeController::class,'sendmes
 Route::get('/place/{id}/{slug}', [App\Http\Controllers\HomeController::class,'product'])->name('product');
 Route::get('/categoryplace/{id}/{slug}', [App\Http\Controllers\HomeController::class,'categoryplace'])->name('categoryplace');
 
+
+Route::get('FaQ', [App\Http\Controllers\HomeController::class, 'faq'])->name('FaQ');
 
 Route::get('/admin/', [App\Http\Controllers\Admin\HomeController::class,'index'])->name('admin_home')->middleware('auth');
 Route::get('/admin/login/', [App\Http\Controllers\Admin\HomeController::class,'login'])->name('admin_login');
@@ -41,6 +44,7 @@ Route::prefix('product')->group(function (){
     Route::get('/category/delete/{id}', [App\Http\Controllers\Admin\ProductController::class,'destroy'])->name('admin_product_delete');
     Route::get('/show', [App\Http\Controllers\Admin\ProductController::class,'show'])->name('admin_product_show');
 });
+
 
 
 
