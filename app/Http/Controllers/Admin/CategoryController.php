@@ -10,7 +10,8 @@ class CategoryController extends Controller
 {
 
     protected $appends=[
-        'getParentsTree'
+        'getParentsTree',
+        'getp'
     ];
     public static function getParentsTree($category,$title){
         if($category->parent_id==0){
@@ -18,6 +19,13 @@ class CategoryController extends Controller
         }
         $parent=Category::find($category->parent_id);
         $title=$parent->title." > ".$title;
+        return CategoryController::getParentsTree($parent,$title);
+
+    }
+    public static function getp($category,$title){
+        $parent=Category::find($category->parent_id);
+        $data=DB::table('categories')->find('parent_id');
+
         return CategoryController::getParentsTree($parent,$title);
 
     }

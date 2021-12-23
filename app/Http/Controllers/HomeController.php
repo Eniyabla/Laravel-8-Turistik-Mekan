@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public static function categorylist(){
-        return Category::where('parent_id',0)->with('children')->get();
+        return Category::where('parent_id','=',0)->with('children')->get();
     }
 
     public static function getsetting(){

@@ -2,21 +2,22 @@
 $parentCat=\App\Http\Controllers\HomeController::categorylist();
 $slider=\App\Http\Controllers\HomeController::slider();
 @endphp
+
 <!-- Main Slider Start -->
 <div class="header">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2">
-              @include('layouts._menu')
-                </div>
+           <div class="col-md-3">
+               @include('layouts.dropdownmenu')
+           </div>
 
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <div class="header-slider normal-slider">
 
                    @foreach($slider as $sl)
 
                     <div class="header-slider-item ">
-                        <img src="{{ Storage::url($sl->image)}}" alt="{{$sl->title}}" style="height: 400px;width: 700px;" />
+                        <img src="{{ Storage::url($sl->image)}}" alt="{{$sl->title}}" style="height: 400px;width: 600px;" />
 
                         <div class="header-slider-caption" >
                             <p>{{$sl->title}}</p>
@@ -30,13 +31,15 @@ $slider=\App\Http\Controllers\HomeController::slider();
             <div class="col-md-3">
                 <div class="header-img">
                     <div class="img-item">
-                        <img src="{{ asset('assets/home')}}/img/category-1.jpg" />
+                        <img src="{{ Storage::url($sl->image)}}" alt="{{$sl->title}}" />
+
                         <a class="img-text" href="">
                             <p>Some text goes here that describes the image</p>
                         </a>
                     </div>
                     <div class="img-item">
-                        <img src="{{ asset('assets/home')}}/img/category-2.jpg" />
+                        <img src="{{ Storage::url($sl->image)}}" alt="{{$sl->title}}" />
+
                         <a class="img-text" href="">
                             <p>Some text goes here that describes the image</p>
                         </a>

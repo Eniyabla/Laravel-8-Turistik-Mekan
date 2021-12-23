@@ -25,8 +25,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse" style="background: #d51111 ;">
-                <div class="navbar-nav mr-auto" style="font-family: 'Arial Rounded MT Bold';font-weight: bolder;">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse" style="background: #d51111 ;height: 50px;">
+                <div class="navbar-nav mr-auto" style="font-family: 'Arial Rounded MT Bold';font-weight: bolder;font-size: 40px;">
                     <a href="{{route('home')}}" class="nav-item nav-link ">Home</a>
                     <a href="product-list.html" class="nav-item nav-link">Products</a>
                     <a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
@@ -75,7 +75,7 @@
             <div class="col-md-3">
                 <div class="logo">
                     <a href="index.html" >
-                        <h2 style="font-family: 'Segoe UI Black'"><span style="color:red;">TUR</span><span style="color:black;">MEK</span></h2>
+                        <h2 style="font-family: 'Segoe UI Black';font-size: 30px;" ><span style="color:red;">TUR</span><span style="color:black;">MEK</span></h2>
                     </a>
                 </div>
             </div>
