@@ -11,7 +11,7 @@
                                     class="hide-menu">Home</span></a>
                         </li>
 
-                        <li class="sidebar-item" > <a class="sidebar-link" style="color:white;" href="{{route('admin_category')}}" ><i data-feather="tag" class="feather-icon"></i><span
+                        <li class="sidebar-item" > <a class="sidebar-link" style="color:white;" href="{{route('admin_category')}}" ><i  class="fa-clipboard-list"></i><span
                                     class="hide-menu">Category</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link"  style="color:white;" href="{{route('admin_product')}}"
@@ -20,9 +20,9 @@
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link"  style="color:white;" href="{{route('admin_message')}}"
                                                      aria-expanded="false"><i class="far fa-envelope"></i><span
                                     class="hide-menu">Messages</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" style="color:white;" href="app-calendar.html"
-                                aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span
-                                    class="hide-menu">Calendar</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" style="color:white;" href="{{route('admin_faq')}}"
+                                aria-expanded="true"><i class="fa-question-circle"></i><span
+                                    class="hide-menu">FAQ</span></a></li>
 
                         <hr>
                         <li class="sidebar-item"> <a class="sidebar-link" href="{{route('admin_setting')}}" ><i data-feather="settings" class="feather-icon"></i><span

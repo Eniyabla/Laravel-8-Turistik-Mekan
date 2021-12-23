@@ -1,8 +1,8 @@
 @extends('admin.layouts.master')
-@section('title', 'TUR-MEK | Add faq')
+@section('title', 'TUR-MEK | Edit Faq')
 @section('header')
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- include summernote css/js -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <link href="../assets/admin/extra-libs/c3/c3.min.css" rel="stylesheet">
@@ -19,8 +19,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title">Add faq</h3>
-                        <form action="{{route('admin_faq_store')}}" method="post" enctype="multipart/form-data">
+                        <h3 class="card-title">Edit Faq</h3>
+                        <form action="{{route('admin_faq_update',['id'=>$data->id])}}" method="post">
                             @csrf
 
                             <div class="form-body">
@@ -28,7 +28,7 @@
                                 <div class="col-md-12">
                                     <label>Position </label>
                                     <div class="form-group">
-                                        <input name="position"  min="0"  type="number" class="form-control">
+                                        <input  value="{{ $data->position }}" name="position" type="number" class="form-control">
                                     </div>
                                 </div>
 
@@ -38,16 +38,16 @@
                                 <div class="col-md-12">
                                     <label>Question </label>
                                     <div class="form-group">
-                                        <input name="question" type="text" class="form-control">
+                                        <input value="{{ $data->question }}" name="question" type="text" class="form-control">
                                     </div>
                                 </div>
 
-                            <div class="form-body">
+                            </div><div class="form-body">
 
                                 <div class="col-md-12">
                                     <label>Answer </label>
                                     <div class="form-group">
-                                        <textarea name="answer"  class="form-control" id="summernote" ></textarea>
+                                        <textarea  name="answer"  id="summernote" class="form-control" >{{ $data->answer }}</textarea>
                                         <script>
                                             $(document).ready(function() {
                                                 $('#summernote').summernote();
@@ -56,24 +56,34 @@
                                     </div>
                                 </div>
 
-
                                 <div class="form-body">
 
                                     <div class="col-md-12">
                                         <label for="Select2">status</label>
 
                                         <select class="form-control" id="Select2" name="status">
-                                            <option value="false" >False</option>s
+                                            <option value="{{ $data->status }}" >False</option>
+                                            <option value="false" >False</option>
                                             <option value="true">True</option>
                                         </select>
 
                                     </div>
 
                                 </div>
-                            </div>
+                                <div class="form-body">
+
+                                    <div class="col-md-12">
+                                        <label>Slug </label>
+                                        <div class="form-group">
+                                            <input vaulue="{{ $data->slug }}" name="slug" type="text" class="form-control">
+                                        </div>
+                                    </div>
+
+                                </div>
                                 <div class="form-actions">
                                     <div class="text-right">
-                                        <button type="submit" class="btn btn-info">Add faq</button>
+
+                                        <button type="submit" class="btn btn-info">Edit Faq</button>
                                     </div>
                                 </div>
                             </div>

@@ -151,12 +151,14 @@ $(document).ready(function() {
                                 </div>
                             </div>
 
-                        </div>
                         <div class="form-actions">
                             <div class="text-right">
                                 <button type="submit" class="btn btn-info">Edit Product</button>
                             </div>
                         </div>
+
+                        </div>
+</div>
                     </form>
                 </div>
             </div>

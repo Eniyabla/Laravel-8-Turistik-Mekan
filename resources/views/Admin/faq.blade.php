@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
 @endsection
 <div class="container-fluid">
+    @include('home.message')
 
     <h3 class="card-title">faq List</h3>
     <a href="{{route('admin_faq_create')}}"><button style="width:20%;" type="button" class="btn btn-block btn-primary">Add faq</button></a>
@@ -17,6 +18,7 @@
                         <table id="zero_config" class="table table-striped table-bordered no-wrap">
                             <thead>
                             <tr>
+                                <th># Id</th>
                                 <th># Position</th>
                                 <th>Question</th>
                                 <th>Answer</th>
@@ -27,10 +29,10 @@
                             <tbody>
                             @foreach ($datalist as $data)
                                 <tr>
-
+                                    <td>{{ $data->id }}</td>
                                     <td>{{ $data->position }}</td>
                                     <td>{{ $data->question }}</td>
-                                    <td>{{ $data->answer }}</td>
+                                    <td style="width: auto;height: auto;">{{ $data->answer }}</td>
                                     <td>{{ $data->status }}</td>
                                     <td colspan="2" style="text-align:center;">
                                         <a href="{{route('admin_faq_edit',['id'=>$data->id])}}" >
