@@ -86,7 +86,7 @@
                                         </div>
                                     </div>
                                     <div class="product-image">
-                                        <a href="">
+                                        <a href="{{route('product_detail',['id'=>$dat->id])}}">
                                             <img src="{{Storage::url($dat->image)}}"height="180px" alt="{{$dat->title}}">
                                         </a>
                                         <div class="product-action">

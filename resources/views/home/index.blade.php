@@ -33,7 +33,7 @@ $slider=\App\Http\Controllers\HomeController::slider();
 
                         <div class="header-slider-caption" >
                             <p>{{$sl->title}}</p>
-                            <a href="" class="btn">Open</a>
+                            <a href="{{route('product_detail',['id'=>$sl->id])}}" class="btn">Open</a>
                         </div>
                     </div>
 
@@ -99,7 +99,7 @@ $slider=\App\Http\Controllers\HomeController::slider();
                                         </div>
                                     </div>
                                     <div class="product-image">
-                                        <a href="">
+                                        <a href="{{route('product_detail',['id'=>$dat->id])}}">
                                             <img src="{{Storage::url($dat->image)}}"height="180px" alt="{{$dat->title}}">
                                         </a>
                                         <div class="product-action">
@@ -169,7 +169,7 @@ $slider=\App\Http\Controllers\HomeController::slider();
                                         </div>
                                     </div>
                                     <div class="product-image">
-                                        <a href="">
+                                        <a href="{{route('product_detail',['id'=>$dat->id])}}">
                                             <img src="{{Storage::url($dat->image)}}"height="180px" alt="{{$dat->title}}">
                                         </a>
                                         <div class="product-action">
@@ -238,7 +238,7 @@ $slider=\App\Http\Controllers\HomeController::slider();
                                         </div>
                                     </div>
                                     <div class="product-image">
-                                        <a href="">
+                                        <a href="{{route('product_detail',['id'=>$dat->id])}}">
                                             <img src="{{Storage::url($dat->image)}}"height="180px" alt="{{$dat->title}}">
                                         </a>
                                         <div class="product-action">

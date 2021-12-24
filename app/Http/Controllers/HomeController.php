@@ -66,11 +66,12 @@ class HomeController extends Controller
         exit();*/
         return view('home.index',$data);
     }
-    public function product($id){
+    public function product_detail($id){
         $data=Product::find($id);
-        print_r($data);
-        exit();
-        //return view('home.product',['data'=>$data]);
+        $datalist= Image::where('product_id',$id)->get();
+        /*print_r($data);
+        exit();*/
+        return view('home.place_detail',['data'=>$data,'datalist'=>$datalist]);
     }
 
     public function sendmessage(Request $request){

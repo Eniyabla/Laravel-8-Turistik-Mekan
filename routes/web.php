@@ -14,6 +14,9 @@ Route::get('/place/{id}/{slug}', [App\Http\Controllers\HomeController::class,'pr
 Route::get('/categoryplaces/{id}', [App\Http\Controllers\HomeController::class,'categoryplaces'])->name('categoryplaces');
 
 
+Route::get('/placedetail/{id}', [App\Http\Controllers\HomeController::class,'placedetail'])->name('placedetail');
+
+
 Route::get('FaQ', [App\Http\Controllers\HomeController::class, 'faq'])->name('FaQ');
 
 Route::get('/admin/', [App\Http\Controllers\Admin\HomeController::class,'index'])->name('admin_home')->middleware('auth');
@@ -59,6 +62,8 @@ Route::prefix('userproduct')->group(function (){
     Route::get('/show', [App\Http\Controllers\ProductController::class,'show'])->name('user_product_show');
 });
 
+
+    Route::get('/placedetail/{id}', [App\Http\Controllers\HomeController::class,'product_detail'])->name('product_detail');
 
 
 
