@@ -30,11 +30,11 @@
                     <a href="{{route('home')}}" class="nav-item nav-link ">Home</a>
                     <a href="product-list.html" class="nav-item nav-link">Products</a>
                     <a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
-                    <a href="{{route('aboutus')}}" class="nav-item nav-link">About Us</a><a href="{{route('contactus')}}" class="nav-item nav-link">Contact Us</a>
+                    <a href="{{route('aboutus')}}" class="nav-item nav-link">About Us</a>
+                    <a href="{{route('contactus')}}" class="nav-item nav-link">Contact Us</a>
                     <a href="{{route('refernces')}}" class="nav-item nav-link">References</a>
                     <a href="{{route('FaQ')}}" class="nav-item nav-link">FAQ</a>
-                    <a href="checkout.html" class="nav-item nav-link">Checkout</a>
-                    <a href="my-account.html" class="nav-item nav-link">My Account</a>
+                    <a href="{{route('myaccount')}}" class="nav-item nav-link">My Account</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
                         <div class="dropdown-menu">

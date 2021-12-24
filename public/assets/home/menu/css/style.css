@@ -527,7 +527,7 @@ header {
     /* reset mobile style */
     position: static;
     height: auto;
-    width: 280px;
+    width: 200px;
   }
   .cd-dropdown-content > li:last-of-type a {
     border-bottom: none;

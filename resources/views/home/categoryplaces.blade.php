@@ -23,16 +23,10 @@
 
 <!------------------------------------------------------------>
 
-<div class="col-lg-3 sidebar">
-                        <div class="sidebar-widget category">
-                           @include('layouts.dropdownmenu')
-                        </div>
-                    </div>
-
 <!------------------------------------------------------------->
 
 
-                    <div class="col-lg-9">
+                    <div class="col-lg-12">
                         <div class="row">
 
                             <div class="col-md-12">
@@ -79,7 +73,7 @@
                                 </div>
                             </div>
                             @foreach($datalist as $dat)
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="product-item">
                                     <div class="product-title">
                                         <a href="#">{{$dat->title}}</a>
@@ -93,21 +87,28 @@
                                     </div>
                                     <div class="product-image">
                                         <a href="">
-                                            <img src="{{Storage::url($dat->image)}}" alt="{{$dat->title}}">
+                                            <img src="{{Storage::url($dat->image)}}"height="180px" alt="{{$dat->title}}">
                                         </a>
                                         <div class="product-action">
                                         
                                             <a href="#"><i class="far fa-comments"></i></a>
                                             <a href="#"><i class="fa fa-heart"></i></a>
-                                            <a class="" href=""><i class="fas fa-thumbs-up"></i></a>
-                                            <a class="" href=""><i class="fas fa-thumbs-down"></i></a>
+                                            <a class="" href=""><i style="color:blue;"class="fas fa-thumbs-down"></i></a>
+                                            <a class="" href=""><i style="color:red;"class="fas fa-thumbs-down"></i></i></a>
                                         </div>
                                     </div>
                                     
                                     <div class="product-price">
-                                        <h3><span></span><i class="fas fa-search-location"></i>{{$dat->location}}</h3>
+                                        <h3><span>{{$dat->city}}</span></h3>
+                                        
                                     </div>
+                                    
                                 </div>
+                               <span style="">
+                                <i style="color:blue;" class="fas fa-thumbs-up">5</i>
+                                <i style="color:red;"class="fas fa-thumbs-down">5</i>
+                                <i style="color:light;"class="far fa-comments">100</i>
+                            </span>
                             </div>
                             
                                 @endforeach

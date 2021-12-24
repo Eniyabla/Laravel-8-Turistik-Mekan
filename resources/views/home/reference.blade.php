@@ -1,7 +1,7 @@
 @php
     use App\Http\Controllers\HomeController;$setting=HomeController::getsetting();
 @endphp
-@extends('layouts._blank')
+@extends('layouts.master')
 
 @section('title', 'References')
 @section('content')

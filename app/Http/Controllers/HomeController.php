@@ -25,6 +25,7 @@ class HomeController extends Controller
     }
 
     public static function getsetting(){
+
         $setting= Setting::first();
         return $setting;
     }
@@ -42,10 +43,30 @@ class HomeController extends Controller
     }
 
     public function index(){
+        $slider=Product::select('id','title','image','country','slug')->limit(8)->get();
+        $title=Product::select('id','title','image','country','slug')->limit(5)->OrderBydesc('title')->get();
+        $country=Product::select('id','title','image','country','slug')->limit(8)->OrderBydesc('country')->get();
+        $picked=Product::select('id','title','image','country','slug')->limit(6)->get();
+        $latest=Product::select('id','title','image','country','slug')->limit(6)->OrderBydesc('id')->get();
+    
+
+
         $setting= Setting::first();
-        return view('home.index',['setting'=>$setting]);
+
+        $data=[
+            'slider'=>$slider,
+            'title'=>$title,
+            'country'=>$country,
+            'page'=>'home',
+            'picked'=>$picked,
+            'latest'=>$latest,
+
+        ];
+        /*print_r($latest);
+        exit();*/
+        return view('home.index',$data);
     }
-    public function product($id,$slug){
+    public function product($id){
         $data=Product::find($id);
         print_r($data);
         exit();
