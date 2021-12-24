@@ -2,7 +2,7 @@
 @section('title', 'TUR-MEK | Categories List')
 @section('content')
 @section('header')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
 @endsection
 <div class="container-fluid">
 
@@ -13,44 +13,39 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                           
+
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
                                                 <th># Id</th>
-                                                <th>Parent</th>
+                                                <th>Parent_id</th>
+                                                <th>Category</th>
                                                 <th>Title</th>
                                                 <th>Status</th>
                                                 <th>Actions</th>
-                                                
+
                                             </tr>
                                         </thead>
                                         <tbody>
                                         @foreach ($datalist as $data)
                                             <tr>
                                                 <td>{{ $data->id }}</td>
-
+                                                <td>{{ $data->parent_id }}</td>
                                                 <td>{{ App\Http\Controllers\Admin\CategoryController::getParentsTree($data,$data->title)}}</td>
 
                                                 <td>{{ $data->title }}</td>
                                                 <td>{{ $data->status }}</td>
                                                 <td colspan="2" style="text-align:center;">
                                                 <a href="{{route('admin_category_edit',['id'=>$data->id])}}" >
-                                                      <img rel="icon"  width="20px" src="{{ asset('assets')}}/admin/images/edit.png">
-                                                 </a> 
+                                                    <span style="color: green;" > <i class="fa-edit"></i></span>
+                                                 </a>
                                                  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                  <a href="{{route('admin_category_delete',['id'=>$data->id])}}" onclick="return confirm('Are you sure to delete this record?') ">
-                                                      <img rel="icon"  width="20px" src="{{ asset('assets')}}/admin/images/del.png">
-                                                    </a> 
+                                                      <span style="color: red;" > <i class="fa-trash-alt"></i></span>
+                                                    </a>
                                                 </td>
-                                                <!--td style="text-align:center;">
-                                                
-                                                 <a href="{{route('admin_category_delete',['id'=>$data->id])}}" onclick="return confirm('Are you sure to delete this record?') ">
-                                                      <img rel="icon"  width="20px" src="{{ asset('assets')}}/admin/images/del.png">
-                                                    </a> 
 
-                                        </td-->
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -62,11 +57,29 @@
 
 
             </div>
-            
 
-@endsection
-@section('footer')
-    <!--This page plugins -->
-    <script src="../assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../dist/js/pages/datatable/datatable-basic.init.js"></script>
+
+    @endsection
+    @section('footer')
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+        <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap tether Core JavaScript-->
+        <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
+        <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- apps -->
+        <!-- apps -->
+        <script src="../dist/js/app-style-switcher.js"></script>
+        <script src="../dist/js/feather.min.js"></script>
+        <!-- slimscrollbar scrollbar JavaScript -->
+        <script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+        <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
+        <!--Wave Effects -->
+        <!-- themejs -->
+        <!--Menu sidebar -->
+        <script src="../dist/js/sidebarmenu.js"></script>
+        <!--Custom JavaScript -->
+        <script src="../dist/js/custom.min.js"></script>
+        <!--This page plugins -->
+        <script src="../assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="../dist/js/pages/datatable/datatable-basic.init.js"></script>
 @endsection

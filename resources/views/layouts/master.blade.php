@@ -12,6 +12,7 @@
 
 @section('header')
 @show
+
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
     <!-- Google Fonts -->

@@ -8,5 +8,6 @@
 @section('location', $setting->location)
 @endsection
 @section('content')
+
     @include('layouts._Hcontainer')
 @endsection

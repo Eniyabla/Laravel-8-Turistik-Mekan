@@ -1,37 +1,45 @@
 @php
-    use App\Http\Controllers\HomeController;$setting=HomeController::getsetting();
+$setting=\App\Http\Controllers\HomeController::getsetting();
 @endphp
-@extends('layouts._blank')
-@section('title',$setting->title )
+@extends('layouts.master')
+@section('title','User Profile')
 @section('description', $setting->description)
 @section('keywords',$setting->keywords )
 @section('location', $setting->location)
-@section('menu')
-    <div class="col-md-2">
-        <nav class="navbar bg-light">
-            <ul class="navbar-nav" style="margin-top: 5px;">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">***********</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Notifications</a>
-                </li>
+@section('header')
+    <link href="{{ asset('assets/home')}}/css/accordion.css" rel="stylesheet">
+@endsection
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Whishlist</a>
-                </li>
+@section('footer')
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Logout</a>
-                </li>
+@endsection
+
+@section('content')
+
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-wrap">
+        <div class="container-fluid">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                <li class="breadcrumb-item active">Profile</li>
             </ul>
-        </nav>
+        </div>
     </div>
+    <div class="my-account">
+        <div class="container-fluid">
+            <div class="row">
+               @include('layouts._user_menu')
+    <div class="col-md-9" style="top:0;">
+        @include('profile.show')  
+    </div>
+        </div>
+            </div>
+        </div>
+    
+
 @endsection
-@section('contnent'))
-    @include('profile.show')
+@section('footer')
+    <script src="{{ asset('assets/home')}}/js/accordion.js"></script>
 @endsection
+
 

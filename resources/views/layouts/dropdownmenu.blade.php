@@ -31,8 +31,10 @@
                   <li class="has-children">
                     <a href="#">{{$pc->title}}</a>
                     @if(count($pc->children))
+                          <ul class="cd-secondary-dropdown is-hidden">
+                                   @include('layouts.categorytree',['children'=>$pc->children])
+                          </ul>
                      @endif
-                    </li>
                  @endforeach
             </ul>
         </nav> <!-- .cd-dropdown -->

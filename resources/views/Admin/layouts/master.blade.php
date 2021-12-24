@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/duotone.css"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css"/>
     <!-- Favicon icon -->
     <!--link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets')}}/admin/images/icon.png"-->
  <title>@yield('title')</title>
@@ -18,7 +21,7 @@
     <link href="{{ asset('assets')}}/admin/dist/css/style.css" rel="stylesheet">
     @section('header')
     @show
-  
+
 </head>
 
 <body>
@@ -48,6 +51,7 @@
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
 </div>
+@section('footer')
 <script src="{{ asset('assets')}}/admin/libs/jquery/dist/jquery.min.js"></script>
 <script src="{{ asset('assets')}}/admin/libs/popper.js/dist/umd/popper.min.js"></script>
 <script src="{{ asset('assets')}}/admin/libs/bootstrap/dist/js/bootstrap.min.js"></script>

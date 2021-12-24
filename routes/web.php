@@ -11,7 +11,7 @@ Route::get('/contact', [App\Http\Controllers\HomeController::class,'contact'])->
 Route::get('/refernce', [App\Http\Controllers\HomeController::class, 'refernces'])->name('refernces');
 Route::post('/sendmessage', [App\Http\Controllers\HomeController::class,'sendmessage'])->name('sendmessage');
 Route::get('/place/{id}/{slug}', [App\Http\Controllers\HomeController::class,'product'])->name('product');
-Route::get('/categoryplace/{id}/{slug}', [App\Http\Controllers\HomeController::class,'categoryplace'])->name('categoryplace');
+Route::get('/categoryplaces/{id}', [App\Http\Controllers\HomeController::class,'categoryplaces'])->name('categoryplaces');
 
 
 Route::get('FaQ', [App\Http\Controllers\HomeController::class, 'faq'])->name('FaQ');
@@ -43,6 +43,20 @@ Route::prefix('product')->group(function (){
     Route::get('/edit/{id}', [App\Http\Controllers\Admin\ProductController::class,'edit'])->name('admin_product_edit');
     Route::get('/category/delete/{id}', [App\Http\Controllers\Admin\ProductController::class,'destroy'])->name('admin_product_delete');
     Route::get('/show', [App\Http\Controllers\Admin\ProductController::class,'show'])->name('admin_product_show');
+});
+
+
+
+#*********************************User-Product**********************************#
+
+Route::prefix('userproduct')->group(function (){
+    Route::get('/', [App\Http\Controllers\ProductController::class,'index'])->name('user_product');
+    Route::get('/create', [App\Http\Controllers\ProductController::class,'create'])->name('user_product_create');
+    Route::post('/store/', [App\Http\Controllers\ProductController::class,'store'])->name('user_product_store');
+    Route::post('/update/{id}', [App\Http\Controllers\ProductController::class,'update'])->name('user_product_update');
+    Route::get('/edit/{id}', [App\Http\Controllers\ProductController::class,'edit'])->name('user_product_edit');
+    Route::get('/category/delete/{id}', [App\Http\Controllers\ProductController::class,'destroy'])->name('user_product_delete');
+    Route::get('/show', [App\Http\Controllers\ProductController::class,'show'])->name('user_product_show');
 });
 
 

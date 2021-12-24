@@ -13,6 +13,13 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    public function categoryplaces($id){
+      $datalist=Product::where('category_id',$id)->get();
+      $data=Category::find($id);
+      return view('home.categoryplaces',['datalist'=>$datalist,'data'=>$data]);
+
+
+    }
     public static function categorylist(){
         return Category::where('parent_id','=',0)->with('children')->get();
     }

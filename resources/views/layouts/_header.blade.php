@@ -43,19 +43,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="navbar-nav ml-auto" style="background-color: black">
-
-                    <div class="nav-item dropdown">
-                        @auth
-                        <a href="#" class="nav-link text-uppercase dropdown-toggle" data-toggle="dropdown"><span><i class="fa fa-user-circle">  </i>  </span>&nbsp;&nbsp;{{Auth::user()->name}}</a>
-                        @endauth
-                        @guest
-                            <div style="margin-left: -100px;background: #d51111 ;color: white">
-                                <a style="color: white;font-family: 'Arial Rounded MT Bold';font-weight: bolder;" href="/login" class="" data-toggle="">Login</a> |
-                                <a style="color: white;font-family: 'Arial Rounded MT Bold';font-weight: bolder;" href="/register" class="" data-toggle="">Join</a>
-
-                            </div>
-                        @endguest
+                <div class="navbar-nav ml-auto" style="">
+                      @auth
+                      <img src="{{Auth::user()->profile_photo_url}}" alt="user"  class="rounded-circle"
+                                    width="40">
+                     <div class="nav-item dropdown">
+                        
+                        <a href="#" class="nav-link text-uppercase dropdown-toggle" data-toggle="dropdown">
+                        
+                         {{Auth::user()->name}}
+                        
+                     </a>
                         <div class="dropdown-menu" style="background-color: #ef2e2e">
                             <a href="{{route('myaccount')}}" class="dropdown-item"><span><i class="fa fa-user"></i>  </span> &nbsp;&nbsp; My Account</a>
                             <a href="" class="dropdown-item"><span><i class="fa fa-heart"></i>  </span> &nbsp;&nbsp;Whislist</a>
@@ -64,6 +62,15 @@
                             <a href="{{route('logout')}}" class="dropdown-item"><span><i class="fa fa-sign-out-alt"></i>  </span>&nbsp;&nbsp; Logout</a>
 
                         </div>
+                        @endauth
+                        @guest
+                            <div style="margin-left: -100px;background: #d51111 ;color: white">
+                                <a style="color: white;font-family: 'Arial Rounded MT Bold';font-weight: bolder;" href="/login" class="" data-toggle="">Login</a> |
+                                <a style="color: white;font-family: 'Arial Rounded MT Bold';font-weight: bolder;" href="/register" class="" data-toggle="">Join</a>
+
+                            </div>
+                        @endguest
+                        
                     </div>
                 </div>
             </div>
