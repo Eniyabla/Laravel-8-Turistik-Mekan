@@ -2,7 +2,7 @@
     use App\Http\Controllers\HomeController;
     $setting=HomeController::getsetting();
 @endphp
-<div class="top-bar">
+<div class="top-bar" style="background-color: #fff">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
@@ -25,7 +25,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse" style="background: #d51111 ;height: 50px;">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse" style="background:black;height: 50px;">
                 <div class="navbar-nav mr-auto" style="font-family: 'Arial Rounded MT Bold';font-weight: bolder;font-size: 40px;">
                     <a href="{{route('home')}}" class="nav-item nav-link ">Home</a>
                     <a href="product-list.html" class="nav-item nav-link">Products</a>

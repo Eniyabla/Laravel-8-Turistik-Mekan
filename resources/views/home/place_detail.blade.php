@@ -9,19 +9,19 @@
 
 @section('content')
 
- 
+
         <!-- Breadcrumb Start -->
         <div class="breadcrumb-wrap">
             <div class="container-fluid">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Plaxes</a></li>
+                    <li class="breadcrumb-item"><a href="#">Places</a></li>
                     <li class="breadcrumb-item active">{{$data->title}} </li>
                 </ul>
             </div>
         </div>
         <!-- Breadcrumb End -->
-        
+
         <!-- Product Detail Start -->
         <div class="product-detail">
             <div class="container-fluid">
@@ -29,39 +29,42 @@
                     <div class="col-lg-8">
                         <div class="product-detail-top">
                             <div class="row align-items-center">
-                          
+
                                 <div class="col-md-5">
-                              
+
                                     <div class="product-slider-single normal-slider">
                                     <img src="{{Storage::url($data->image)}}" alt="Product Image">
                                     @foreach($datalist as $dat)
                                         <img src="{{Storage::url($dat->image)}}" alt="Product Image">
                                         @endforeach
                                     </div>
-                                   
-                                   
+
+
                                     <div class="product-slider-single-nav normal-slider">
                                     <div class="slider-nav-img"><img src="{{Storage::url($data->image)}}" alt="Product Image"></div>
                                     @foreach($datalist as $dat)
                                         <div class="slider-nav-img"><img src="{{Storage::url($dat->image)}}" alt="Product Image"></div>
-                                     @endforeach 
+                                     @endforeach
                                     </div>
-                                  
+
                                 </div>
-                              
+
                                 <div class="col-md-7">
                                     <div class="product-content">
-                                        <div class="title"><h2>Product Name</h2></div>
+                                        <div class="title"><h2> {{$data->title}}</h2></div>
+                                        @php
+                                          $count=\App\Http\Controllers\HomeController::countreviews($data->id);
+                                          $average=\App\Http\Controllers\HomeController::averagereviews($data->id);
+                                        @endphp
                                         <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star @if($average<1) -0 empty @endif"></i>
+                                            <i class="fa fa-star @if($average<2) -0 empty @endif"></i>
+                                            <i class="fa fa-star @if($average<3) -0 empty @endif"></i>
+                                            <i class="fa fa-star @if($average<4) -0 empty @endif"></i>
+                                            <i class="fa fa-star @if($average<5) -0 empty @endif"></i>
                                         </div>
                                         <div class="price">
-                                            <h4>Price:</h4>
-                                            <p>$99 <span>$149</span></p>
+                                           <a href="#reviews" >{{$count}} Review(s) | {{$average}} | Add Review</a>
                                         </div>
                                         <div class="quantity">
                                             <h4>Quantity:</h4>
@@ -78,7 +81,7 @@
                                                 <button type="button" class="btn">M</button>
                                                 <button type="button" class="btn">L</button>
                                                 <button type="button" class="btn">XL</button>
-                                            </div> 
+                                            </div>
                                         </div>
                                         <div class="p-color">
                                             <h4>Color:</h4>
@@ -86,7 +89,7 @@
                                                 <button type="button" class="btn">White</button>
                                                 <button type="button" class="btn">Black</button>
                                                 <button type="button" class="btn">Blue</button>
-                                            </div> 
+                                            </div>
                                         </div>
                                         <div class="action">
                                             <a class="btn" href="#"><i class="fa fa-shopping-cart"></i>Add to Cart</a>
@@ -96,7 +99,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="row product-detail-bottom">
                             <div class="col-lg-12">
                                 <ul class="nav nav-pills nav-justified">
@@ -107,70 +110,52 @@
                                         <a class="nav-link" data-toggle="pill" href="#specification">Specification</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="pill" href="#reviews">Reviews (1)</a>
+                                        <a class="nav-link" data-toggle="pill" href="#reviews">Reviews ({{$count}} )</a>
                                     </li>
                                 </ul>
 
                                 <div class="tab-content">
                                     <div id="description" class="container tab-pane active">
-                                        <h4>Product description</h4>
+                                        <h4>Place description</h4>
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In condimentum quam ac mi viverra dictum. In efficitur ipsum diam, at dignissim lorem tempor in. Vivamus tempor hendrerit finibus. Nulla tristique viverra nisl, sit amet bibendum ante suscipit non. Praesent in faucibus tellus, sed gravida lacus. Vivamus eu diam eros. Aliquam et sapien eget arcu rhoncus scelerisque. Suspendisse sit amet neque neque. Praesent suscipit et magna eu iaculis. Donec arcu libero, commodo ac est a, malesuada finibus dolor. Aenean in ex eu velit semper fermentum. In leo dui, aliquet sit amet eleifend sit amet, varius in turpis. Maecenas fermentum ut ligula at consectetur. Nullam et tortor leo. 
+                                            {{$data->description}}
                                         </p>
                                     </div>
                                     <div id="specification" class="container tab-pane fade">
-                                        <h4>Product specification</h4>
-                                        <ul>
-                                            <li>Lorem ipsum dolor sit amet</li>
-                                            <li>Lorem ipsum dolor sit amet</li>
-                                            <li>Lorem ipsum dolor sit amet</li>
-                                            <li>Lorem ipsum dolor sit amet</li>
-                                            <li>Lorem ipsum dolor sit amet</li>
-                                        </ul>
+                                        <h4>Place Location</h4>
+                                        {!! $data->detail !!}
                                     </div>
                                     <div id="reviews" class="container tab-pane fade">
                                         <div class="reviews-submitted">
-                                            <div class="reviewer">Phasellus Gravida - <span>01 Jan 2020</span></div>
+                                            @foreach($reviews as $rev)
+                                            <div class="reviewer">{{$rev->user->name}}- <span>{{$rev->created_at}}</span></div>
                                             <div class="ratting">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star @if($rev->rate<1) -0 empty @endif"></i>
+                                                <i class="fa fa-star @if($rev->rate<2) -0 empty @endif"></i>
+                                                <i class="fa fa-star @if($rev->rate<3) -0 empty @endif"></i>
+                                                <i class="fa fa-star @if($rev->rate<4) -0 empty @endif"></i>
+                                                <i class="fa fa-star @if($rev->rate<5) -0 empty @endif"></i>
                                             </div>
+                                                <span>{{$rev->subject}}</span>
                                             <p>
-                                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+                                                {{$rev->review}}
                                             </p>
+                                            @endforeach
                                         </div>
+
+
+                                        <!---------------------------------Review---------------------------->
                                         <div class="reviews-submit">
                                             <h4>Give your Review:</h4>
-                                            <div class="ratting">
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                            </div>
-                                            <div class="row form">
-                                                <div class="col-sm-6">
-                                                    <input type="text" placeholder="Name">
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <input type="email" placeholder="Email">
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <textarea placeholder="Review"></textarea>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <button>Submit</button>
-                                                </div>
-                                            </div>
+                                                @livewire('review',['id'=>$data->id])
                                         </div>
+
+                                        <!----------------------------------->
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="product">
                             <div class="section-header">
                                 <h1>Related Products</h1>
@@ -320,7 +305,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Side Bar Start -->
                     <div class="col-lg-4 sidebar">
                         <div class="sidebar-widget category">
@@ -345,7 +330,7 @@
                                 </ul>
                             </nav>
                         </div>
-                        
+
                         <div class="sidebar-widget widget-slider">
                             <div class="sidebar-slider normal-slider">
                                 <div class="product-item">
@@ -428,7 +413,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="sidebar-widget brands">
                             <h2 class="title">Our Brands</h2>
                             <ul>
@@ -440,7 +425,7 @@
                                 <li><a href="#">Sagittis</a><span>(28)</span></li>
                             </ul>
                         </div>
-                        
+
                         <div class="sidebar-widget tag">
                             <h2 class="title">Tags Cloud</h2>
                             <a href="#">Lorem ipsum</a>
@@ -462,7 +447,7 @@
             </div>
         </div>
         <!-- Product Detail End -->
-        
+
         <!-- Brand Start -->
         <div class="brand">
             <div class="container-fluid">
@@ -477,7 +462,7 @@
             </div>
         </div>
         <!-- Brand End -->
-        
+
         <!-- Footer Start -->
         <div class="footer">
             <div class="container-fluid">
@@ -492,7 +477,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-widget">
                             <h2>Follow Us</h2>
@@ -530,7 +515,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row payment align-items-center">
                     <div class="col-md-6">
                         <div class="payment-method">
@@ -550,5 +535,5 @@
             </div>
         </div>
         <!-- Footer End -->
-        
+
 @endsection

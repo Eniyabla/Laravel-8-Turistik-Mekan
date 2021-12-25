@@ -11,6 +11,7 @@
     @yield('css')
 
 @section('header')
+  @livewireScripts
 @show
 
     <!-- Favicon -->
@@ -45,5 +46,6 @@
 
 <!-- Template Javascript -->
 <script src="{{ asset('assets/home')}}/js/main.js"></script>
+
 </body>
 </html>

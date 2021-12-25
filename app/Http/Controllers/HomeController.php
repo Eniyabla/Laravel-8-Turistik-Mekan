@@ -1,13 +1,14 @@
 <?php
-//namespace App\Http\Controllers\Admin\SettingController;
 namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Faq;
 use App\Models\Image;
 use App\Models\Message;
 use App\Models\Product;
+use App\Models\Review;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
+
 
 use Illuminate\Http\Request;
 
@@ -37,9 +38,13 @@ class HomeController extends Controller
         $slider=Product::select('id','title','image','country','slug')->limit(3)->get();
         return $slider;
     }
-    public static function slider2(){
-        $slider2=Image::select('id','title','image',)->limit(2)->get();
-        return $slider2;
+    public static function countreviews($id)
+    {
+       return Review::where('place_id',$id)->count();
+    }
+    public static function averagereviews($id)
+    {
+        return Review::where('place_id',$id)->average('rate');
     }
 
     public function index(){
@@ -67,7 +72,8 @@ class HomeController extends Controller
     public function product_detail($id){
         $data=Product::find($id);
         $datalist= Image::where('product_id',$id)->get();
-        return view('home.place_detail',['data'=>$data,'datalist'=>$datalist]);
+        $reviews= Review::where('place_id',$id)->get();
+        return view('home.place_detail',['data'=>$data,'datalist'=>$datalist,'reviews'=>$reviews]);
     }
 
     public function getplace(Request $request){
