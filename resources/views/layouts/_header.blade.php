@@ -48,11 +48,11 @@
                       <img src="{{Auth::user()->profile_photo_url}}" alt="user"  class="rounded-circle"
                                     width="40">
                      <div class="nav-item dropdown">
-                        
+
                         <a href="#" class="nav-link text-uppercase dropdown-toggle" data-toggle="dropdown">
-                        
+
                          {{Auth::user()->name}}
-                        
+
                      </a>
                         <div class="dropdown-menu" style="background-color: #ef2e2e">
                             <a href="{{route('myaccount')}}" class="dropdown-item"><span><i class="fa fa-user"></i>  </span> &nbsp;&nbsp; My Account</a>
@@ -70,7 +70,7 @@
 
                             </div>
                         @endguest
-                        
+
                     </div>
                 </div>
             </div>
@@ -87,12 +87,22 @@
                     </a>
                 </div>
             </div>
+
             <div class="col-md-6">
-                <div class="search">
-                    <input type="text" placeholder="Search">
+
+
+            <div class="search">
+                <form action="{{route('getplace')}}" method="post">
+                     @csrf
+                     @livewire('search')
                     <button><i class="fa fa-search"></i></button>
-                </div>
+                </form>
+                   @livewireScripts
             </div>
+
+
+            </div>
+
             <div class="col-md-3">
                 <div class="user">
                     <a href="wishlist.html" class="btn wishlist">

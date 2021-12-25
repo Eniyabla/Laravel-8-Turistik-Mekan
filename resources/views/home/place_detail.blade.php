@@ -15,8 +15,8 @@
             <div class="container-fluid">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Place</a></li>
-                    <li class="breadcrumb-item active">{{$data->title}}</li>
+                    <li class="breadcrumb-item"><a href="#">Plaxes</a></li>
+                    <li class="breadcrumb-item active">{{$data->title}} </li>
                 </ul>
             </div>
         </div>
@@ -29,22 +29,29 @@
                     <div class="col-lg-8">
                         <div class="product-detail-top">
                             <div class="row align-items-center">
-                                <div class="col-md-7">
-                                <div class="product-slider-single normal-slider">
-                                        <img src="{{Storage::url($data->image)}}" alt="$dat->title">
-                                    </div>
-                                
-                                    
-                                    <div class="product-slider-single-nav normal-slider">
+                          
+                                <div class="col-md-5">
+                              
+                                    <div class="product-slider-single normal-slider">
+                                    <img src="{{Storage::url($data->image)}}" alt="Product Image">
                                     @foreach($datalist as $dat)
-                                         <div class="slider-nav-img"><img src="{{Storage::url($dat->image)}}" alt="$dat->title"></div>
-                                         @endforeach
+                                        <img src="{{Storage::url($dat->image)}}" alt="Product Image">
+                                        @endforeach
                                     </div>
                                    
+                                   
+                                    <div class="product-slider-single-nav normal-slider">
+                                    <div class="slider-nav-img"><img src="{{Storage::url($data->image)}}" alt="Product Image"></div>
+                                    @foreach($datalist as $dat)
+                                        <div class="slider-nav-img"><img src="{{Storage::url($dat->image)}}" alt="Product Image"></div>
+                                     @endforeach 
+                                    </div>
+                                  
                                 </div>
-                                <div class="col-md-5">
+                              
+                                <div class="col-md-7">
                                     <div class="product-content">
-                                        <div class="title"><h2> {{$data->title}}</h2></div>
+                                        <div class="title"><h2>Product Name</h2></div>
                                         <div class="ratting">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -53,17 +60,24 @@
                                             <i class="fa fa-star"></i>
                                         </div>
                                         <div class="price">
-                                            <h4>city:</h4>
-                                            <p>{{$data->city}} <span></span></p>
+                                            <h4>Price:</h4>
+                                            <p>$99 <span>$149</span></p>
                                         </div>
                                         <div class="quantity">
+                                            <h4>Quantity:</h4>
                                             <div class="qty">
-                                            <<h3>${{$data->country}} <span></span></p>
+                                                <button class="btn-minus"><i class="fa fa-minus"></i></button>
+                                                <input type="text" value="1">
+                                                <button class="btn-plus"><i class="fa fa-plus"></i></button>
                                             </div>
                                         </div>
                                         <div class="p-size">
-                                            <h4>Location:</h4>
-                                            <p>${{$data->country}} <span></span></p>
+                                            <h4>Size:</h4>
+                                            <div class="btn-group btn-group-sm">
+                                                <button type="button" class="btn">S</button>
+                                                <button type="button" class="btn">M</button>
+                                                <button type="button" class="btn">L</button>
+                                                <button type="button" class="btn">XL</button>
                                             </div> 
                                         </div>
                                         <div class="p-color">
@@ -105,7 +119,7 @@
                                         </p>
                                     </div>
                                     <div id="specification" class="container tab-pane fade">
-                                        <h4>Place specification</h4>
+                                        <h4>Product specification</h4>
                                         <ul>
                                             <li>Lorem ipsum dolor sit amet</li>
                                             <li>Lorem ipsum dolor sit amet</li>

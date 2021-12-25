@@ -15,6 +15,8 @@ Route::get('/categoryplaces/{id}', [App\Http\Controllers\HomeController::class,'
 
 
 Route::get('/placedetail/{id}', [App\Http\Controllers\HomeController::class,'placedetail'])->name('placedetail');
+Route::post('/getplace', [App\Http\Controllers\HomeController::class,'getplace'])->name('getplace');
+Route::get('/placelist/{search}', [App\Http\Controllers\HomeController::class,'placelist'])->name('placelist');
 
 
 Route::get('FaQ', [App\Http\Controllers\HomeController::class, 'faq'])->name('FaQ');

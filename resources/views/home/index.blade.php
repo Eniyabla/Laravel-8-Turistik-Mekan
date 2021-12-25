@@ -89,7 +89,7 @@ $slider=\App\Http\Controllers\HomeController::slider();
                             <div class="col-md-3">
                                 <div class="product-item">
                                     <div class="product-title">
-                                        <a href="#">{{$dat->title}}</a>
+                                        <a href="{{route('product_detail',['id'=>$dat->id])}}">{{$dat->title}}</a>
                                         <div class="ratting">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -159,7 +159,7 @@ $slider=\App\Http\Controllers\HomeController::slider();
                             <div class="col-md-3">
                                 <div class="product-item">
                                     <div class="product-title">
-                                        <a href="#">{{$dat->title}}</a>
+                                        <a href="{{route('product_detail',['id'=>$dat->id])}}">{{$dat->title}}</a>
                                         <div class="ratting">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -228,7 +228,7 @@ $slider=\App\Http\Controllers\HomeController::slider();
                             <div class="col-md-3">
                                 <div class="product-item">
                                     <div class="product-title">
-                                        <a href="#">{{$dat->title}}</a>
+                                        <a href="{{route('product_detail',['id'=>$dat->id])}}">{{$dat->title}}</a>
                                         <div class="ratting">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>

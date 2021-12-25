@@ -48,7 +48,7 @@ class HomeController extends Controller
         $country=Product::select('id','title','image','country','slug')->limit(8)->OrderBydesc('country')->get();
         $picked=Product::select('id','title','image','country','slug')->limit(6)->get();
         $latest=Product::select('id','title','image','country','slug')->limit(6)->OrderBydesc('id')->get();
-    
+
 
 
         $setting= Setting::first();
@@ -62,16 +62,30 @@ class HomeController extends Controller
             'latest'=>$latest,
 
         ];
-        /*print_r($latest);
-        exit();*/
         return view('home.index',$data);
     }
     public function product_detail($id){
         $data=Product::find($id);
         $datalist= Image::where('product_id',$id)->get();
-        /*print_r($data);
-        exit();*/
         return view('home.place_detail',['data'=>$data,'datalist'=>$datalist]);
+    }
+
+    public function getplace(Request $request){
+        $search=$request->Input('search');
+        $count=Product::where('title','like','%'.$search.'%')->get()->count();
+        if($count==1){
+            $data=Product::where('title','like','%'.$search.'%')->get()->first();
+            return redirect()->route('product_detail',['id'=>$data->id]);
+        }
+        else{
+            return redirect()->route('product_list',['search'=>$search->id]);
+        }
+
+    }
+    public function placelist($search){
+
+        $datalist=Product::where('title','like','%'.$search.'%')->get();
+        return view('home.place_list',['datalist'=>$datalist]);
     }
 
     public function sendmessage(Request $request){
