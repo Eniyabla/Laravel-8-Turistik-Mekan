@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+
     public function categoryplaces($id){
       $datalist=Product::where('category_id',$id)->get();
       $data=Category::find($id);

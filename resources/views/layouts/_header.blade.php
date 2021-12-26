@@ -67,7 +67,7 @@
                         @guest
                             <div style="margin-left: -100px;color: white">
                                 <a style="color: white;font-family: 'Arial Rounded MT Bold';font-weight: bolder;" href="/login" class="" data-toggle="">Login</a> |
-                                <a style="color: white;font-family: 'Arial Rounded MT Bold';font-weight: bolder;" href="/register" class="" data-toggle="">Join</a>
+                                <a style="color: white;font-family: 'Arial Rounded MT Bold';font-weight: bolder;" href="/register" class="" data-toggle="">Register</a>
 
                             </div>
                         @endguest

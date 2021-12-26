@@ -19,7 +19,7 @@ class checkAdmin
     {
         $userRoles=Auth::user()->roles->pluck('name');
         if(!$userRoles->contains('admin')){
-            return redirect()->route('admin_login')->with('error','Sorry! you dont have a permission.');
+            return redirect()->route('admin_login')->with('error','Sorry! You can not access');
         }
         return $next($request);
     }
