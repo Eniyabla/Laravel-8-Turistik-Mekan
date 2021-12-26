@@ -11,168 +11,42 @@
                                     class="hide-menu">Home</span></a>
                         </li>
 
-                        <li class="sidebar-item" > <a class="sidebar-link" style="color:white;" href="{{route('admin_category')}}" ><i  class="fa-clipboard-list"></i><span
+                        <li class="sidebar-item" > <a class="sidebar-link" style="color:white;" href="{{route('admin_category')}}" ><i  class="fas fa-list-alt"></i><span
                                     class="hide-menu">Category</span></a>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link"  style="color:white;" href="{{route('admin_product')}}"
                                 aria-expanded="false"><i class="fab fa-product-hunt"></i><span
-                                    class="hide-menu">Products</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link"  style="color:white;" href="{{route('admin_message')}}"
-                                                     aria-expanded="false"><i class="far fa-envelope"></i><span
-                                    class="hide-menu">Messages</span></a></li>
+                                    class="hide-menu">Places</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" style="color:white;" href="{{route('admin_user')}}"
+                                                     aria-expanded="true"><i class="fa fa-tasks"></i><span
+                                    class="hide-menu">Roles</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" style="color:white;" href=""
+                                                     aria-expanded="true"><i class="fa fa-users"></i><span
+                                    class="hide-menu">Users</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" style="color:white;" href="{{route('admin_faq')}}"
-                                aria-expanded="true"><i class="fa-question-circle"></i><span
+                                aria-expanded="true"><i class="fa fa-question-circle"></i><span
                                     class="hide-menu">FAQ</span></a></li>
-
-                        <hr>
+<hr>
+                        <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
                         <li class="sidebar-item"> <a class="sidebar-link" href="{{route('admin_setting')}}" ><i data-feather="settings" class="feather-icon"></i><span
                                     class="hide-menu">Settings</span></a>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                                aria-expanded="false"><i data-feather="bar-chart" class="feather-icon"></i><span
-                                    class="hide-menu">Charts </span></a>
-                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <li class="sidebar-item"><a href="chart-morris.html" class="sidebar-link"><span
-                                            class="hide-menu"> Morris Chart
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="chart-chart-js.html" class="sidebar-link"><span
-                                            class="hide-menu"> ChartJs
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="chart-knob.html" class="sidebar-link"><span
-                                            class="hide-menu">
-                                            Knob Chart
-                                        </span></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                                aria-expanded="false"><i data-feather="box" class="feather-icon"></i><span
-                                    class="hide-menu">UI Elements </span></a>
-                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <li class="sidebar-item"><a href="ui-buttons.html" class="sidebar-link"><span
-                                            class="hide-menu"> Buttons
-                                        </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="ui-modals.html" class="sidebar-link"><span
-                                            class="hide-menu"> Modals </span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="ui-tab.html" class="sidebar-link"><span
-                                            class="hide-menu"> Tabs </span></a></li>
-                                <li class="sidebar-item"><a href="ui-tooltip-popover.html" class="sidebar-link"><span
-                                            class="hide-menu"> Tooltip &
-                                            Popover</span></a></li>
-                                <li class="sidebar-item"><a href="ui-notification.html" class="sidebar-link"><span
-                                            class="hide-menu">Notification</span></a></li>
-                                <li class="sidebar-item"><a href="ui-progressbar.html" class="sidebar-link"><span
-                                            class="hide-menu">Progressbar</span></a></li>
-                                <li class="sidebar-item"><a href="ui-typography.html" class="sidebar-link"><span
-                                            class="hide-menu">Typography</span></a></li>
-                                <li class="sidebar-item"><a href="ui-bootstrap.html" class="sidebar-link"><span
-                                            class="hide-menu">Bootstrap
-                                            UI</span></a></li>
-                                <li class="sidebar-item"><a href="ui-breadcrumb.html" class="sidebar-link"><span
-                                            class="hide-menu">Breadcrumb</span></a></li>
-                                <li class="sidebar-item"><a href="ui-list-media.html" class="sidebar-link"><span
-                                            class="hide-menu">List
-                                            Media</span></a></li>
-                                <li class="sidebar-item"><a href="ui-grid.html" class="sidebar-link"><span
-                                            class="hide-menu"> Grid </span></a></li>
-                                <li class="sidebar-item"><a href="ui-carousel.html" class="sidebar-link"><span
-                                            class="hide-menu">
-                                            Carousel</span></a></li>
-                                <li class="sidebar-item"><a href="ui-scrollspy.html" class="sidebar-link"><span
-                                            class="hide-menu">
-                                            Scrollspy</span></a></li>
-                                <li class="sidebar-item"><a href="ui-toasts.html" class="sidebar-link"><span
-                                            class="hide-menu"> Toasts</span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="ui-spinner.html" class="sidebar-link"><span
-                                            class="hide-menu"> Spinner </span></a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="ui-cards.html"
-                                aria-expanded="false"><i data-feather="sidebar" class="feather-icon"></i><span
-                                    class="hide-menu">Cards
-                                </span></a>
-                        </li>
-                        <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Authentication</span></li>
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link"  style="color:white;" href="{{route('admin_message')}}"
+                                                     aria-expanded="false"><i class="far fa-envelope"></i><span
+                                    class="hide-menu">Messages</span></a></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="authentication-login1.html"
-                                aria-expanded="false"><i data-feather="lock" class="feather-icon"></i><span
-                                    class="hide-menu">Login
-                                </span></a>
-                        </li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link"
-                                href="authentication-register1.html" aria-expanded="false"><i data-feather="lock"
-                                    class="feather-icon"></i><span class="hide-menu">Register
-                                </span></a>
-                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link" href="{{route('admin_setting')}}" ><i class=" fa fa-reviews"></i></a></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                                aria-expanded="false"><i data-feather="feather" class="feather-icon"></i><span
-                                    class="hide-menu">Icons
-                                </span></a>
-                            <ul aria-expanded="false" class="collapse first-level base-level-line">
-                                <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><span
-                                            class="hide-menu"> Fontawesome Icons </span></a></li>
-
-                                <li class="sidebar-item"><a href="icon-simple-lineicon.html" class="sidebar-link"><span
-                                            class="hide-menu"> Simple Line Icons </span></a></li>
-                            </ul>
-                        </li>
-
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                                aria-expanded="false"><i data-feather="crosshair" class="feather-icon"></i><span
-                                    class="hide-menu">Multi
-                                    level
-                                    dd</span></a>
-                            <ul aria-expanded="false" class="collapse first-level base-level-line">
-                                <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><span
-                                            class="hide-menu"> item 1.1</span></a>
-                                </li>
-                                <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><span
-                                            class="hide-menu"> item 1.2</span></a>
-                                </li>
-                                <li class="sidebar-item"> <a class="has-arrow sidebar-link" href="javascript:void(0)"
-                                        aria-expanded="false"><span class="hide-menu">Menu 1.3</span></a>
-                                    <ul aria-expanded="false" class="collapse second-level base-level-line">
-                                        <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><span
-                                                    class="hide-menu"> item
-                                                    1.3.1</span></a></li>
-                                        <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><span
-                                                    class="hide-menu"> item
-                                                    1.3.2</span></a></li>
-                                        <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><span
-                                                    class="hide-menu"> item
-                                                    1.3.3</span></a></li>
-                                        <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><span
-                                                    class="hide-menu"> item
-                                                    1.3.4</span></a></li>
-                                    </ul>
-                                </li>
-                                <li class="sidebar-item"><a href="javascript:void(0)" class="sidebar-link"><span
-                                            class="hide-menu"> item
-                                            1.4</span></a></li>
-                            </ul>
-                        </li>
-                        <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="docs/docs.html"
-                                aria-expanded="false"><i data-feather="edit-3" class="feather-icon"></i><span
-                                    class="hide-menu">Documentation</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="authentication-login1.html"
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{route('logout')}}"
                                 aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span
                                     class="hide-menu">Logout</span></a></li>
+
                     </ul>
-                </nav>
                 <!-- End Sidebar navigation -->
+                </nav>
             </div>
-            <!-- End Sidebar scroll-->
         </aside>
+            <!-- End Sidebar scroll-->
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <div class="page-wrapper">

@@ -128,7 +128,7 @@ Route::middleware('auth')->group(function (){
         Route::post('/create', [App\Http\Controllers\Admin\UserController::class,'create'])->name('admin_user_create');
         Route::get('/delete/{id}', [App\Http\Controllers\Admin\UserController::class,'destroy'])->name('admin_user_delete');
         Route::post('/userrolestore/{id}', [App\Http\Controllers\Admin\UserController::class,'userrolestore'])->name('admin_user_role_store');
-        Route::get('/userrole', [App\Http\Controllers\Admin\UserController::class,'userrole'])->name('admin_user_roles');
+        Route::get('/userrole{id}', [App\Http\Controllers\Admin\UserController::class,'userrole'])->name('admin_user_roles');
         Route::get('/userroledelete/{userid}/{roleid}', [App\Http\Controllers\Admin\UserController::class,'userroledelete'])->name('admin_user_role_delete');
         Route::get('/show', [App\Http\Controllers\Admin\UserController::class,'show'])->name('admin_user_show');
     });

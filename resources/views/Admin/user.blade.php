@@ -30,7 +30,7 @@
                                         @foreach ($datalist as $data)
                                             <tr>
                                                 <td>{{ $data->id }}</td>
-                                                <td>@if($data->image)
+                                                <td>@if($data->profile_photo_path)
                                                         <img src="{{Storage::url($data->profile_photo_path)}}" height="36">
                                                 @endif</td>
                                                 <td>{{ $data->name }}</td>
@@ -39,7 +39,7 @@
                                                 <td>@if($data->Address ){{ $data->Address }}@endif</td>
                                                 <td>
                                                   @foreach($data->roles as $dat)
-                                                        {{ $dat->name}}+
+                                                        {{ $dat->name}},
                                                   @endforeach
                                                       <a href="{{route('admin_user_roles',['id'=>$data->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=800,height=600') "><i class="fas fa-plus-circle"></i></a>
 
