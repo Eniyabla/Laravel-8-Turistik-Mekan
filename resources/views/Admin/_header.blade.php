@@ -7,10 +7,10 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <div class="navbar-brand" style="background-color:black;">
+                    <div class="navbar-brand" style="background-color: black;">
                         <!-- Logo icon -->
                         <a href="{{route('admin_home')}}">
-                          <h2 style="color:white;text-align:center;font-family: Didot, serif; font-weight:700;margin-top:30px; margin-left:30px;">TUR <b style="color:red;">MEK</b></h2>
+                            <h2 style="font-family: 'Segoe UI Black';font-size: 30px;" ><span style="color:red;">TUR</span><span style="color:#ffffff;">MEK</span></h2>
                         </a>
                     </div>
                     <!-- ============================================================== -->

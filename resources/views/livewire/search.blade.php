@@ -1,4 +1,4 @@
-<div class="search">
+<div class="">
     {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
     <input wire:model="search" name="search" type="text" list="myplaces" placeholder="search place..."/>
       @if(!empty($query))

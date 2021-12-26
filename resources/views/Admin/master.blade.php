@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/duotone.css"/>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css"/>
     <!-- Favicon icon -->
     <!--link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets')}}/admin/images/icon.png"-->
  <title>@yield('title')</title>
@@ -41,11 +38,11 @@
      data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
 
 
-@include('admin.layouts._header')
-@include('admin.layouts._sidebar')
+@include('admin._header')
+@include('admin._sidebar')
 @section('content')
 @show
-@include('admin.layouts._footer')
+@include('admin._footer')
 </div>
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->

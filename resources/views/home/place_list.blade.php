@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('title',$search." Product List")
-@endsection
+@section('title'," Product List")
+
 
 
 @section('content')
@@ -9,7 +9,7 @@
         <div class="container-fluid">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">{{$search}}  Place List</li>
+                <li class="breadcrumb-item active">  Place List</li>
             </ul>
         </div>
     </div>

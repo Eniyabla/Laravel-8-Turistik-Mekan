@@ -84,7 +84,7 @@ class HomeController extends Controller
             return redirect()->route('product_detail',['id'=>$data->id]);
         }
         else{
-            return redirect()->route('product_list',['search'=>$search->id]);
+            return redirect()->route('placelist',['search'=>$search]);
         }
 
     }

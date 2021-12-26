@@ -6,7 +6,7 @@
                 </ul>
             </li>
         @else
-                <li><a href="{{route('categoryplaces',['id'=>$subc->title])}}">{{$subc->title}}</a></li>
+                <li><a href="{{route('categoryplaces',['id'=>$subc->parent_id])}}">{{$subc->title}}</a></li>
         @endif
 @endforeach
 </li>

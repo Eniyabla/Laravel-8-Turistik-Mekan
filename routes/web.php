@@ -99,12 +99,21 @@ Route::middleware('auth')->prefix('user')->namespace(',user')->group(function ()
     Route::get('/profile', [\App\Http\Controllers\UserController::class, 'index'])->name('userprofile');
 });
 
-#--------------------------------------------Image-Galery-----------------------------------------------------#
+#--------------------------------------------Admin-Image-Galery-----------------------------------------------------#
 Route::prefix('admin/image')->group(function (){
     Route::get('/create/{product_id}', [App\Http\Controllers\Admin\ImageController::class,'create'])->name('admin_image_add');
     Route::post('/store/{product_id}', [App\Http\Controllers\Admin\ImageController::class,'store'])->name('admin_image_store');
     Route::get('/delete/{id}/{product_id}', [App\Http\Controllers\Admin\ImageController::class,'destroy'])->name('admin_image_delete');
     Route::get('/show', [App\Http\Controllers\Admin\ImageController::class,'show'])->name('admin_image_show');
+});
+
+#--------------------------------------------User-Image-Galery-----------------------------------------------------#
+
+Route::prefix('user/image')->group(function (){
+    Route::get('/create/{product_id}', [App\Http\Controllers\ImageController::class,'create'])->name('user_image_add');
+    Route::post('/store/{product_id}', [App\Http\Controllers\ImageController::class,'store'])->name('user_image_store');
+    Route::get('/delete/{id}/{product_id}', [App\Http\Controllers\ImageController::class,'destroy'])->name('user_image_delete');
+    Route::get('/show', [App\Http\Controllers\ImageController::class,'show'])->name('user_image_show');
 });
 
 #------------Message----------->

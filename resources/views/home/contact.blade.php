@@ -11,7 +11,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-
+                @if(!Empty($setting->contact)){!!$setting->contact!!}@endif<br>
             </div>
             <div class="col-md-6 ">
                 <div class="contact-form">

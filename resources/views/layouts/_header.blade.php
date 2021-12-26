@@ -2,7 +2,7 @@
     use App\Http\Controllers\HomeController;
     $setting=HomeController::getsetting();
 @endphp
-<div class="top-bar" style="background-color: #fff">
+<div class="top-bar" style="background-color:white;color: red;">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
@@ -25,8 +25,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse" style="background:black;height: 50px;">
-                <div class="navbar-nav mr-auto" style="font-family: 'Arial Rounded MT Bold';font-weight: bolder;font-size: 40px;">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse" style="background:black;height: 70px;">
+                <div class="navbar-nav mr-auto" style="font-family: 'Arial Rounded MT Bold';font-weight: bolder;font-size: 40px;justify-content: space-between;">
                     <a href="{{route('home')}}" class="nav-item nav-link ">Home</a>
                     <a href="product-list.html" class="nav-item nav-link">Products</a>
                     <a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
@@ -64,7 +64,7 @@
                         </div>
                         @endauth
                         @guest
-                            <div style="margin-left: -100px;background: #d51111 ;color: white">
+                            <div style="margin-left: -100px;color: white">
                                 <a style="color: white;font-family: 'Arial Rounded MT Bold';font-weight: bolder;" href="/login" class="" data-toggle="">Login</a> |
                                 <a style="color: white;font-family: 'Arial Rounded MT Bold';font-weight: bolder;" href="/register" class="" data-toggle="">Join</a>
 
@@ -82,7 +82,7 @@
         <div class="row align-items-center">
             <div class="col-md-3">
                 <div class="logo">
-                    <a href="index.html" >
+                    <a href="{{route('home')}}" >
                         <h2 style="font-family: 'Segoe UI Black';font-size: 30px;" ><span style="color:red;">TUR</span><span style="color:black;">MEK</span></h2>
                     </a>
                 </div>
