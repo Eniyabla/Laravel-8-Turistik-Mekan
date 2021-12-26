@@ -8,11 +8,13 @@
             <div class="col-sm-6">
                 <i class="fa fa-envelope"></i>
                 @if(!Empty($setting->email)){{$setting->email}}@endif
+
             </div>
             <div class="col-sm-6">
                 <i class="fa fa-phone-alt"></i>
                 @if(!Empty($setting->phone)){{$setting->phone}}@endif
             </div>
+
         </div>
     </div>
 </div>
@@ -48,7 +50,6 @@
                       <img src="{{Auth::user()->profile_photo_url}}" alt="user"  class="rounded-circle"
                                     width="40">
                      <div class="nav-item dropdown">
-
                         <a href="#" class="nav-link text-uppercase dropdown-toggle" data-toggle="dropdown">
 
                          {{Auth::user()->name}}
