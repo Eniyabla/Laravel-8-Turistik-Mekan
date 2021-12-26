@@ -15,7 +15,6 @@ class imageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
         //
@@ -32,7 +31,7 @@ class imageController extends Controller
         $images = DB::table('images')
             ->where('product_id', '=', $product_id)
             ->get();
-        return view('user.image_add', ['data'=>$data,'images'=>$images]);
+        return view('home.user_image_add', ['data'=>$data,'images'=>$images]);
     }
 
     /**

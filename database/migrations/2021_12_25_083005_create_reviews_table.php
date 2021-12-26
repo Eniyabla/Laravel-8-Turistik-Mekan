@@ -14,7 +14,7 @@ class CreateReviewsTable extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->text('comment')->nullable();
             $table->integer('rate')->default('0');
             $table->integer('user_id');

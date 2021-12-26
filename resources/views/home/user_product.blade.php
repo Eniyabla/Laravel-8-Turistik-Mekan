@@ -1,7 +1,7 @@
 @php
     $setting=\App\Http\Controllers\HomeController::getsetting();
 @endphp
-@extends('layouts.master')
+@extends('home.master')
 @section('title','User Profile')
 @section('description', $setting->description)
 @section('keywords',$setting->keywords )
@@ -32,7 +32,7 @@
                 <div class="col-md-9" style="top:0;">
                     <div class="container-fluid">
                         @include('home.message')
-                    <h3 class="card-title">Product List</h3>
+                    <h3 class="card-title">Places List</h3>
                     <a href="{{route('user_product_create')}}"><button style="width:20%;" type="button" class="btn btn-block btn-primary">Add Product</button></a>
 
                     <div class="row">

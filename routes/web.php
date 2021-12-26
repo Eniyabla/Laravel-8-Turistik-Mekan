@@ -54,7 +54,7 @@ Route::prefix('product')->group(function (){
 
 #*********************************User-Product**********************************#
 
-Route::prefix('userproduct')->group(function (){
+Route::prefix('userplace')->group(function (){
     Route::get('/', [App\Http\Controllers\ProductController::class,'index'])->name('user_product');
     Route::get('/create', [App\Http\Controllers\ProductController::class,'create'])->name('user_product_create');
     Route::post('/store/', [App\Http\Controllers\ProductController::class,'store'])->name('user_product_store');
@@ -124,3 +124,7 @@ Route::prefix('messages')->group(function (){
     Route::get('/delete/{id}', [App\Http\Controllers\Admin\MessageController::class,'destroy'])->name('admin_message_delete');
     Route::get('/show', [App\Http\Controllers\Admin\MessageController::class,'show'])->name('admin_message_show');
 });
+
+
+
+
