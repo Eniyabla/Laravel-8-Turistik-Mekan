@@ -1,11 +1,4 @@
-@extends('admin.master')
-@section('title', 'TUR-MEK | User List')
-@section('content')
-@section('header')
-@section('header')
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-@endsection
-@section('content')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
 <div class="container-fluid">
   @include('home.message')
     <div class="row">
@@ -17,7 +10,7 @@
                         @if($data->profile_photo_path)
                             <img src="{{Storage::url($data->profile_photo_path)}}" style="border-radius: 100%;" height="60">
                         @endif
-                        <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                        <table border="1px" >
 
                             <tr>
                                 <th># Id</th>
@@ -32,20 +25,19 @@
                                 <td>{{ $data->email }}</td>
                             </tr>
                             <tr>
-                                <th>Roles</th>
-                                <table>
-                                @foreach($data->roles as $dat)
-                                    <tr>
-                                       <td>{{$dat->name}}</td>
-                                        <td>
-                                            <a href="{{route('admin_user_role_delete',['userid'=>$data->id,'roleid'=>$dat->id])}}" onclick="return confirm('Are you sure to delete this record?') ">
-                                                <i style="color: red;" class="fa fa-trash-alt"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </table>
+                                <th>Role(s)</th>
+                                <th>Action(s)</th>
                             </tr>
+                            @foreach($data->roles as $dat)
+                                <tr>
+                                    <td>{{$dat->name}}</td>
+                                       <td>   <a href="{{route('admin_user_role_delete',['userid'=>$data->id,'roleid'=>$dat->id])}}" onclick="return confirm('Are you sure to delete this record?') ">
+                                             <i style="color: red;" class="fa-trash-alt"></i>delete
+                                          </a>
+                                        </td>
+                                </tr>
+                                    @endforeach
+
                         </table>
                     </div>
                     <div class="col-12">
@@ -54,14 +46,15 @@
                             <label>Add Role</label>
                                 <div class="card">
                                     <div class="card-body">
-                                        <form  action="{{route('admin_user_role_store',['id'=>$data->id])}}" method="post">
+                                        <form  action="{{route('admin_user_role_store',['id'=>$dat->id])}}" method="post">
                                         @csrf
-                                            <select name="roleid">
+                                            <label for="role_id">Choose a role:</label>
+                                            <select name="role_id">
                                             @foreach($datalist as $dat)
-                                               <option value="{{$dat->id}}"> {{ $dat->name}}</option>
-                                                @endforeach
+                                               <option  value="{{$dat->id}}"> {{ $dat->name}}</option>
+                                             @endforeach
                                             </select>
-                                            <button type="submit" class="btn-info"></button>
+                                            <button type="submit" class="btn btn-primary">Add role</button>
                                         </form>
                                     </div>
                                 </div>
@@ -85,4 +78,3 @@
     </div>
 </div>
 
-@endsection

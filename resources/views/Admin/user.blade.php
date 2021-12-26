@@ -39,7 +39,7 @@
                                                 <td>@if($data->Address ){{ $data->Address }}@endif</td>
                                                 <td>
                                                   @foreach($data->roles as $dat)
-                                                        {{ $dat->name}},
+                                                        {{ $dat->name}}<br>
                                                   @endforeach
                                                       <a href="{{route('admin_user_roles',['id'=>$data->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=800,height=600') "><i class="fas fa-plus-circle"></i></a>
 

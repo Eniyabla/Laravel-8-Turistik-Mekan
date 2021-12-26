@@ -82,14 +82,14 @@ class UserController extends Controller
     }
     public function userrolestore(Request $request,$id){
         $user=User::find($id);
-        $roleid=$request->Input('roleid');
-        $user->roles()->attach('roleid');
+        $roleid=$request->Input('role_id');
+        $user->roles()->attach($roleid);
         return redirect()->back()->with('success','Role added to user successfully!');
 
     }
-    public function userroledelete(Request $request,$userid,$roleid,User $user){
+    public function userroledelete(Request $request,$userid,$role_id,User $user){
         $user=User::find($userid);
-        $user->roles()->detach('roleid');
+        $user->roles()->detach('role_id');
         return redirect()->back()->with('success','Role deleted from user successfully!');
 
     }
