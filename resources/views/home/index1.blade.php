@@ -1,9 +1,10 @@
 @extends('layouts.master')
+
 @section('header')
     @php
         use App\Http\Controllers\HomeController;$setting=HomeController::getsetting();
     @endphp
-@endsection
+
 @section('title',$setting->title )
 @section('description', $setting->description)
 @section('keywords',$setting->keywords )
@@ -13,6 +14,7 @@
     @php
         $parentCat=\App\Http\Controllers\HomeController::categorylist();
         $slider=\App\Http\Controllers\HomeController::slider();
+
     @endphp
 
     <!-- Main Slider Start -->
@@ -77,13 +79,93 @@
     </div>
     <!-- Brand End -->
     <!-- Feature Start-->
-    <div class="featured-product product">
+
+
+        <div class="featured-product product">
         <div class="container-fluid">
             <div class="section-header">
                 <h1>Latest Places</h1>
             </div>
-            <div class="row align-items-center product-slider product-slider-4">
+            <div class="col-lg-12">
+                <div class="row">
                 @foreach($country as $dat)
+                        @php
+                            $count=\App\Http\Controllers\HomeController::countreviews($dat->id);
+                            $average=\App\Http\Controllers\HomeController::averagereviews($dat->id);
+                            $average=round($average,1);
+                        @endphp
+                    <div class="col-md-3">
+                        <div class="product-item">
+                            <div class="product-title">
+                                <a href="{{route('product_detail',['id'=>$dat->id])}}">{{$dat->title}}</a>
+                                <div class="ratting">
+                                    <i class="fa fa-star @if($average<1) a @else b @endif"></i>
+                                    <i class="fa fa-star @if($average<2) a @else b @endif"></i>
+                                    <i class="fa fa-star @if($average<3) a @else b @endif"></i>
+                                    <i class="fa fa-star @if($average<4) a @else b @endif"></i>
+                                    <i class="fa fa-star @if($average<5) a @else b @endif"></i>
+                                    <span>({{$average}})</span>
+                                </div>
+                            </div>
+                            <div class="product-image">
+                                <a href="{{route('product_detail',['id'=>$dat->id])}}">
+                                    <img src="{{Storage::url($dat->image)}}"height="180px" alt="{{$dat->title}}">
+                                </a>
+                                <div class="product-action">
+
+                                    <a href="#"><i class="far fa-comments"></i></a>
+                                    <a href="#"><i class="fa fa-heart"></i></a>
+                                    <a class="" href=""><i style="color:blue;"class="fas fa-thumbs-down"></i></a>
+                                    <a class="" href=""><i style="color:red;"class="fas fa-thumbs-down"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="product-price">
+                                <h3><span>{{$dat->city}}</span></h3>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                @endforeach
+            </div>
+        </div>
+    </div>
+        </div>
+    <!-- Feature End-->
+
+    <!-- Category Start-->
+
+    <!-- Category End-->
+
+    <!-- Call to Action Start -->
+    <div class="call-to-action">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1>call us for any queries</h1>
+                </div>
+                <div class="col-md-6">
+                    <a href="tel:{{$setting->phone}}">@if(!Empty($setting->phone)){{$setting->phone}}@endif</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Call to Action End -->
+
+    <!-- Featured Product Start -->
+    <div class="featured-product product">
+        <div class="container-fluid">
+            <div class="section-header">
+                <h1>Newest Places</h1>
+            </div>
+            <div class="col-lg-12">
+                <div class="row">
+
+                @foreach($picked as $dat)
                     <div class="col-md-3">
                         <div class="product-item">
                             <div class="product-title">
@@ -123,75 +205,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Feature End-->
-
-    <!-- Category Start-->
-
-    <!-- Category End-->
-
-    <!-- Call to Action Start -->
-    <div class="call-to-action">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h1>call us for any queries</h1>
-                </div>
-                <div class="col-md-6">
-                    <a href="tel:{{$setting->phone}}">@if(!Empty($setting->phone)){{$setting->phone}}@endif</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Call to Action End -->
-
-    <!-- Featured Product Start -->
-    <div class="featured-product product">
-        <div class="container-fluid">
-            <div class="section-header">
-                <h1>Newest Places</h1>
-            </div>
-            <div class="row align-items-center product-slider product-slider-4">
-
-                @foreach($picked as $dat)
-                    <div class="col-md-4">
-                        <div class="product-item">
-                            <div class="product-title">
-                                <a href="{{route('product_detail',['id'=>$dat->id])}}">{{$dat->title}}</a>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="product-image">
-                                <a href="{{route('product_detail',['id'=>$dat->id])}}">
-                                    <img src="{{Storage::url($dat->image)}}"height="180px" alt="{{$dat->title}}">
-                                </a>
-                                <div class="product-action">
-
-                                    <a href="#"><i class="far fa-comments"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a class="" href=""><i style="color:blue;"class="fas fa-thumbs-down"></i></a>
-                                    <a class="" href=""><i style="color:red;"class="fas fa-thumbs-down"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="product-price">
-                                <h3><span>{{$dat->city}}</span></h3>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                @endforeach
-            </div>
-        </div>
     </div>
     <!-- Featured Product End -->
 
@@ -219,9 +232,11 @@
             <div class="section-header">
                 <h1>Recent Places</h1>
             </div>
-            <div class="row align-items-center product-slider product-slider-4">
+            <div class="col-lg-12">
+                <div class="row">
+
                 @foreach($title as $dat)
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="product-item">
                             <div class="product-title">
                                 <a href="{{route('product_detail',['id'=>$dat->id])}}">{{$dat->title}}</a>
@@ -260,6 +275,7 @@
             </div>
         </div>
 
+    </div>
     </div>
     <!-- Recent Product End -->
 

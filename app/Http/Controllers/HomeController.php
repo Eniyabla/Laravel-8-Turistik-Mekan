@@ -41,19 +41,19 @@ class HomeController extends Controller
     }
     public static function countreviews($id)
     {
-       return Review::where('place_id',$id)->count();
+       return Review::where('status','act')->where('place_id',$id)->count();
     }
     public static function averagereviews($id)
     {
-        return Review::where('place_id',$id)->average('rate');
+        return Review::where('status','act')->where('place_id',$id)->average('rate');
     }
 
     public function index(){
-        $slider=Product::select('id','title','image','country','slug')->limit(8)->get();
-        $title=Product::select('id','title','image','country','slug')->limit(5)->OrderBydesc('title')->get();
-        $country=Product::select('id','title','image','country','slug')->limit(8)->OrderBydesc('country')->get();
-        $picked=Product::select('id','title','image','country','slug')->limit(6)->get();
-        $latest=Product::select('id','title','image','country','slug')->limit(6)->OrderBydesc('id')->get();
+        $slider=Product::select('id','title','image','country','slug')->where('status','=','true')->limit(8)->get();
+        $title=Product::select('id','title','image','country','slug')->where('status','=','true')->limit(5)->OrderBydesc('title')->get();
+        $country=Product::select('id','title','image','country','slug')->where('status','=','true')->limit(8)->OrderBydesc('country')->get();
+        $picked=Product::select('id','title','image','country','slug')->where('status','=','true')->limit(6)->get();
+        $latest=Product::select('id','title','image','country','slug')->where('status','=','true')->limit(6)->OrderBydesc('id')->get();
 
 
 
@@ -68,12 +68,12 @@ class HomeController extends Controller
             'latest'=>$latest,
 
         ];
-        return view('home.index',$data);
+        return view('home.index1',$data);
     }
     public function product_detail($id){
         $data=Product::find($id);
         $datalist= Image::where('product_id',$id)->get();
-        $reviews= Review::where('place_id',$id)->get();
+        $reviews= Review::where('status','act')->where('place_id',$id)->get();
         return view('home.place_detail',['data'=>$data,'datalist'=>$datalist,'reviews'=>$reviews]);
     }
 

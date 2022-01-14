@@ -8,10 +8,9 @@
 @section('location', $setting->location)
 @section('header')
     <link href="{{ asset('assets/home')}}/css/accordion.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <!-- include summernote css/js -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
+  
 @endsection
 
 
@@ -127,8 +126,8 @@
                                                     <div class="form-group">
                                                         <textarea name="detail"  class="form-control" id="summernote" ></textarea>
                                                         <script>
-                                                            $(document).ready(function() {
-                                                                $('#summernote').summernote();
+                                                           $(document).ready(function() {
+                                                              $('#summernote').summernote();
                                                             });
                                                         </script>
                                                     </div>
@@ -189,7 +188,7 @@
 
 
 @section('footer')
-
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
     <script src="{{ asset('assets/home')}}/js/accordion.js"></script>

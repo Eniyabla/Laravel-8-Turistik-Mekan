@@ -91,7 +91,7 @@
                                             <a href="#"><i class="far fa-comments"></i></a>
                                             <a href="#"><i class="fa fa-heart"></i></a>
                                             <a class="" href=""><i style="color:blue;"class="fas fa-thumbs-down"></i></a>
-                                            <a class="" href=""><i style="color:red;"class="fas fa-thumbs-down"></i></i></a>
+                                            <a class="" href=""><i style="color:red;"class="fas fa-thumbs-down"></i></a>
                                         </div>
                                     </div>
 
@@ -104,7 +104,7 @@
                                 <span style="">
                                 <i style="color:blue;" class="fas fa-thumbs-up">5</i>
                                 <i style="color:red;"class="fas fa-thumbs-down">5</i>
-                                <i style="color:light;"class="far fa-comments">100</i>
+                                <i style="color:white;" class="far fa-comments">100</i>
                             </span>
                             </div>
 

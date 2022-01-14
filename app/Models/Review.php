@@ -16,10 +16,10 @@ class Review extends Model
         'review',
         'rate',
 ];
-    public function place(){
-        return $this.$this->belongsTo(Product::class);
+    public function product(){
+        return $this->belongsTo(Product::class);
     }
     public function user(){
-        return $this.$this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 }

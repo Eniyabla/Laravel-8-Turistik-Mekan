@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Livewire\Review;
-use App\Models\Message;
-use App\Models\User;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class UserController extends Controller
+class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,24 +15,12 @@ class UserController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
 
-    public function reviews(){
-        $datalist = Review::all();
+        public function index()
+    {
+        $datalist = Review::where('user_id',Auth::id())->get();
         return view('home.reviews', ['datalist'=> $datalist]);
     }
 
-    public function receivedmessage(){
-        $datalist = Message::where('email',Auth::email())->where('status','=','new')->get();
-        return view('home.received_message', ['datalist'=> $datalist]);
-    }
-    public function sentmessage($email){
-        $datalist =Message::where('email',$email)->get();
-        return view('home.sent_message', ['datalist'=> $datalist]);
-    }
-
-    public function index()
-    {
-        return view('layouts.userprofile');
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -60,10 +46,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Review $review)
     {
         //
     }
@@ -71,34 +57,39 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\Review  $review
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Review $review,$id)
     {
-        //
+        $data = Review::find($id);
+        return view('home.review_edit',['data'=>$data]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\Review  $review
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Review $review,$id)
     {
-        //
+        $data=Review::find($id);
+        $data->status=$request->Input('status');
+        $data->save();
+        return back()->with('Success','Review updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\Review  $review
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(User $user)
+    public function destroy(Review $review,$id)
     {
-        //
+        DB::table('reviews')->where('id', '=', $id)->delete();
+        return redirect()->route('user_review')->with('success','Your review was successfully deleted!');
     }
 }

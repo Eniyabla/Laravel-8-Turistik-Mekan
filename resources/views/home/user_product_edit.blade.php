@@ -9,8 +9,7 @@
 @section('header')
     <link href="{{ asset('assets/home')}}/css/accordion.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <!-- include summernote css/js -->
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
 
 @endsection
 
@@ -127,11 +126,9 @@
                                     <div class="col-md-12">
                                         <label>Detail </label>
                                         <div class="form-group">
-                                            <textarea  name="detail"  id="summernote" class="form-control" >{{ $data->detail }}</textarea>
+                                            <textarea  name="detail"  id="details" class="form-control" >{{ $data->detail }}</textarea>
                                             <script>
-                                                $(document).ready(function() {
-                                                    $('#summernote').summernote();
-                                                });
+                                                CKEDITOR.replace('detail');
                                             </script>
                                         </div>
                                     </div>
@@ -192,8 +189,10 @@
 
 @section('footer')
 
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+<script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js">s
+</script>
+<script src="https://cdn.ckeditor.com/[version.number]/[distribution]/ckeditor.js"></script>
     <script src="{{ asset('assets/home')}}/js/accordion.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
     <script src="{{ asset('assets/admin')}}/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>

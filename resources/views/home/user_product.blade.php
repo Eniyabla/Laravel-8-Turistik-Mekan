@@ -1,7 +1,7 @@
 @php
     $setting=\App\Http\Controllers\HomeController::getsetting();
 @endphp
-@extends('home.master')
+@extends('layouts.master')
 @section('title','User Profile')
 @section('description', $setting->description)
 @section('keywords',$setting->keywords )

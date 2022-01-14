@@ -7,14 +7,14 @@
     <meta name="city" content="@yield('city')">
     <meta name="country" content="@yield('country')">
     <meta name="location" content="@yield('location')">
+
     <title>@yield('title')</title>
-    @yield('css')
 
-@section('header')
-  @livewireScripts
+    @section('header')
+        @livewireScripts
 @show
+<!-- Favicon -->
 
-    <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
     <!-- Google Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">

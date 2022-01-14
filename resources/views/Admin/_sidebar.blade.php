@@ -16,27 +16,26 @@
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link"  style="color:white;" href="{{route('admin_product')}}"
                                 aria-expanded="false"><i class="fab fa-product-hunt"></i><span
-                                    class="hide-menu">Places</span></a></li>
+                                    class="hide-menu">Products</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" style="color:white;" href="{{route('admin_user')}}"
-                                                     aria-expanded="true"><i class="fa fa-tasks"></i><span
-                                    class="hide-menu">Roles</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" style="color:white;" href=""
                                                      aria-expanded="true"><i class="fa fa-users"></i><span
                                     class="hide-menu">Users</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" style="color:white;" href="{{route('admin_faq')}}"
                                 aria-expanded="true"><i class="fa fa-question-circle"></i><span
                                     class="hide-menu">FAQ</span></a></li>
-<hr>
                         <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
+
                         <li class="sidebar-item"> <a class="sidebar-link" href="{{route('admin_setting')}}" ><i data-feather="settings" class="feather-icon"></i><span
                                     class="hide-menu">Settings</span></a>
                         </li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link"  style="color:white;" href="{{route('admin_message')}}"
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link"  href="{{route('admin_message')}}"
                                                      aria-expanded="false"><i class="far fa-envelope"></i><span
-                                    class="hide-menu">Messages</span></a></li>
-
-                        <li class="sidebar-item"> <a class="sidebar-link" href="{{route('admin_setting')}}" ><i class=" fa fa-reviews"></i></a></li>
-
+                                    class="hide-menu">Messages</span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link"  href="{{route('admin_review')}}"
+                                                     aria-expanded="false"><i class="far fa-comment"></i><span
+                                    class="hide-menu">Reviews</span></a>
+                        </li>
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{route('logout')}}"
                                 aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span
                                     class="hide-menu">Logout</span></a></li>

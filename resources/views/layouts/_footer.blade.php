@@ -40,9 +40,9 @@
                         <div class="footer-widget">
                             <h2>Company Info</h2>
                             <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="{{route('aboutus')}}">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">References</a></li>
                             </ul>
                         </div>
                     </div>
@@ -50,15 +50,7 @@
 
                 </div>
 
-                <div class="row payment align-items-center">
-                    <div class="col-md-5">
-                        <div class="payment-method">
-                            <h2>We Accept:</h2>
-                            <img src="{{ asset('assets/home')}}/img/payment-method.png" alt="Payment Method" />
-                        </div>
-                    </div>
 
-                </div>
             </div>
         </div>
         <!-- Footer End -->

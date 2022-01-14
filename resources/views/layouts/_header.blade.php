@@ -8,7 +8,22 @@
             <div class="col-sm-6">
                 <i class="fa fa-envelope"></i>
                 @if(!Empty($setting->email)){{$setting->email}}@endif
+                <script type="text/javascript">
 
+                    function clockTick()    {
+                        currentTime = new Date();
+                        month = currentTime.getMonth() + 1;
+                        day = currentTime.getDate();
+                        year = currentTime.getFullYear();
+                        hours = currentTime.getHours(),
+                        minutes = currentTime.getMinutes(),
+                        seconds = currentTime.getSeconds(),
+                        setInterval(clockTick, 1000);
+                        return (day + "-" + month + "-" + year+ " Time: " + hours + ":" + minutes+ ":" + seconds);
+                    }
+                    document.write(clockTick());
+
+                </script>
             </div>
             <div class="col-sm-6">
                 <i class="fa fa-phone-alt"></i>
@@ -37,13 +52,7 @@
                     <a href="{{route('refernces')}}" class="nav-item nav-link">References</a>
                     <a href="{{route('FaQ')}}" class="nav-item nav-link">FAQ</a>
                     <a href="{{route('myaccount')}}" class="nav-item nav-link">My Account</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
-                        <div class="dropdown-menu">
-                            <a href="wishlist.html" class="dropdown-item">Wishlist</a>
-                            <a href="login.html" class="dropdown-item">Login &amp; Register</a>
-                        </div>
-                    </div>
+                    @include('layouts.header2')
                 </div>
                 <div class="navbar-nav ml-auto" style="">
                       @auth

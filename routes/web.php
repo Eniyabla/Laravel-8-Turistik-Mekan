@@ -1,10 +1,32 @@
 <?php
 
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+#------------------------------Like-dislike-------------------------------------------#
+Route::post('/like', [ReviewController::class, 'fetchLike']);
+Route::post('/like/{id}', [ReviewController::class, 'handleLike']);
+
+Route::post('/dislike', [ReviewController::class, 'fetchDislike']);
+Route::post('/dislike/{id}', [ReviewController::class, 'handleDislike']);
+
+
+Route::get('message/received', [UserController::class, 'receivedmessage'])->name('r_message');
+Route::get('message/sent/{email}', [userController::class, 'sentmessage'])->name('s_message');
+
+
+#------------User-Reviews----------->
+Route::prefix('myreviews')->group(function (){
+    Route::get('/', [App\Http\Controllers\ReviewController::class,'index'])->name('user_review');
+    Route::post('/update/{id}', [App\Http\Controllers\ReviewController::class,'update'])->name('user_review_update');
+    Route::get('/edit/{id}', [App\Http\Controllers\ReviewController::class,'edit'])->name('user_review_edit');
+    Route::get('/delete/{id}', [App\Http\Controllers\ReviewController::class,'destroy'])->name('user_review_delete');
+    Route::get('/show', [App\Http\Controllers\ReviewController::class,'show'])->name('user_review_show');
+});
 Route::get('', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('aboutus');
 Route::get('/contact', [App\Http\Controllers\HomeController::class,'contact'])->name('contactus');
@@ -22,7 +44,7 @@ Route::get('/placelist/{search}', [App\Http\Controllers\HomeController::class,'p
 
 #*********************************User-Product**********************************#
 
-Route::prefix('userplace')->group(function (){
+Route::prefix('userproduct')->group(function (){
     Route::get('/', [App\Http\Controllers\ProductController::class,'index'])->name('user_product');
     Route::get('/create', [App\Http\Controllers\ProductController::class,'create'])->name('user_product_create');
     Route::post('/store/', [App\Http\Controllers\ProductController::class,'store'])->name('user_product_store');
@@ -33,7 +55,7 @@ Route::prefix('userplace')->group(function (){
 });
 
 
-    Route::get('/placedetail/{id}', [App\Http\Controllers\HomeController::class,'product_detail'])->name('product_detail');
+Route::get('/product/{id}', [App\Http\Controllers\HomeController::class,'product_detail'])->name('product_detail');
 
 
 
@@ -49,7 +71,7 @@ Route::middleware('auth')->prefix('user')->namespace(',user')->group(function ()
 Route::middleware('auth')->group(function (){
 
 
-    Route::get('FaQ', [App\Http\Controllers\HomeController::class, 'faq'])->name('FaQ');
+    Route::get('FaQ', [HomeController::class, 'faq'])->name('FaQ');
 
     Route::get('/admin/', [App\Http\Controllers\Admin\HomeController::class,'index'])->name('admin_home')->middleware('admin');
     Route::get('/admin/login/', [App\Http\Controllers\Admin\HomeController::class,'login'])->name('admin_login');
@@ -117,6 +139,16 @@ Route::middleware('auth')->group(function (){
         Route::get('/delete/{id}', [App\Http\Controllers\Admin\MessageController::class,'destroy'])->name('admin_message_delete');
         Route::get('/show', [App\Http\Controllers\Admin\MessageController::class,'show'])->name('admin_message_show');
     });
+
+    #------------Reviews----------->
+    Route::middleware('admin')->prefix('reviews')->group(function (){
+        Route::get('/', [ReviewController::class,'index'])->name('admin_review');
+        Route::post('/update/{id}', [ReviewController::class,'update'])->name('admin_review_update');
+        Route::get('/edit/{id}', [ReviewController::class,'edit'])->name('admin_review_edit');
+        Route::get('/delete/{id}', [ReviewController::class,'destroy'])->name('admin_review_delete');
+        Route::get('/show', [ReviewController::class,'show'])->name('admin_review_show');
+    });
+
 
     #---------------------------------------Admin_user------------------------------------------------------#
 

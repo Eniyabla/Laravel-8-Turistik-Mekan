@@ -30,7 +30,7 @@ $setting=\App\Http\Controllers\HomeController::getsetting();
             <div class="row">
                @include('layouts._user_menu')
     <div class="col-md-9" style="top:0;">
-
+@include('profile.show')
     </div>
         </div>
             </div>
