@@ -22,12 +22,18 @@ class UserController extends Controller
         return view('home.reviews', ['datalist'=> $datalist]);
     }
 
-    public function receivedmessage(){
-        $datalist = Message::where('email',Auth::email())->where('status','=','new')->get();
+    public function repliedmessage(){
+        $id=Auth::id();
+        $name=User::where('id',$id)->get()->first();
+        $datalist = Message::where('name',$name->name)->where('status','=','Read')->get();
+
         return view('home.received_message', ['datalist'=> $datalist]);
     }
-    public function sentmessage($email){
-        $datalist =Message::where('email',$email)->get();
+    public function allmessages(){
+        $id=Auth::id();
+        $name=User::where('id',$id)->get()->first();
+        $datalist = Message::where('name',$name->name)->get();
+
         return view('home.sent_message', ['datalist'=> $datalist]);
     }
 

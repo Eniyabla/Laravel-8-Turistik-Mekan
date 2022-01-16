@@ -24,44 +24,30 @@
                 <div class="col-md-2">
                 </div>
 
-                <div class="col-md-7">
+                <div class="col-md-8">
                     <div class="header-slider normal-slider">
 
                         @foreach($slider as $sl)
 
                             <div class="header-slider-item ">
-                                <img src="{{ Storage::url($sl->image)}}" alt="{{$sl->title}}" style="height: 400px;width: 700px;" />
+                                <img src="{{ Storage::url($sl->image)}}" alt="{{$sl->title}}" style="height: 400px;width: 800px;" />
 
                                 <div class="header-slider-caption" >
                                     <p>{{$sl->title}}</p>
-                                    <a href="{{route('product_detail',['id'=>$sl->id])}}" class="btn">Open</a>
+                                    <a href="{{route('product_detail',['id'=>$sl->id])}}" class="btn">Gallery</a>
                                 </div>
                             </div>
 
                         @endforeach
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="header-img">
-                        <div class="img-item">
-                            <img src="{{ Storage::url($sl->image)}}" alt="{{$sl->title}}" />
+                <div class="col-md-2">
 
-                            <a class="img-text" href="">
-                                <p>Some text goes here that describes the image</p>
-                            </a>
-                        </div>
-                        <div class="img-item">
-                            <img src="{{ Storage::url($sl->image)}}" alt="{{$sl->title}}" />
-
-                            <a class="img-text" href="">
-                                <p>Some text goes here that describes the image</p>
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <br>
     <!-- Main Slider End -->
 
     <!-- Brand Start -->
@@ -81,60 +67,66 @@
     <!-- Feature Start-->
 
 
-        <div class="featured-product product">
+    <div class="featured-product product">
         <div class="container-fluid">
             <div class="section-header">
-                <h1>Latest Places</h1>
+                <h1>Recent Places</h1>
             </div>
             <div class="col-lg-12">
                 <div class="row">
-                @foreach($country as $dat)
+                    @foreach($latest as $dat)
                         @php
                             $count=\App\Http\Controllers\HomeController::countreviews($dat->id);
                             $average=\App\Http\Controllers\HomeController::averagereviews($dat->id);
                             $average=round($average,1);
                         @endphp
-                    <div class="col-md-3">
-                        <div class="product-item">
-                            <div class="product-title">
-                                <a href="{{route('product_detail',['id'=>$dat->id])}}">{{$dat->title}}</a>
-                                <div class="ratting">
-                                    <i class="fa fa-star @if($average<1) a @else b @endif"></i>
-                                    <i class="fa fa-star @if($average<2) a @else b @endif"></i>
-                                    <i class="fa fa-star @if($average<3) a @else b @endif"></i>
-                                    <i class="fa fa-star @if($average<4) a @else b @endif"></i>
-                                    <i class="fa fa-star @if($average<5) a @else b @endif"></i>
-                                    <span>({{$average}})</span>
+                        <div class="col-md-3">
+                            <div class="product-item">
+                                <div class="product-title">
+                                    <a href="{{route('product_detail',['id'=>$dat->id])}}">{{$dat->title}}</a>
+                                    <div class="d-flex align-items-center justify-content-center mb-1">
+                                        <small class="@if($average>=1) fa fa-star text-warning mr-1 @elseif($average<1 &&$average>0) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=2) fa fa-star text-warning mr-1 @elseif($average<2 &&$average>1) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=3) fa fa-star text-warning mr-1 @elseif($average<3 &&$average>2) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=4) fa fa-star text-warning mr-1 @elseif($average<4 &&$average>3) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=5) fa fa-star text-warning mr-1 @elseif($average<5 &&$average>4) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                        <small style="color:white;">({{$average}})</small>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="product-image">
-                                <a href="{{route('product_detail',['id'=>$dat->id])}}">
-                                    <img src="{{Storage::url($dat->image)}}"height="180px" alt="{{$dat->title}}">
-                                </a>
-                                <div class="product-action">
+                                <div class="product-image">
+                                    <a href="{{route('product_detail',['id'=>$dat->id])}}">
+                                        <img src="{{Storage::url($dat->image)}}"height="180px" alt="{{$dat->title}}">
+                                    </a>
+                                    <div class="product-action">
 
-                                    <a href="#"><i class="far fa-comments"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a class="" href=""><i style="color:blue;"class="fas fa-thumbs-down"></i></a>
-                                    <a class="" href=""><i style="color:red;"class="fas fa-thumbs-down"></i></a>
+                                    </div>
                                 </div>
+                                @php
+                                    $likes=\App\Http\Controllers\HomeController::likes($dat->id);
+                                    $comments=\App\Http\Controllers\HomeController::countreviews($dat->id);
+                                $check=\App\Http\Controllers\HomeController::check($dat->id)
+                                @endphp
+                                <div class="product-price d-flex justify-content-between ">
+                                    <a  class="btn" href=""><i class="far fa-comments"></i>{{ $comments }}</a>
+                                    @if($check)
+                                        <a class="btn" href="{{route('like_product',['id'=>$dat->id])}}"><i class="fas fa-thumbs-up"></i>{{$likes}}</a>
+
+                                    @else
+                                    <a class="btn" href="{{route('like_product',['id'=>$dat->id])}}"><i class="far fa-thumbs-up"></i>{{$likes}}</a>
+                                    @endif
+                                </div>
+
                             </div>
-
-                            <div class="product-price">
-                                <h3><span>{{$dat->city}}</span></h3>
-
-                            </div>
-
+                            <br>
                         </div>
 
-                    </div>
 
+                    @endforeach
 
-                @endforeach
+                </div>
             </div>
         </div>
     </div>
-        </div>
     <!-- Feature End-->
 
     <!-- Category Start-->
@@ -156,55 +148,60 @@
     </div>
     <!-- Call to Action End -->
 
-    <!-- Featured Product Start -->
+    <!-- Feature Start-->
+
+
     <div class="featured-product product">
         <div class="container-fluid">
             <div class="section-header">
-                <h1>Newest Places</h1>
+                <h1>Recent Places</h1>
             </div>
             <div class="col-lg-12">
                 <div class="row">
-
-                @foreach($picked as $dat)
-                    <div class="col-md-3">
-                        <div class="product-item">
-                            <div class="product-title">
-                                <a href="{{route('product_detail',['id'=>$dat->id])}}">{{$dat->title}}</a>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
+                    @foreach($picked as $dat)
+                        @php
+                            $count=\App\Http\Controllers\HomeController::countreviews($dat->id);
+                            $average=\App\Http\Controllers\HomeController::averagereviews($dat->id);
+                            $average=round($average,1);
+                        @endphp
+                        <div class="col-md-4">
+                            <div class="product-item">
+                                <div class="product-title">
+                                    <a href="{{route('product_detail',['id'=>$dat->id])}}">{{$dat->title}}</a>
+                                    <div class="d-flex align-items-center justify-content-center mb-1">
+                                        <small class="@if($average>=1) fa fa-star text-warning mr-1 @elseif($average<1 &&$average>0) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=2) fa fa-star text-warning mr-1 @elseif($average<2 &&$average>1) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=3) fa fa-star text-warning mr-1 @elseif($average<3 &&$average>2) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=4) fa fa-star text-warning mr-1 @elseif($average<4 &&$average>3) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=5) fa fa-star text-warning mr-1 @elseif($average<5 &&$average>4) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                        <small style="color:white;">({{$average}})</small>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="product-image">
-                                <a href="{{route('product_detail',['id'=>$dat->id])}}">
-                                    <img src="{{Storage::url($dat->image)}}"height="180px" alt="{{$dat->title}}">
-                                </a>
-                                <div class="product-action">
+                                <div class="product-image">
+                                    <a href="{{route('product_detail',['id'=>$dat->id])}}">
+                                        <img src="{{Storage::url($dat->image)}}"height="180px" alt="{{$dat->title}}">
+                                    </a>
+                                    <div class="product-action">
 
-                                    <a href="#"><i class="far fa-comments"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a class="" href=""><i style="color:blue;"class="fas fa-thumbs-down"></i></a>
-                                    <a class="" href=""><i style="color:red;"class="fas fa-thumbs-down"></i></a>
+                                        <a href="#"><i class="far fa-comments"></i></a>
+                                        <a class="" href=""><i style="color:red;"class="fas fa-thumbs-up"></i></a>
+                                    </div>
                                 </div>
+
+                                <div class="product-price">
+                                    <h3><span>{{$dat->city}}-{{$dat->country}}</span></h3>
+
+                                </div>
+
                             </div>
-
-                            <div class="product-price">
-                                <h3><span>{{$dat->city}}</span></h3>
-
-                            </div>
-
+                            <br>
                         </div>
 
-                    </div>
 
-
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
-    </div>
     </div>
     <!-- Featured Product End -->
 
@@ -227,55 +224,58 @@
     <!-- Newsletter End -->
 
     <!-- Recent Product Start -->
-    <div class="recent-product product">
+
+    <div class="featured-product product">
         <div class="container-fluid">
             <div class="section-header">
                 <h1>Recent Places</h1>
             </div>
             <div class="col-lg-12">
                 <div class="row">
-
-                @foreach($title as $dat)
-                    <div class="col-md-3">
-                        <div class="product-item">
-                            <div class="product-title">
-                                <a href="{{route('product_detail',['id'=>$dat->id])}}">{{$dat->title}}</a>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
+                    @foreach($title as $dat)
+                        @php
+                            $count=\App\Http\Controllers\HomeController::countreviews($dat->id);
+                            $average=\App\Http\Controllers\HomeController::averagereviews($dat->id);
+                            $average=round($average,1);
+                        @endphp
+                        <div class="col-md-4">
+                            <div class="product-item">
+                                <div class="product-title">
+                                    <a href="{{route('product_detail',['id'=>$dat->id])}}">{{$dat->title}}</a>
+                                    <div class="d-flex align-items-center justify-content-center mb-1">
+                                        <small class="@if($average>=1) fa fa-star text-warning mr-1 @elseif($average<1 &&$average>0) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-0 @endif"></small>
+                                        <small class="@if($average>=2) fa fa-star text-warning mr-1 @elseif($average<2 &&$average>1) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-0 @endif"></small>
+                                        <small class="@if($average>=3) fa fa-star text-warning mr-1 @elseif($average<3 &&$average>2) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-0 @endif"></small>
+                                        <small class="@if($average>=4) fa fa-star text-warning mr-1 @elseif($average<4 &&$average>3) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-0 @endif"></small>
+                                        <small class="@if($average>=5) fa fa-star text-warning mr-1 @elseif($average<5 &&$average>4) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-0 @endif"></small>
+                                        <small>({{$average}})</small>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="product-image">
-                                <a href="{{route('product_detail',['id'=>$dat->id])}}">
-                                    <img src="{{Storage::url($dat->image)}}" alt="{{$dat->title}}">
-                                </a>
-                                <div class="product-action">
+                                <div class="product-image">
+                                    <a href="{{route('product_detail',['id'=>$dat->id])}}">
+                                        <img src="{{Storage::url($dat->image)}}"height="180px" alt="{{$dat->title}}">
+                                    </a>
+                                    <div class="product-action">
 
-                                    <a href="#"><i class="far fa-comments"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a class="" href=""><i style="color:blue;"class="fas fa-thumbs-down"></i></a>
-                                    <a class="" href=""><i style="color:red;"class="fas fa-thumbs-down"></i></a>
+                                        <a href="#"><i class="far fa-comments"></i></a>
+                                        <a class="" href=""><i style="color:red;"class="fas fa-thumbs-up"></i></a>
+                                    </div>
                                 </div>
+                                <div class="product-price">
+                                    <h3><span>{{$dat->city}}-{{$dat->country}}</span></h3>
+
+                                </div>
+
+
                             </div>
-
-                            <div class="product-price">
-                                <h3><span>{{$dat->city}}</span></h3>
-
-                            </div>
-
+                            <br>
                         </div>
 
-                    </div>
 
-
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
-
-    </div>
     </div>
     <!-- Recent Product End -->
 
@@ -283,71 +283,38 @@
     <div class="review">
         <div class="container-fluid">
             <div class="row align-items-center review-slider normal-slider">
-                <div class="col-md-6">
-                    <div class="review-slider-item">
-                        <div class="review-img">
-                            <img src="{{ asset('assets/home')}}/img/review-1.jpg" alt="Image">
-                        </div>
-                        <div class="review-text">
-                            <h2>Customer Name</h2>
-                            <h3>Profession</h3>
-                            <div class="ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                @foreach($topuser as $topuser)
+                    <div class="col-md-6">
+                        <div class="review-slider-item">
+                            <div class="review-img">
+                                <img src="{{ Storage::url($topuser->profile_photo_path)}}" alt="{{$topuser->name}}" style="height: 400px;width: 800px;" />
                             </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae nunc eget leo finibus luctus et vitae lorem
-                            </p>
+                            @php
+                                $average=\App\Http\Controllers\HomeController::averageusereviews($topuser->id);
+                                $average=round($average,1);
+                            @endphp
+                            <div class="review-text">
+                                <h2>{{$topuser->name}}</h2>
+                                <h3>Profession</h3>
+                                <div class="d-flex align-items-center justify-content-center mb-1">
+                                    <small class="@if($average>=1) fa fa-star text-warning mr-1 @elseif($average<1 &&$average>0) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-0 @endif"></small>
+                                    <small class="@if($average>=2) fa fa-star text-warning mr-1 @elseif($average<2 &&$average>1) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-0 @endif"></small>
+                                    <small class="@if($average>=3) fa fa-star text-warning mr-1 @elseif($average<3 &&$average>2) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-0 @endif"></small>
+                                    <small class="@if($average>=4) fa fa-star text-warning mr-1 @elseif($average<4 &&$average>3) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-0 @endif"></small>
+                                    <small class="@if($average>=5) fa fa-star text-warning mr-1 @elseif($average<5 &&$average>4) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-0 @endif"></small>
+                                    <small>({{$average}})</small>
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae nunc eget leo finibus luctus et vitae lorem
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="review-slider-item">
-                        <div class="review-img">
-                            <img src="{{ asset('assets/home')}}/img/review-2.jpg" alt="Image">
-                        </div>
-                        <div class="review-text">
-                            <h2>Customer Name</h2>
-                            <h3>Profession</h3>
-                            <div class="ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae nunc eget leo finibus luctus et vitae lorem
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="review-slider-item">
-                        <div class="review-img">
-                            <img src="{{ asset('assets/home')}}/img/review-3.jpg" alt="Image">
-                        </div>
-                        <div class="review-text">
-                            <h2>Customer Name</h2>
-                            <h3>Profession</h3>
-                            <div class="ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae nunc eget leo finibus luctus et vitae lorem
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </div>
 
 @endsection
+

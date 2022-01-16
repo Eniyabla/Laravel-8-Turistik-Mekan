@@ -54,12 +54,13 @@
                             <div class="col-md-4">
                                 <div class="product-content" style="top: 0;">
                                     <div class="title" ><h2  style="margin-top: 0;">{{$data->title}}</h2></div>
-                                    <div class="ratting">
-                                        <i class="fa fa-star @if($average<1) a @else b @endif"></i>
-                                        <i class="fa fa-star @if($average<2) a @else b @endif"></i>
-                                        <i class="fa fa-star @if($average<3) a @else b @endif"></i>
-                                        <i class="fa fa-star @if($average<4) a @else b @endif"></i>
-                                        <i class="fa fa-star @if($average<5) a @else b @endif"></i>
+                                    <div class="d-flex align-items-center justify-content-center mb-1">
+                                        <small class="@if($average>=1) fa fa-star text-warning mr-1 @elseif($average<1 &&$average>0) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=2) fa fa-star text-warning mr-1 @elseif($average<2 &&$average>1) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=3) fa fa-star text-warning mr-1 @elseif($average<3 &&$average>2) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=4) fa fa-star text-warning mr-1 @elseif($average<4 &&$average>3) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=5) fa fa-star text-warning mr-1 @elseif($average<5 &&$average>4) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                        <small>({{$average}}/5)</small>
                                     </div>
                                     <div class="price">
                                         <a href="#addreviews" > {{$count}} Review(s) ••{{$average}}•• <em>+ Add Review</em></a>
@@ -93,7 +94,7 @@
                                     <a class="nav-link active" data-toggle="pill" href="#description">Description</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="pill" href="#specification">Specification</a>
+                                    <a class="nav-link" data-toggle="pill" href="#specification">Comments(5)</a>
                                 </li>
                                 <li class="nav-item" id="addreviews">
                                     <a class="nav-link" data-toggle="pill" href="#reviews">Reviews ({{$count}})</a>
@@ -107,8 +108,17 @@
 
                                 </div>
                                 <div id="specification" class="container tab-pane fade">
-                                    <h4>Product specification</h4>
-                                    {{$data->description}}
+                                    <div class="row">
+                                    <div class="col-md-6">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="reviews-submit">
+                                            <h4>Leave a comment</h4>
+                                            @livewire('review',['id'=>$data->id])
+
+                                        </div>
+                                    </div>
+                                    </div>
                                 </div>
                                 <div id="reviews" class="container tab-pane fade">
                                     <div class="row">
@@ -124,7 +134,9 @@
                                                         <i class="fa fa-star @if($rev->rate<4) a @else b @endif"></i>
                                                         <i class="fa fa-star @if($rev->rate<5) a @else b @endif"></i>
                                                     </div>
-                                                    <div class="reviewer">{{$rev->subject}}- <span>{{$rev->review}}</span></div>
+                                                    <div class="reviewer" style="color:orangered;size: 12px;">{{$rev->subject}}</div>
+                                                    <p>{{$rev->comment}}</p>
+                                                    <hr>
 
                                                 </div>
                                             @endforeach
@@ -134,7 +146,7 @@
                                             <div class="reviews-submit">
                                                 <h4>Give your Review:</h4>
                                                 @livewire('review',['id'=>$data->id])
-                                               
+
                                             </div>
                                         </div>
 

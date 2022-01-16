@@ -13,9 +13,9 @@ class Review extends Model
         'user_id',
         'ip',
         'subject',
-        'review',
+        'comment',
         'rate',
-];
+    ];
     public function product(){
         return $this->belongsTo(Product::class);
     }

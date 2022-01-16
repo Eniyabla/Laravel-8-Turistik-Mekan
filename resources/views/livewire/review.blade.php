@@ -16,8 +16,8 @@
         @error ('subject')<span class="text-danger">{{$message}}</span> @enderror
     </div>
     <div class="col-md-12">
-        <textarea wire:model="review"  placeholder=" Your Review"></textarea>
-        @error ('review')<span class="text-danger">{{$message}}</span> @enderror
+        <textarea wire:model="comment"  placeholder=" Your Review"></textarea>
+        @error ('comment')<span class="text-danger">{{$message}}</span> @enderror
 
     </div>
     <div class="rate col-md-12" >

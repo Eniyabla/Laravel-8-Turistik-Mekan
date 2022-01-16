@@ -8,22 +8,7 @@
             <div class="col-sm-6">
                 <i class="fa fa-envelope"></i>
                 @if(!Empty($setting->email)){{$setting->email}}@endif
-                <script type="text/javascript">
 
-                    function clockTick()    {
-                        currentTime = new Date();
-                        month = currentTime.getMonth() + 1;
-                        day = currentTime.getDate();
-                        year = currentTime.getFullYear();
-                        hours = currentTime.getHours(),
-                        minutes = currentTime.getMinutes(),
-                        seconds = currentTime.getSeconds(),
-                        setInterval(clockTick, 1000);
-                        return (day + "-" + month + "-" + year+ " Time: " + hours + ":" + minutes+ ":" + seconds);
-                    }
-                    document.write(clockTick());
-
-                </script>
             </div>
             <div class="col-sm-6">
                 <i class="fa fa-phone-alt"></i>

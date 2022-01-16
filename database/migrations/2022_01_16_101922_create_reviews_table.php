@@ -16,12 +16,15 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->text('comment')->nullable();
+            $table->text('subject')->nullable();
             $table->integer('rate')->default('0');
             $table->integer('user_id');
             $table->integer('place_id',)->nullable();
             $table->string('ip',50)->nullable();
             $table->string('status',5)->nullable()->default('new');
             $table->timestamps();
+
+
         });
     }
 

@@ -58,7 +58,7 @@
                                                         <td>{{ $data->user->name}}</td>
                                                         <td>{{ $data->ip }}</td>
                                                         <td>{{ $data->subject }}</td>
-                                                        <td>{{ $data->review }}</td>
+                                                        <td>{{ $data->comment }}</td>
                                                         <td>{{ $data->rate }}</td>
                                                         <td>{{ $data->status }}</td>
                                                         <td colspan="2" style="text-align:center;">

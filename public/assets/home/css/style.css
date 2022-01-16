@@ -127,7 +127,7 @@ h2 {
     z-index: 1;
     opacity: 0;
     transition: .5s;
-    background: rgba(255, 111, 97, .7);
+    background: rgba(235, 144, 57, .9);
     border-radius: 4px;
 }
 
@@ -464,30 +464,30 @@ h2 {
 
 .header-slider .header-slider-caption {
     position: absolute;
-    top: 20%;
-    left: 20%;
-    width: 60%;
-    height: 60%;
+    top: 30%;
+    left: 30%;
+    width: 40%;
+    height: 40%;
     padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 111, 97, .7);
-    transition: all 0.3s;
+    background: rgba(255, 255, 255,.7);
+    transition: all 0.2s;
     z-index: 1;
 }
 
 .header-slider .header-slider-caption p {
     text-align: center;
-    color: #ffffff;
+    color: rgb(249, 105, 14);
     font-size: 22px;
     font-family: 'Source Code Pro', monospace;
     font-weight: 700;
 }
 
 .header-slider .header-slider-caption .btn {
-    border-color: #ffffff;
+    border-color: rgb(249, 105, 14);
 }
 
 .header-slider .header-slider-caption .btn i {
@@ -540,7 +540,7 @@ h2 {
     padding: 15px;
     width: 100%;
     text-align: center;
-    color: #ffffff;
+    color: rgb(249, 105, 14);
     font-size: 16px;
     transition: all 0.3s;
 }
@@ -661,7 +661,7 @@ h2 {
 }
 
 .feature .feature-content i {
-    color: orangered;
+    color: white;
     font-size: 60px;
     margin-bottom: 30px;
 }
@@ -691,7 +691,7 @@ h2 {
 }
 
 .product-item:hover .product-title {
-    background: orangered;
+    background: white;
 }
 
 .product-item .product-title a,
@@ -702,7 +702,7 @@ h2 {
 
 .product-item .product-title a {
     margin-bottom: 5px;
-    color: #ffffff;
+    color: rgb(255, 255, 255);
     font-size: 18px;
 }
 
@@ -729,11 +729,11 @@ color: orangered;
 
 .product-item:hover .product-title a,
 .product-item:hover .product-title .ratting i {
-    color: #ffffff;
+    color: rgb(0, 0, 0);
 }
 
 .product-item:hover .product-content .price span {
-    color: #dddddd;
+    color: #000;
 }
 
 .product-item .product-image {
@@ -765,7 +765,7 @@ color: orangered;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 111, 97, .5);
+
     transition: all .3s;
     font-size: 0;
     z-index: 1;
@@ -813,7 +813,7 @@ color: orangered;
 }
 
 .product-item:hover .product-price {
-    background: orangered;
+    background: #fff;
 }
 
 .product-item .product-price h3 {
@@ -823,7 +823,7 @@ color: orangered;
 }
 
 .product-item .product-price h3 span {
-    font-size: 16px;
+    font-size: 5px;
 }
 
 .product-item .product-price .btn {
@@ -1236,7 +1236,7 @@ color: orangered;
 }
 
 .product-detail .tab-content .reviewer {
-    color: #black;
+    color: black;
     font-size: 18px;
     font-weight: 600;
 }

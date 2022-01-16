@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('admin.master')
 @section('title', 'TUR-MEK | faq List')
 @section('content')
 @section('header')

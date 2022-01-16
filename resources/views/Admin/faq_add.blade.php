@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('admin.master')
 @section('title', 'TUR-MEK | Add faq')
 @section('header')
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

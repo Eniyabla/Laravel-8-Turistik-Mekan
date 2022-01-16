@@ -70,7 +70,7 @@
                             <div class="col-md-12">
                                 <label>Review </label>
                                 <div class="form-group">
-                                    <input readonly value="{{ $data->review }}" name="review" type="text" class="form-control">
+                                    <input readonly value="{{ $data->comment }}" name="review" type="text" class="form-control">
                                 </div>
                             </div>
                         </div>

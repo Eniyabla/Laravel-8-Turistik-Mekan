@@ -29,27 +29,27 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach ($datalist as $data)
+                                        @foreach ($datalist as $dat)
                                             <tr>
-                                                <td>{{ $data->id }}</td>
+                                                <td>{{ $dat->id }}</td>
                                                 <td>{{ App\Http\Controllers\Admin\CategoryController::getParentsTree($data->category,$data->category->title)}}</td>
 
-                                                <td style="width: 20px;">{{ $data->title }} </td>
-                                                <td>{{ $data->country }}</td>
-                                                <td>{{ $data->city }}</td>
+                                                <td style="width: 20px;">{{ $dat->title }} </td>
+                                                <td>{{ $dat->country }}</td>
+                                                <td>{{ $dat->city }}</td>
                                                 <td>
-                                                    @if($data->image)
-                                                    <img src="{{Storage::url($data->image)}}" height="36">
+                                                    @if($dat->image)
+                                                    <img src="{{Storage::url($dat->image)}}" height="36">
                                                     @endif
                                                 </td>
-                                                <td style="justify-content:center"><a href="{{route('admin_image_add',['product_id'=>$data->id])}}"><i class="fas fa-images"></i></a></td>
-                                                <td>{{ $data->status }}</td>
+                                                <td style="justify-content:center"><a href="{{route('admin_image_add',['product_id'=>$dat->id])}}"><i class="fas fa-images"></i></a></td>
+                                                <td>{{ $dat->status }}</td>
                                                 <td colspan="2" style="text-align:center;">
-                                                <a href="{{route('admin_product_edit',['id'=>$data->id])}}" >
+                                                <a href="{{route('admin_product_edit',['id'=>$dat->id])}}" >
                                                       <img rel="icon"  width="20px" src="{{ asset('assets')}}/admin/images/edit.png">
                                                  </a>
                                                  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                 <a href="{{route('admin_product_delete',['id'=>$data->id])}}" onclick="return confirm('Are you sure to delete this record?') ">
+                                                 <a href="{{route('admin_product_delete',['id'=>$dat->id])}}" onclick="return confirm('Are you sure to delete this record?') ">
                                                       <img rel="icon"  width="20px" src="{{ asset('assets')}}/admin/images/del.png">
                                                     </a>
                                                 </td>

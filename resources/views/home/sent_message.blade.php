@@ -2,7 +2,7 @@
     $setting=\App\Http\Controllers\HomeController::getsetting();
 @endphp
 @extends('layouts.master')
-@section('title','User Profile')
+@section('title','All Messages')
 @section('description', $setting->description)
 @section('keywords',$setting->keywords )
 @section('location', $setting->location)
@@ -43,6 +43,7 @@
                                                 <tr style="width: 80%">
                                                     <th>Subject</th>
                                                     <th>Messages</th>
+                                                    <th>Status</th>
                                                     <th>Actions</th>
                                                 </tr>
                                                 </thead>
@@ -51,6 +52,7 @@
                                                     <tr>
                                                         <td>{{ $data->subject }}</td>
                                                         <td>{{ $data->message}}</td>
+                                                        <td>{{ $data->status}}</td>
                                                         <td colspan="2" style="text-align:center;">
                                                             <a href="{{route('admin_message_edit',['id'=>$data->id])}}" >
                                                                 <span style="color:seagreen;"><i class="fas fa-edit">></i></span>

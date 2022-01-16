@@ -2,21 +2,18 @@
 
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-#------------------------------Like-dislike-------------------------------------------#
-Route::post('/like', [ReviewController::class, 'fetchLike']);
-Route::post('/like/{id}', [ReviewController::class, 'handleLike']);
 
-Route::post('/dislike', [ReviewController::class, 'fetchDislike']);
-Route::post('/dislike/{id}', [ReviewController::class, 'handleDislike']);
+Route::get('/like/{id}',[LikeController::class,'likeproduct'])->name('like_product');
 
 
-Route::get('message/received', [UserController::class, 'receivedmessage'])->name('r_message');
-Route::get('message/sent/{email}', [userController::class, 'sentmessage'])->name('s_message');
+Route::get('message/replied', [UserController::class, 'repliedmessage'])->name('r_message');
+Route::get('message/all', [userController::class, 'allmessages'])->name('all_message');
 
 
 #------------User-Reviews----------->
@@ -104,6 +101,8 @@ Route::middleware('auth')->group(function (){
 
 
 
+   // Route::post('comment',[\App\Http\Controllers\HomeController::class,'postComment'])->name('postComment');
+   // Route::get('like',[\App\Http\Controllers\ReviewController::class,'pressLike'])->name('user_pressLike');
 #----------------------------------------------------Faq-------------------------------------------------#
 
     Route::middleware('admin')->prefix('faq')->group(function (){

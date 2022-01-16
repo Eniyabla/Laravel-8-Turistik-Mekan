@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
+use App\Models\Product;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ReviewController extends Controller
 {
@@ -31,6 +34,7 @@ class ReviewController extends Controller
     {
         //
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -92,4 +96,5 @@ class ReviewController extends Controller
         DB::table('reviews')->where('id', '=', $id)->delete();
         return redirect()->route('user_review')->with('success','Your review was successfully deleted!');
     }
+
 }

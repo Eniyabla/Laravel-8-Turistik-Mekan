@@ -16,6 +16,34 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
+
+    public function ProductList()
+    {
+        $datalist = Product::all();
+
+        return view('home.indexxx', ['datalist'=> $datalist]);
+    }
+    public function likeProduct($id)
+    {
+        $product = Product::find($id);
+
+        $product->like();
+        $product->save();
+
+        return redirect()->route('product_list')->with('message','Product Like successfully!');
+    }
+
+    public function unlikeProduct($id)
+    {
+        $product = Product::find($id);
+        $product->unlike();
+        $product->save();
+
+        return redirect()->route('product_list')->with('message','Product Like undo successfully!');
+    }
+
+
+
     public function index()
     {
         $datalist = Product::where('user_id',Auth::id())->get();
