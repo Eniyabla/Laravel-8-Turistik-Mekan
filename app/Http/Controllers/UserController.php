@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Livewire\Review;
 use App\Models\Message;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,8 +39,32 @@ class UserController extends Controller
     }
 
     public function index()
+
     {
-        return view('layouts.userprofile');
+
+        $name=User::where('id',Auth::id())->get()->first();
+
+        $messagesr=Message::where('status','Read')->where('name',$name->name)->count();
+        $messagesunr=Message::where('status','new')->where('name',$name->name)->count();
+        $messagesall=Message::where('name',$name->name)->count();
+        $reviews=\App\Models\Review::all()->count();
+        $productsall=Product::all()->where('user_id',Auth::id())->count();
+        $productsn=Product::where('status','false')->where('user_id',Auth::id())->count();
+        $products=Product::where('status','true')->where('user_id',Auth::id())->count();
+
+        $messages=Message::where('status','false')->count();
+
+        $data=[
+            'messagesunr'=>$messagesunr,
+            'messagesr'=>$messagesr,
+            'messagesall'=>$messagesall,
+            'reviews'=>$reviews,
+            'messages'=>$messages,
+            'products'=>$products,
+            'productsn'=>$productsn,
+            'productsall'=>$productsall,
+            ];
+        return view('layouts.account',$data);
     }
 
     /**

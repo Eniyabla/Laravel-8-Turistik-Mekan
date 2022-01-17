@@ -60,9 +60,7 @@ class MessageController extends Controller
      */
     public function edit(Message $message,$id)
     {
-
         $data = Message::find($id);
-        $data->status="Read";
         return view('admin.message_edit',['data'=>$data]);
     }
 
@@ -77,6 +75,7 @@ class MessageController extends Controller
     {
         $data=Message::find($id);
         $data->note=$request->Input('note');
+        $data->status="Read";
         $data->save();
         return back()->with('Success','Message Replied!');
     }

@@ -3,49 +3,36 @@
 namespace App\Http\Livewire;
 
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Like extends Component
 {
 
 
-    public $product;
-    public $user;
-
-    final public function mount($product): void
-    {
-        $this->user = Auth()->user();
-        $this->product = Product::findOrFail($product);
+    public $product_id,$record,$user_id ;
+    public function mount($product_id){
+        $this->record=Product::findOrFail($product_id);
+        $this->product_id=$this->record->id;
     }
 
-    final public function store(): void
+    public function likeproduct($product_id)
     {
-        if ($this->user->id === $this->product->user_id) {
-            $this->dispatchBrowserEvent('error', ['type' => 'error',  'message' => 'You Cannot Like Your Own product!']);
-
-            return;
+        $like = \App\Models\Like::where('product_id', $product_id)->where('user_id',Auth::id())->first();
+        if ($like) {
+            $like->delete();
+            return back();
+        } else {
+            \App\Models\Like::create([
+                'product_id' => $product_id,
+                'user_id'=>Auth::id(),
+            ]);
+            return back();
         }
-
-        $exist = Like::where('user_id', '=', $this->user->id)->where('product_id', '=', $this->product->id)->first();
-        if ($exist) {
-            $this->dispatchBrowserEvent('error', ['type' => 'error',  'message' => 'You Have Already Liked Or Disliked This product!']);
-
-            return;
-        }
-
-        $new = new Like();
-        $new->user_id = $this->user->id;
-        $new->product_id = $this->product->id;
-        $new->like = 1;
-        $new->save();
-
-        $this->dispatchBrowserEvent('success', ['type' => 'success',  'message' => 'Your Like Was Successfully Applied!']);
     }
-
-
-
     public function render()
     {
         return view('livewire.like');
     }
+
 }

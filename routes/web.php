@@ -33,7 +33,7 @@ Route::get('/place/{id}/{slug}', [App\Http\Controllers\HomeController::class,'pr
 Route::get('/categoryplaces/{id}', [App\Http\Controllers\HomeController::class,'categoryplaces'])->name('categoryplaces');
 
 
-Route::get('/placedetail/{id}', [App\Http\Controllers\HomeController::class,'placedetail'])->name('placedetail');
+Route::get('/placedetail/{id}', [App\Http\Controllers\HomeController::class,'product_detail'])->name('placedetail');
 Route::post('/getplace', [App\Http\Controllers\HomeController::class,'getplace'])->name('getplace');
 Route::get('/placelist/{search}', [App\Http\Controllers\HomeController::class,'placelist'])->name('placelist');
 
@@ -52,7 +52,7 @@ Route::prefix('userproduct')->group(function (){
 });
 
 
-Route::get('/product/{id}', [App\Http\Controllers\HomeController::class,'product_detail'])->name('product_detail');
+Route::get('/product-detail/{id}', [App\Http\Controllers\HomeController::class,'product_detail'])->name('product_detail');
 
 
 

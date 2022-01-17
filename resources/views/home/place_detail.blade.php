@@ -1,5 +1,4 @@
 @extends('layouts.master')
-
 @section('title',$data->title."Place Detail")
 @section('description', $data->description)
 @section('keywords',$data->keywords )

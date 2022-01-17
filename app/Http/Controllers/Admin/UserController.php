@@ -80,16 +80,16 @@ class UserController extends Controller
         return view('admin.user_roles',['datalist'=>$datalist,'data'=>$data]);
 
     }
-    public function userrolestore(Request $request,$id){
+    public function userrolestore(Request $request,$id,User $user){
         $user=User::find($id);
-        $roleid=$request->Input('role_id');
-        $user->roles()->attach($roleid);
+        $role_id=$request->Input('role_id');
+        $user->roles()->attach($role_id);
         return redirect()->back()->with('success','Role added to user successfully!');
 
     }
     public function userroledelete(Request $request,$userid,$role_id,User $user){
         $user=User::find($userid);
-        $user->roles()->detach('role_id');
+        $user->roles()->detach($role_id);
         return redirect()->back()->with('success','Role deleted from user successfully!');
 
     }

@@ -46,7 +46,7 @@
                             <label>Add Role</label>
                                 <div class="card">
                                     <div class="card-body">
-                                        <form  action="{{route('admin_user_role_store',['id'=>$dat->id])}}" method="post">
+                                        <form  action="{{route('admin_user_role_store',['id'=>$data->id])}}" method="post">
                                         @csrf
                                             <label for="role_id">Choose a role:</label>
                                             <select name="role_id">
@@ -78,3 +78,5 @@
     </div>
 </div>
 
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+<script src="{{ asset('assets/admin')}}/dist/js/pages/datatable/datatable-basic.init.js"></script>

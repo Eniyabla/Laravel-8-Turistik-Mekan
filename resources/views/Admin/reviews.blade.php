@@ -16,7 +16,7 @@
                                             <tr style="width: 80%">
                                                 <th># Id</th>
                                                 <th>Place_id</th>
-                                                <th>user_id</th>
+                                                <th>user</th>
                                                 <th style="width: 20px;">Ip</th>
                                                 <th>Subject</th>
                                                 <th>Review</th>
@@ -30,10 +30,10 @@
                                             <tr>
                                                 <td>{{ $data->id }}</td>
                                                 <td>{{ $data->place_id }}</td>
-                                                <td>{{ $data->user_id }}</td>
+                                                <td>{{ $data->user->name}}</td>
                                                 <td>{{ $data->ip }}</td>
                                                 <td>{{ $data->subject }}</td>
-                                                <td>{{ $data->review }}</td>
+                                                <td>@if( $data->review ){{ $data->review }} @else None @endif</td>
                                                 <td>{{ $data->rate }}</td>
                                                 <td>{{ $data->status }}</td>
                                                 <td colspan="2" style="text-align:center;">
@@ -56,7 +56,7 @@
 
 @endsection
 @section('footer')
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
-      <script src="{{ asset('assets/admin')}}/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="{{ asset('assets/admin')}}/dist/js/pages/datatable/datatable-basic.init.js"></script>
+
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+        <script src="{{ asset('assets/admin')}}/dist/js/pages/datatable/datatable-basic.init.js"></script>
 @endsection

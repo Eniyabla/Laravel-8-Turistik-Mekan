@@ -48,8 +48,6 @@ class ProductController extends Controller
         $data->title=$request->Input('title');
         $data->keywords=$request->Input('keywords');
         $data->description=$request->Input('description');
-     //$data->image=$request->file('image')->storeAs('images',$request->data()->id)
-      //$data->image=$request->file('image')->store('images');
         $data->image=Storage::putFile('images',$request->file('image'));
         $data->category_id=$request->Input('category_id');
         $data->user_id=Auth::id();
@@ -84,7 +82,7 @@ class ProductController extends Controller
     {
         $data = Product::find($id);
         $datalist= Category::with('children')->get();
-        return view('admin.product',['datalist'=>$datalist, 'data'=>$data]);
+        return view('admin.product_edit',['datalist'=>$datalist, 'data'=>$data]);
     }
 
     /**
@@ -128,6 +126,6 @@ class ProductController extends Controller
     public function destroy(Product $product,$id)
     {
         DB::table('products')->where('id','=',$id)->delete();
-        return redirect('admin_product');
+        return redirect()->route('admin_product');
     }
 }

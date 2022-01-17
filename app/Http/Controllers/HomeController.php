@@ -53,15 +53,7 @@ class HomeController extends Controller
     {
         return Review::where('place_id',$id)->where('status','act')->average('rate');
     }
-    public static function averageusereviews($id)
-    {
 
-       return DB::table('products')
-           ->join('users', 'users.id', '=', 'products.user_id')
-           ->join('reviews', 'products.user_id', '=', 'users.id')
-           ->where('reviews.id', '=', $id)
-           ->average('rate');
-    }
     public static function likes($id){
 
         return Like::where('product_id',$id)->count();
@@ -101,23 +93,7 @@ class HomeController extends Controller
         $reviews= Review::where('status','act')->where('place_id',$id)->get();
         return view('home.place_detail',['data'=>$data,'datalist'=>$datalist,'reviews'=>$reviews]);
     }
-    #comment+like
 
-    public function pressLike(Request $request)
-    {
-        $product = Product::find($request->product_id);
-        if($product->likes->contains('user_id',auth()->id())){
-
-            $product->likes()->where('user_id',auth()->id())->delete();
-        }else{
-            $product->likes()->create(['user_id'=>auth()->id()]);
-        }
-        $count = $product->likes()->count();
-        $pusherData['post_id'] = $product->id;
-        $pusherData['count'] = $count;
-        $this->push('likes',$pusherData);
-        return response()->json(['likes'=>$count]);
-    }
     public function getplace(Request $request){
         $search=$request->Input('search');
         $count=Product::where('title','like','%'.$search.'%')->get()->count();

@@ -26,8 +26,8 @@ class Review extends Component
     }
     public function store(){
         $this->validate([
-            'subject'=>'required|min:4',
-            'comment'=>'required|min:10',
+            'subject'=>'required|min:2',
+            'comment'=>'required|min:5',
             'rate'=>'required'
                 ]);
         \App\Models\Review::create([

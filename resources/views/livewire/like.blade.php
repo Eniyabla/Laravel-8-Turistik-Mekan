@@ -1,6 +1,27 @@
-<div style="display: inline;">
-    <a wire:click="store({{ $product->id }})" class="text-green" data-toggle="tooltip" style="margin-right: 16px;" data-original-title="@lang('forum.like')">
-        <i class="icon-like {{ config('other.font-awesome') }} fa-thumbs-up fa-2x @if(auth()->user()->likes()->where('product_id', '=', $product->id)->where('like', '=', 1)->first()) fa-beat @endif"></i>
-        <span class="count" style="font-size: 20px;">{{ $product->likes()->count() }}</span>
-    </a>
+
+<div class="product-price d-flex justify-content-between ">
+
+    @php
+        $likes=\App\Http\Controllers\HomeController::likes($product_id);
+        $comments=\App\Http\Controllers\HomeController::countreviews($product_id);
+        $check=\App\Http\Controllers\HomeController::check($product_id)
+    @endphp
+    @auth
+        <a   class="btn" href=""><i class="far fa-comments"></i>{{ $comments }}</a>
+        @if($check)
+            <a  class="btn" wire:click="likeproduct({{ $product_id }})"><i class="fas fa-thumbs-up"></i>{{$likes}}</a>
+
+        @else
+            <a class="btn"  wire:click="likeproduct({{ $product_id }})"><i class="far fa-thumbs-up"></i>{{$likes}}</a>
+        @endif
+    @else
+        <a   class="btn" href=""><i class="far fa-comments"></i>{{ $comments }}</a>
+        @if($check)
+            <a  class="btn" href="{{route('login')}}"><i class="fas fa-thumbs-up"></i>{{$likes}}</a>
+
+        @else
+            <a class="btn" href="{{route('login')}}"><i class="far fa-thumbs-up"></i>{{$likes}}</a>
+        @endif
+    @endauth
 </div>
+

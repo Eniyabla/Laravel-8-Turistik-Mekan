@@ -2,7 +2,8 @@
 @section('title', 'TUR-MEK | Product List')
 @section('content')
 @section('header')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
 @endsection
 <div class="container-fluid">
 
@@ -20,7 +21,6 @@
                                                 <th># Id</th>
                                                 <th>Catgory</th>
                                                 <th style="width: 20px;">Title</th>
-                                                <th>Country</th>
                                                 <th>City</th>
                                                 <th>Image</th>
                                                 <th>Galery</th>
@@ -32,10 +32,9 @@
                                         @foreach ($datalist as $dat)
                                             <tr>
                                                 <td>{{ $dat->id }}</td>
-                                                <td>{{ App\Http\Controllers\Admin\CategoryController::getParentsTree($data->category,$data->category->title)}}</td>
+                                                <td>{{ App\Http\Controllers\Admin\CategoryController::getParentsTree($dat->category,$dat->category->title)}}</td>
 
                                                 <td style="width: 20px;">{{ $dat->title }} </td>
-                                                <td>{{ $dat->country }}</td>
                                                 <td>{{ $dat->city }}</td>
                                                 <td>
                                                     @if($dat->image)
@@ -46,12 +45,10 @@
                                                 <td>{{ $dat->status }}</td>
                                                 <td colspan="2" style="text-align:center;">
                                                 <a href="{{route('admin_product_edit',['id'=>$dat->id])}}" >
-                                                      <img rel="icon"  width="20px" src="{{ asset('assets')}}/admin/images/edit.png">
-                                                 </a>
+                                                    <span style="color: green;"><i class="fa fa-edit" ></i></span>                                                 </a>
                                                  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                  <a href="{{route('admin_product_delete',['id'=>$dat->id])}}" onclick="return confirm('Are you sure to delete this record?') ">
-                                                      <img rel="icon"  width="20px" src="{{ asset('assets')}}/admin/images/del.png">
-                                                    </a>
+                                                     <span style="color: red;"><i class="fa fa-trash" ></i></span>                                                    </a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -67,7 +64,7 @@
 
 @endsection
 @section('footer')
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
-      <script src="{{ asset('assets/admin')}}/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="{{ asset('assets/admin')}}/dist/js/pages/datatable/datatable-basic.init.js"></script>
+
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+        <script src="{{ asset('assets/admin')}}/dist/js/pages/datatable/datatable-basic.init.js"></script>
 @endsection

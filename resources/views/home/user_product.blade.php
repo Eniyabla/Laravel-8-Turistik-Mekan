@@ -7,7 +7,8 @@
 @section('keywords',$setting->keywords )
 @section('location', $setting->location)
 @section('header')
-    <link href="{{ asset('assets/home')}}/css/accordion.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
 @endsection
 
 @section('footer')
@@ -101,8 +102,9 @@
 @endsection
 @section('footer')
 
-            <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
-            <script src="{{ asset('assets/home')}}/js/accordion.js"></script>
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+    <script src="{{ asset('assets/admin')}}/dist/js/pages/datatable/datatable-basic.init.js"></script>
 @endsection
 
 

@@ -97,5 +97,4 @@
 
 @endsection
 @section('footer')
-
 @endsection

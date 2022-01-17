@@ -2,16 +2,6 @@
 @section('title', 'TUR-MEK | Add Image')
 @section('header')
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-    <!-- include summernote css/js -->
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <link href="../assets/admin/extra-libs/c3/c3.min.css" rel="stylesheet">
-    <link href="../assets/admin/libs/chartist/dist/chartist.min.css" rel="stylesheet">
-    <link href="../assets/admin/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
-    <!-- Custom CSS -->
-    <link href="../assets/admin/dist/css/style.min.css" rel="stylesheet">
-    <link href="../assets/admin/dist/css/style.css" rel="stylesheet">
 @endsection
 @section('content')
     <div class="container-fluid">
@@ -90,5 +80,4 @@
 @endsection
 @section('footer')
 
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 @endsection

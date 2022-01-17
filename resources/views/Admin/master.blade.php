@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <!-- Favicon icon -->
-    <!--link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets')}}/admin/images/icon.png"-->
- <title>@yield('title')</title>
+<!--link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets')}}/admin/images/icon.png"-->
+    <title>@yield('title')</title>
     <!-- Custom CSS -->
-    <link href="{{ asset('assets')}}/admin/extra-libs/c3/c3.min.css" rel="stylesheet">
     <link href="{{ asset('assets')}}/admin/libs/chartist/dist/chartist.min.css" rel="stylesheet">
-    <link href="{{ asset('assets')}}/admin/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="{{ asset('assets')}}/admin/dist/css/style.min.css" rel="stylesheet">
     <link href="{{ asset('assets')}}/admin/dist/css/style.css" rel="stylesheet">
@@ -38,36 +38,33 @@
      data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
 
 
-@include('admin._header')
-@include('admin._sidebar')
-@section('content')
-@show
-@include('admin._footer')
+    @include('admin._header')
+    @include('admin._sidebar')
+    @section('content')
+    @show
+    @include('admin._footer')
 </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->
 </div>
 @section('footer')
-<script src="{{ asset('assets')}}/admin/libs/jquery/dist/jquery.min.js"></script>
-<script src="{{ asset('assets')}}/admin/libs/popper.js/dist/umd/popper.min.js"></script>
-<script src="{{ asset('assets')}}/admin/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- apps -->
-<!-- apps -->
-<script src="{{ asset('assets')}}/admin/dist/js/app-style-switcher.js"></script>
-<script src="{{ asset('assets')}}/admin/dist/js/feather.min.js"></script>
-<script src="{{ asset('assets')}}/admin/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-<script src="{{ asset('assets')}}/admin/dist/js/sidebarmenu.js"></script>
-<!--Custom JavaScript -->
-<script src="{{ asset('assets')}}/admin/dist/js/custom.min.js"></script>
-<!--This page JavaScript -->
-<script src="{{ asset('assets')}}/extra-libs/c3/d3.min.js"></script>
-<script src="{{ asset('assets')}}/extra-libs/c3/c3.min.js"></script>
-<script src="{{ asset('assets')}}/admin/libs/chartist/dist/chartist.min.js"></script>
-<script src="{{ asset('assets')}}/admin/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-<script src="{{ asset('assets')}}/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
-<script src="{{ asset('assets')}}/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
-<script src="{{ asset('assets')}}/admin/dist/js/pages/dashboards/dashboard1.min.js"></script>
+
+    <script src="{{ asset('assets')}}/admin/libs/jquery/dist/jquery.min.js"></script>
+    <script src="{{ asset('assets')}}/admin/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="{{ asset('assets')}}/admin/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- apps -->
+    <!-- apps -->
+    <script src="{{ asset('assets')}}/admin/dist/js/app-style-switcher.js"></script>
+    <script src="{{ asset('assets')}}/admin/dist/js/feather.min.js"></script>
+    <script src="{{ asset('assets')}}/admin/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="{{ asset('assets')}}/admin/dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="{{ asset('assets')}}/admin/dist/js/custom.min.js"></script>
+    <!--This page JavaScript -->
+    <script src="{{ asset('assets')}}/admin/libs/chartist/dist/chartist.min.js"></script>
+    <script src="{{ asset('assets')}}/admin/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+  <script src="{{ asset('assets')}}/admin/dist/js/pages/dashboards/dashboard1.min.js"></script>
 @section('footer')
 @show
 </body>

@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('admin.master')
 @section('title', 'TUR-MEK | Message List')
 @section('content')
 @section('header')
@@ -37,8 +37,8 @@
                                     <td>{{ $data->message}}</td>
                                     <td>{{ $data->status}}</td>
                                     <td colspan="2" style="text-align:center;">
-                                        <a href="{{route('admin_message_edit',['id'=>$data->id])}}" >
-                                           <span style="color:seagreen;"><i class="fas fa-edit">></i></span>
+                                        <a href="{{route('admin_message_edit',['id'=>$data->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=800,height=600') " >
+                                           <span style="color:seagreen;"><i class="fas fa-edit"></i></span>
                                         </a>
                                         &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <a href="{{route('admin_message_delete',['id'=>$data->id])}}" onclick="return confirm('Are you sure to delete this message?') ">
@@ -60,26 +60,9 @@
 
     @endsection
     @section('footer')
+
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
-        <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-        <!-- Bootstrap tether Core JavaScript-->
-        <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-        <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- apps -->
-        <!-- apps -->
-        <script src="../dist/js/app-style-switcher.js"></script>
-        <script src="../dist/js/feather.min.js"></script>
-        <!-- slimscrollbar scrollbar JavaScript -->
-        <script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-        <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
-        <!--Wave Effects -->
-        <!-- themejs -->
-        <!--Menu sidebar -->
-        <script src="../dist/js/sidebarmenu.js"></script>
-        <!--Custom JavaScript -->
-        <script src="../dist/js/custom.min.js"></script>
-        <!--This page plugins -->
-        <script src="../assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="../dist/js/pages/datatable/datatable-basic.init.js"></script>
+        <script src="{{ asset('assets/admin')}}/dist/js/pages/datatable/datatable-basic.init.js"></script>
+
 @endsection
 
