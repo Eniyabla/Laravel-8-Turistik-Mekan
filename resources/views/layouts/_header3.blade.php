@@ -16,7 +16,7 @@
         <input type="checkbox" id="input-hamburger" hidden>
         <ul class="menu">
             <li><a href="{{route('home')}}" class="menu-link">Home</a></li>
-            <li><a href="" class="menu-link">Products</a></li>
+            <li><a href="#products" class="menu-link">Products</a></li>
             <li><a href="{{route('aboutus')}}" class="menu-link">About Us</a></li>
             <li><a href="{{route('contactus')}}" class="menu-link">Contact Us</a></li>
             <li><a href="{{route('refernces')}}" class="menu-link">References</a></li>
@@ -45,7 +45,7 @@
             @auth
             <li class="has-dropdown">
                 <a href="#" class="menu-link">
-                    {{Auth::user()->name}}
+                   Hi, {{Auth::user()->name}}
                     <!--img src="{{Auth::user()->profile_photo_url}}" alt="user" style="margin: 0;padding: 0;"  class="rounded-circle"
                         height="20px" width="20"-->
                     <span class="arrow"></span>

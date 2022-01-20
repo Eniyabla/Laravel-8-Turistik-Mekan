@@ -688,7 +688,7 @@ h2 {
 .product-item .product-title {
     padding: 15px;
     text-align: center;
-    background: #000000;
+    background: white;
     transition: all .3s;
 }
 
@@ -704,7 +704,7 @@ h2 {
 
 .product-item .product-title a {
     margin-bottom: 5px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-size: 18px;
 }
 

@@ -44,7 +44,7 @@
                                                     <th>Review</th>
                                                     <th>Rate</th>
                                                     <th>Status</th>
-                                                    <th >Actions</th>
+                                                    <th colspan="2" >Actions</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -57,8 +57,14 @@
                                                         <td>{{$data->comment }}</td>
                                                         <td>{{ $data->rate }}</td>
                                                         <td>{{ $data->status }}</td>
-                                                        <td style="text-align:center;">
-                                                            <a href="{{route('user_review_delete',['id'=>$data->id])}}" onclick="return confirm('Are you sure to delete this record?') ">
+                                                        <td colspan="2" style="text-align:center;">
+                                                            @php
+                                                                $role=Auth::user()->roles->pluck('name');
+                                                            @endphp
+                                                            @if($role->contains('admin'))
+                                                                <a href="{{route('user_review_edit',['id'=>$data->id])}}"  onclick="return !window.open(this.href,'','top=50 left=100 width=800,height=600') " ><i style="color:green" class="fa fa-edit"></i></a>
+                                                                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            @endif  <a href="{{route('user_review_delete',['id'=>$data->id])}}" onclick="return confirm('Are you sure to delete this record?') ">
                                                                 <i style="color: red;" class="fas fa-trash-alt"></i>
                                                             </a>
                                                         </td>

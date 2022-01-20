@@ -52,7 +52,7 @@
                                                 @foreach ($datalist as $data)
                                                     <tr>
                                                         <td>{{ $data->id }}</td>
-                                                            <td>{{ $data->place_id }}</td>
+                                                        <td>{{ $data->place_id }}</td>
                                                         <td>{{ $data->user->name}}</td>
                                                         <td>{{ $data->ip }}</td>
                                                         <td>{{ $data->subject }}</td>
@@ -60,11 +60,17 @@
                                                         <td>{{ $data->rate }}</td>
                                                         <td>{{ $data->status }}</td>
                                                         <td colspan="2" style="text-align:center;">
-                                                            <a href="{{route('user_review_edit',['id'=>$data->id])}}"  onclick="return !window.open(this.href,'','top=50 left=100 width=800,height=600') " ><i style="color:green" class="fa fa-edit"></i></a>
-                                                            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            @php
+                                                                $role=Auth::user()->roles->pluck('name');
+                                                            @endphp
+                                                            @if($role->contains('admin'))
+                                                                <a href="{{route('user_review_edit',['id'=>$data->id])}}"  onclick="return !window.open(this.href,'','top=50 left=100 width=800,height=600') " ><i style="color:green" class="fa fa-edit"></i></a>
+                                                                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            @endif
                                                             <a href="{{route('user_review_delete',['id'=>$data->id])}}" onclick="return confirm('Are you sure to delete this record?') ">
                                                                 <i style="color: red;" class="fas fa-trash-alt"></i>
                                                             </a>
+
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -74,10 +80,10 @@
                                     </div>
                                 </div>
 
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
             </div>
         </div>
