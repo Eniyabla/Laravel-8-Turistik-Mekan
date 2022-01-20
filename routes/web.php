@@ -11,7 +11,7 @@ Route::get('user/message/replyed', [UserController::class, 'replyedmessage'])->n
 Route::get('user/message/unread', [UserController::class, 'unreadmessage'])->name('user_message_unread');
 Route::get('user/message/new', [UserController::class, 'newmessage'])->name('user_message_new');
 Route::get('user/message/read', [UserController::class, 'readmessage'])->name('user_message_read');
-
+Route::get('/delete/{id}', [App\Http\Controllers\UserController::class,'deletemessage'])->name('user_message_delete');
 Route::get('/test', [App\Http\Controllers\HomeController::class, 'test'])->name('test');
 
 #-----------------------------------------User/HomeController---------------------------------------->
@@ -41,6 +41,11 @@ Route::middleware('auth')->prefix('userreviews')->group(function (){
     Route::get('/edit/{id}', [App\Http\Controllers\ReviewController::class,'edit'])->name('user_review_edit');
     Route::get('/delete/{id}', [App\Http\Controllers\ReviewController::class,'destroy'])->name('user_review_delete');
     Route::get('/show', [App\Http\Controllers\ReviewController::class,'show'])->name('user_review_show');
+
+    Route::get('/new', [App\Http\Controllers\ReviewController::class,'newreview'])->name('user_new_review');
+    Route::get('/active', [App\Http\Controllers\ReviewController::class,'activereview'])->name('user_active_review');
+    Route::get('/inactive', [App\Http\Controllers\ReviewController::class,'inactivereview'])->name('user_inactive_review');
+
 });
 #----------------------------------------------------------------------------------------------------
 

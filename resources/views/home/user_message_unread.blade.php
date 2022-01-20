@@ -2,10 +2,7 @@
     $setting=\App\Http\Controllers\HomeController::getsetting();
 @endphp
 @extends('layouts.master')
-@section('title','Replied Messages')
-@section('description', $setting->description)
-@section('keywords',$setting->keywords )
-@section('location', $setting->location)
+@section('title','Unread Messages')
 @section('header')
     <link href="{{ asset('assets/home')}}/css/accordion.css" rel="stylesheet">
 @endsection
@@ -21,8 +18,8 @@
         <div class="container-fluid">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                <li class="breadcrumb-item"><a href="">Messages</a></li>
-                <li class="breadcrumb-item active">Replied Messages</li>
+                <li class="breadcrumb-item"><a href="{{route('myaccount')}}">Account</a></li>
+                <li class="breadcrumb-item active">Unread Messages</li>
             </ul>
         </div>
     </div>
@@ -30,7 +27,7 @@
         <div class="container-fluid">
             <div class="row">
                 @include('layouts._user_menu')
-                <div class="col-md-9" style="top:0;">
+                <div class="col-md-10" style="top:0;">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">
@@ -53,12 +50,8 @@
                                                         <td>{{ $data->subject }}</td>
                                                         <td>{{ $data->message}}</td>
                                                         <td>{{ $data->status }}</td>
-                                                        <td colspan="2" style="text-align:center;">
-                                                            <a href="{{route('admin_message_edit',['id'=>$data->id])}}" >
-                                                                <span style="color:seagreen;"><i class="fas fa-edit">></i></span>
-                                                            </a>
-                                                            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            <a href="{{route('admin_message_delete',['id'=>$data->id])}}" onclick="return confirm('Are you sure to delete this message?') ">
+                                                        <td style="text-align:center;">
+                                                            <a href="{{route('user_message_delete',['id'=>$data->id])}}" onclick="return confirm('Are you sure to delete this message?') ">
                                                                 <span style="color:red;"><i class="fas fa-trash"></i></span>
                                                             </a>
                                                         </td>

@@ -17,8 +17,21 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
+    public function inactivereview(){
+        $datalist = Review::where('user_id',Auth::id())->where('status','inact')->get();
+        return view('home.reviews_inactive', ['datalist'=> $datalist]);
+    }
+    public function activereview(){
+        $datalist = Review::where('user_id',Auth::id())->where('status','act')->get();
+        return view('home.reviews_active', ['datalist'=> $datalist]);
+    }
+    public function newreview(){
+        $datalist = Review::where('user_id',Auth::id())->where('status','new')->get();
+        return view('home.reviews_new', ['datalist'=> $datalist]);
+    }
 
-        public function index()
+
+    public function index()
     {
         $datalist = Review::where('user_id',Auth::id())->get();
         return view('home.reviews', ['datalist'=> $datalist]);

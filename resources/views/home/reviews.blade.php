@@ -41,10 +41,7 @@
                                                 <tr>
                                                     <th># Id</th>
                                                     <th>Place_id</th>
-                                                    <th>User</th>
-                                                    <th style="width: 20px;">Ip</th>
                                                     <th>Subject</th>
-                                                    <th>Review</th>
                                                     <th>Rate</th>
                                                     <th>Status</th>
                                                     <th colspan="2">Actions</th>
@@ -55,10 +52,7 @@
                                                     <tr>
                                                         <td>{{ $data->id }}</td>
                                                             <td>{{ $data->place_id }}</td>
-                                                        <td>{{ $data->user->name}}</td>
-                                                        <td>{{ $data->ip }}</td>
                                                         <td>{{ $data->subject }}</td>
-                                                        <td>{{ $data->comment }}</td>
                                                         <td>{{ $data->rate }}</td>
                                                         <td>{{ $data->status }}</td>
                                                         <td colspan="2" style="text-align:center;">

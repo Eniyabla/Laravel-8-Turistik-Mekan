@@ -3,9 +3,6 @@
 @endphp
 @extends('layouts.master')
 @section('title','Replyed Messages')
-@section('description', $setting->description)
-@section('keywords',$setting->keywords )
-@section('location', $setting->location)
 @section('header')
     <link href="{{ asset('assets/home')}}/css/accordion.css" rel="stylesheet">
 @endsection
@@ -21,8 +18,8 @@
         <div class="container-fluid">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                <li class="breadcrumb-item"><a href="">Messages</a></li>
-                <li class="breadcrumb-item active">Replied Messages</li>
+                <li class="breadcrumb-item"><a href="{{route('myaccount')}}">Account</a></li>
+                <li class="breadcrumb-item active">Replyed Messages</li>
             </ul>
         </div>
     </div>
@@ -30,7 +27,7 @@
         <div class="container-fluid">
             <div class="row">
                 @include('layouts._user_menu')
-                <div class="col-md-9" style="top:0;">
+                <div class="col-md-10" style="top:0;">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">

@@ -3,9 +3,6 @@
 @endphp
 @extends('layouts.master')
 @section('title','User Place Add')
-@section('description', $setting->description)
-@section('keywords',$setting->keywords )
-@section('location', $setting->location)
 @section('header')
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- include summernote css/js -->
@@ -21,6 +18,7 @@
         <div class="container-fluid">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{route('myaccount')}}">Account</a></li>
                 <li class="breadcrumb-item"><a href="{{route('user_product')}}">My Places</a></li>
                 <li class="breadcrumb-item active">Add Place</li>
             </ul>

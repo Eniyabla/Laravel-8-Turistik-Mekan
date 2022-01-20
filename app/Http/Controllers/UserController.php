@@ -33,14 +33,20 @@ class UserController extends Controller
     public function readmessage(){
         $id=Auth::id();
         $name=User::where('id',$id)->get()->first();
-        $datalist = Message::where('name',$name->name)->where('note','==','Read')->get();
+        $datalist = Message::where('name',$name->name)->where('status','=','Read')->get();
         return view('home.user_message_read', ['datalist'=> $datalist]);
     }
-    public function unread_message(){
+    public function unreadmessage(){
         $id=Auth::id();
         $name=User::where('id',$id)->get()->first();
-        $datalist = Message::where('name',$name->name)->where('note','<>','')->where('status','<>','Read')->get();
-        return view('home.user_unread_message', ['datalist'=> $datalist]);
+        $datalist = Message::where('name',$name->name)->where('status','<>','Read')->get();
+        return view('home.user_message_unread', ['datalist'=> $datalist]);
+    }
+    public function newmessage(){
+        $id=Auth::id();
+        $name=User::where('id',$id)->get()->first();
+        $datalist = Message::where('name',$name->name)->where('status','<>','Read')->get();
+        return view('home.user_message_unread', ['datalist'=> $datalist]);
     }
     public function allmessages(){
         $id=Auth::id();
@@ -49,6 +55,13 @@ class UserController extends Controller
 
         return view('home.all_message', ['datalist'=> $datalist]);
     }
+    public function deletemessage(Message $message, $id)
+    {
+        DB::table('messages')->where('id', '=', $id)->delete();
+        return redirect()->back()->with('success','Your message was successfully deleted!');
+
+    }
+
     public function wishlist(){
         $datalist = Product::where('product_id',\App\Models\Like::where('user_id',Auth::id()));
         return view('home.wishlist',['datalist'=>$datalist]);

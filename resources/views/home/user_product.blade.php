@@ -2,7 +2,7 @@
     $setting=\App\Http\Controllers\HomeController::getsetting();
 @endphp
 @extends('layouts.master')
-@section('title','User Profile')
+@section('title','User Product')
 @section('description', $setting->description)
 @section('keywords',$setting->keywords )
 @section('location', $setting->location)
@@ -23,6 +23,8 @@
         <div class="container-fluid">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{route('myaccount')}}">Account</a></li>
+
                 <li class="breadcrumb-item active">My Places</li>
             </ul>
         </div>
@@ -72,7 +74,7 @@
                                                     <td style="justify-content:center"><a href="{{route('user_image_add',['product_id'=>$data->id])}}"><i class="fas fa-images"></i></a></td>
                                                     <td>{{ $data->status }}</td>
                                                     <td colspan="2" style="text-align:center;">
-                                                        <a href="{{route('user_product_edit',['id'=>$data->id])}}" >
+                                                        <a onclick="return !window.open(this.href,'','top=50 left=100 width=800,height=600') " href="{{route('user_product_edit',['id'=>$data->id])}}" >
                                                             <img rel="icon"  width="20px" src="{{ asset('assets')}}/admin/images/edit.png">
                                                         </a>
                                                         &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

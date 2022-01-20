@@ -122,7 +122,7 @@ public function available_product(){
         $data->slug=$request->Input('slug');
         $data->status=$request->Input('status');
         $data->save();
-        return redirect()->route('user_product')->with('success','An Item has been successfully updated');;
+        return redirect()->back()->with('success','An Item has been successfully updated');;
     }
 
     /**
