@@ -41,8 +41,8 @@
                             <h2>Company Info</h2>
                             <ul>
                                 <li><a href="{{route('aboutus')}}">About Us</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">References</a></li>
+                                <li><a href="{{route('contactus')}}">Contact Us</a></li>
+                                <li><a href="{{route('refernces')}}">References</a></li>
                             </ul>
                         </div>
                     </div>
@@ -56,14 +56,14 @@
         <!-- Footer End -->
 
         <!-- Footer Bottom Start -->
-        <div class="footer-bottom">
+        <div class="footer-bottom" style="height: 50px" >
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 copyright">
+                    <div class="col-md-8 copyright">
                         <p>Copyright &copy;  @if(!Empty($setting->company))<a href="{{$setting->company}}">{{$setting->company}}</a>@endif. All Rights Reserved</p>
                     </div>
 
-                    <div class="col-md-6 template-by">
+                    <div class="col-md-4 template-by">
                         <p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>
                     </div>
                 </div>

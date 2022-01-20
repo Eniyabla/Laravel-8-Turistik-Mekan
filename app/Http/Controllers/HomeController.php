@@ -18,18 +18,19 @@ use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
 
+
     public function test(){
-        return view('layouts._comment');
+        return view('layouts._header3');
     }
     public function categoryplaces($id){
-        $datalist=Product::where('category_id',$id)->get();
+        $datalist=Product::where('category_id',$id)->where('status','true')->get();
         $data=Category::find($id);
         return view('home.categoryplaces',['datalist'=>$datalist,'data'=>$data]);
 
 
     }
     public static function categorylist(){
-        return Category::where('parent_id','=',0)->with('children')->get();
+        return Category::where('parent_id','=',0)->where('status','true')->with('children')->get();
     }
 
     public static function getsetting(){
@@ -38,11 +39,11 @@ class HomeController extends Controller
         return $setting;
     }
     public function faq(){
-        $datalist= Faq::all()->sortBy('position');
+        $datalist=Faq::where('status','true')->orderBy('position')->get();
         return view('home.faq',['datalist'=>$datalist]);
     }
     public static function slider(){
-        $slider=Product::select('id','title','image','country','slug')->limit(3)->get();
+        $slider=Product::select('id','title','image','country','slug')->where('status','true')->orderby('country')->limit(4)->get();
         return $slider;
     }
     public static function countreviews($id)
@@ -64,11 +65,11 @@ class HomeController extends Controller
     }
 
     public function index(){
-        $slider=Product::select('id','title','image','country','slug','city')->where('status','=','true')->limit(3)->inRandomOrder()->get();
-        $title=Product::select('id','title','image','country','slug','city')->where('status','=','true')->limit(6)->OrderBydesc('title')->get();
-        $country=Product::select('id','title','image','country','slug','city')->where('status','=','true')->limit(6)->OrderBydesc('country')->get();
-        $picked=Product::select('id','title','image','country','slug','city')->where('status','=','true')->limit(6)->get();
-        $latest=Product::select('id','title','image','country','slug','city')->where('status','=','true')->limit(6)->OrderBydesc('created_at')->get();
+        $slider=Product::select('id','title','image','country','slug','city')->where('status','=','true')->inRandomOrder()->limit(3)->get();
+        $title=Product::select('id','title','image','country','slug','city')->where('status','=','true')->limit(8)->OrderBydesc('title')->get();
+        $country=Product::select('id','title','image','country','slug','city')->where('status','=','true')->limit(8)->OrderBydesc('country')->get();
+        $picked=Product::select('id','title','image','country','slug','city')->where('status','=','true')->limit(8)->get();
+        $latest=Product::select('id','title','image','country','slug','city')->where('status','=','true')->limit(8)->OrderBydesc('created_at')->get();
 
         $topuser=User::select('name','profile_photo_path')->limit(3)->inRandomOrder()->get();
 
@@ -88,17 +89,32 @@ class HomeController extends Controller
         return view('home.index1',$data);
     }
     public function product_detail($id){
-        $data=Product::find($id);
+        $data=Product::where('status','true')->find($id);
         $datalist= Image::where('product_id',$id)->get();
         $reviews= Review::where('status','act')->where('place_id',$id)->get();
-        return view('home.place_detail',['data'=>$data,'datalist'=>$datalist,'reviews'=>$reviews]);
+        $rev1=Review::where('status','act')->where('place_id',$id)->where('rate',1)->count();
+        $rev2=Review::where('status','act')->where('place_id',$id)->where('rate',2)->count();
+        $rev3=Review::where('status','act')->where('place_id',$id)->where('rate',3)->count();
+        $rev4=Review::where('status','act')->where('place_id',$id)->where('rate',4)->count();
+        $rev5=Review::where('status','act')->where('place_id',$id)->where('rate',5)->count();
+        $alldata=[
+            'rev1'=>$rev1,
+            'rev2'=>$rev2,
+            'rev3'=>$rev3,
+            'rev4'=>$rev4,
+            'rev5'=>$rev5,
+            'datalist'=>$datalist,
+            'reviews'=>$reviews,
+            'data'=>$data
+        ];
+        return view('home.place_detail',$alldata);
     }
 
     public function getplace(Request $request){
         $search=$request->Input('search');
-        $count=Product::where('title','like','%'.$search.'%')->get()->count();
+        $count=Product::where('title','like','%'.$search.'%')->where('status','true')->get()->count();
         if($count==1){
-            $data=Product::where('title','like','%'.$search.'%')->get()->first();
+            $data=Product::where('title','like','%'.$search.'%')->where('status','true')->get()->first();
             return redirect()->route('product_detail',['id'=>$data->id]);
         }
         else{
@@ -108,7 +124,7 @@ class HomeController extends Controller
     }
     public function placelist($search){
 
-        $datalist=Product::where('title','like','%'.$search.'%')->get();
+        $datalist=Product::where('title','like','%'.$search.'%')->where('status','true')->get();
         return view('home.place_list',['datalist'=>$datalist]);
     }
 

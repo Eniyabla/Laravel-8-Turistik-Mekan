@@ -29,8 +29,8 @@
                     <div class="col-lg-12">
                         <div class="row">
 
-                            <div class="col-md-12">
-                                <div class="product-view-top">
+                            <!--div class="col-md-12">
+                                <--div class="product-view-top">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="product-search">
@@ -71,50 +71,45 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div-->
                             @foreach($datalist as $dat)
-                            <div class="col-md-3">
-                                <div class="product-item">
-                                    <div class="product-title">
-                                        <a href="#">{{$dat->title}}</a>
-                                        <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
+                                @php
+                                    $count=\App\Http\Controllers\HomeController::countreviews($dat->id);
+                                    $average=\App\Http\Controllers\HomeController::averagereviews($dat->id);
+                                    $average=round($average,1);
+                                @endphp
+                                <div class="col-md-3">
+                                    <div class="product-item">
+                                        <div class="product-title">
+                                            <a href="{{route('product_detail',['id'=>$dat->id])}}">{{$dat->title}}</a>
+                                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                                <small class="@if($average>=1) fa fa-star text-warning mr-1 @elseif($average<1 &&$average>0) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                                <small class="@if($average>=2) fa fa-star text-warning mr-1 @elseif($average<2 &&$average>1) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                                <small class="@if($average>=3) fa fa-star text-warning mr-1 @elseif($average<3 &&$average>2) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                                <small class="@if($average>=4) fa fa-star text-warning mr-1 @elseif($average<4 &&$average>3) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                                <small class="@if($average>=5) fa fa-star text-warning mr-1 @elseif($average<5 &&$average>4) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                                <small style="color:white;">({{$average}})</small>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="product-image">
-                                        <a href="{{route('product_detail',['id'=>$dat->id])}}">
-                                            <img src="{{Storage::url($dat->image)}}"height="180px" alt="{{$dat->title}}">
-                                        </a>
-                                        <div class="product-action">
-                                        
-                                            <a href="#"><i class="far fa-comments"></i></a>
-                                            <a href="#"><i class="fa fa-heart"></i></a>
-                                            <a class="" href=""><i style="color:blue;"class="fas fa-thumbs-down"></i></a>
-                                            <a class="" href=""><i style="color:red;"class="fas fa-thumbs-down"></i></i></a>
+                                        <div class="product-image">
+                                            <a href="{{route('product_detail',['id'=>$dat->id])}}">
+                                                <img src="{{Storage::url($dat->image)}}"height="180px" alt="{{$dat->title}}">
+                                            </a>
+                                            <div class="product-action">
+
+                                            </div>
                                         </div>
+                                        @livewire('like',['product_id'=>$dat->id])
+
                                     </div>
-                                    
-                                    <div class="product-price">
-                                        <h3><span>{{$dat->city}}</span></h3>
-                                        
-                                    </div>
-                                    
+                                    <br>
                                 </div>
-                               <span style="">
-                                <i style="color:blue;" class="fas fa-thumbs-up">5</i>
-                                <i style="color:red;"class="fas fa-thumbs-down">5</i>
-                                <i style="color:light;"class="far fa-comments">100</i>
-                            </span>
-                            </div>
-                            
-                                @endforeach
+
+
+                            @endforeach
                             </div>
                         </div>
-                        
+
                         <!-- Pagination Start -->
                         <div class="col-md-12">
                             <nav aria-label="Page navigation example">
@@ -132,10 +127,10 @@
                             </nav>
                         </div>
                         <!-- Pagination Start -->
-                    </div>           
-                    
+                    </div>
+
                     <!-- Side Bar Start -->
-                    
+
                     <!-- Side Bar End -->
                 </div>
             </div>

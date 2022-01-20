@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Image;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,7 @@ class ProductController extends Controller
     public function index()
     {
         $datalist = Product::where('user_id',Auth::id())->get();
-        $data = Category::all();
+        $data = Category::where('status','true');
         return view('home.user_product', ['datalist'=> $datalist]);
     }
 
@@ -31,7 +32,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $datalist= Category::with('children')->get();
+        $datalist= Category::with('children')->where('status','true')->get();
         return view('home.user_product_add',['datalist'=> $datalist]);
     }
 
@@ -47,7 +48,9 @@ class ProductController extends Controller
         $data->title=$request->Input('title');
         $data->keywords=$request->Input('keywords');
         $data->description=$request->Input('description');
-        $data->image=Storage::putFile('images',$request->file('image'));
+        if($request->file('image')!=null){
+            $data->image=Storage::putFile('images',$request->file('image'));
+        }
         $data->category_id=$request->Input('category_id');
         $data->user_id=Auth::id();
         $data->detail=$request->Input('detail');
@@ -92,7 +95,14 @@ class ProductController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
 
-
+public function new_product(){
+    $datalist=Product::where('user_id',Auth::id())->where('status','false')->get();
+    return view('home.user_product_new',['datalist'=>$datalist]);
+}
+public function available_product(){
+    $datalist=Product::where('user_id',Auth::id())->where('status','true')->get();
+    return view('home.user_product_active',['datalist'=>$datalist]);
+}
     public function update(Request $request, Product $product,$id)
     {
 
@@ -100,9 +110,8 @@ class ProductController extends Controller
         $data->title=$request->Input('title');
         $data->keywords=$request->Input('keywords');
         $data->description=$request->Input('description');
-
         if($request->file('image')!=null){
-        $data->image=Storage::putFile('images',$request->file('image'));
+            $data->image=Storage::putFile('images',$request->file('image'));
         }
         $data->category_id=$request->Input('category_id');
         $data->user_id=Auth::id();

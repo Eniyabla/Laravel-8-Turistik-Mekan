@@ -32,8 +32,73 @@
 
 
 <body>
+@php
+    use App\Http\Controllers\HomeController;
+    $setting=HomeController::getsetting();
+    $parentCategories = \App\Http\Controllers\HomeController::categoryList()
+@endphp
 
-@include('layouts._header')
+<div class="top-bar" style="background-color:white;color: red;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <i class="fa fa-envelope"></i>
+                @if(!Empty($setting->email)){{$setting->email}}@endif
+
+            </div>
+            <div class="col-sm-6">
+                <i class="fas fa-phone-alt"></i>
+                @if(!Empty($setting->phone)){{$setting->phone}}@endif
+            </div>
+
+        </div>
+    </div>
+</div>
+@include('layouts._header3')
+
+<div class="bottom-bar">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-2">
+                <div class="logo">
+                    <a href="{{route('home')}}" >
+                        <h2 style="font-family: 'Segoe UI Black';font-size: 30px;" ><span style="color:red;">TUR</span><span style="color:black;">MEK</span></h2>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+
+
+                <div class="search">
+                    <form action="{{route('getplace')}}" method="post">
+                        @csrf
+                        @livewire('search')
+                        <button><i class="fa fa-search"></i></button>
+                    </form>
+                    @livewireScripts
+                </div>
+
+
+            </div>
+            <div class="col-md-2"></div>
+            <!--div class="col-md-3">
+                <div class="user">
+                    <a href="wishlist.html" class="btn wishlist">
+                        <i class="fa fa-heart"></i>
+                        <span>(0)</span>
+                    </a>
+                    <a href="cart.html" class="btn cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>(0)</span>
+                    </a>
+                </div>
+            </div-->
+        </div>
+    </div>
+</div>
+
+
 @section('content')
 @show
 

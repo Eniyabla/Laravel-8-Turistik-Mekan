@@ -23,10 +23,10 @@
                 <!------------------------------------------------------------->
 
 
-                <div class="col-lg-12">
+                <!--div class="col-lg-12">
                     <div class="row">
 
-                        <div class="col-md-12">
+                        <div-- class="col-md-12">
                             <div class="product-view-top">
                                 <div class="row">
                                     <div class="col-md-4">
@@ -40,7 +40,7 @@
                                             <div class="dropdown">
                                                 <div class="dropdown-toggle" data-toggle="dropdown">Product short by</div>
                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                    <a href="#" class="dropdown-item">Newest</a>
+                                                    <a href="" class="dropdown-item">Newest</a>
                                                     <a href="#" class="dropdown-item">Popular</a>
                                                     <a href="#" class="dropdown-item">Most sale</a>
                                                 </div>
@@ -68,18 +68,24 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div-->
                         @foreach($datalist as $dat)
+                            @php
+                                $count=\App\Http\Controllers\HomeController::countreviews($dat->id);
+                                $average=\App\Http\Controllers\HomeController::averagereviews($dat->id);
+                                $average=round($average,1);
+                            @endphp
                             <div class="col-md-3">
                                 <div class="product-item">
                                     <div class="product-title">
-                                        <a href="#">{{$dat->title}}</a>
-                                        <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
+                                        <a href="{{route('product_detail',['id'=>$dat->id])}}">{{$dat->title}}</a>
+                                        <div class="d-flex align-items-center justify-content-center mb-1">
+                                            <small class="@if($average>=1) fa fa-star text-warning mr-1 @elseif($average<1 &&$average>0) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                            <small class="@if($average>=2) fa fa-star text-warning mr-1 @elseif($average<2 &&$average>1) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                            <small class="@if($average>=3) fa fa-star text-warning mr-1 @elseif($average<3 &&$average>2) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                            <small class="@if($average>=4) fa fa-star text-warning mr-1 @elseif($average<4 &&$average>3) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                            <small class="@if($average>=5) fa fa-star text-warning mr-1 @elseif($average<5 &&$average>4) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                            <small style="color:white;">({{$average}})</small>
                                         </div>
                                     </div>
                                     <div class="product-image">
@@ -88,27 +94,17 @@
                                         </a>
                                         <div class="product-action">
 
-                                            <a href="#"><i class="far fa-comments"></i></a>
-                                            <a href="#"><i class="fa fa-heart"></i></a>
-                                            <a class="" href=""><i style="color:blue;"class="fas fa-thumbs-down"></i></a>
-                                            <a class="" href=""><i style="color:red;"class="fas fa-thumbs-down"></i></a>
                                         </div>
                                     </div>
-
-                                    <div class="product-price">
-                                        <h3><span>{{$dat->city}}</span></h3>
-
-                                    </div>
+                                    @livewire('like',['product_id'=>$dat->id])
 
                                 </div>
-                                <span style="">
-                                <i style="color:blue;" class="fas fa-thumbs-up">5</i>
-                                <i style="color:red;"class="fas fa-thumbs-down">5</i>
-                                <i style="color:white;" class="far fa-comments">100</i>
-                            </span>
+                                <br>
                             </div>
 
+
                         @endforeach
+
                     </div>
                 </div>
 

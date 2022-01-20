@@ -9,7 +9,7 @@ class Search extends Component
     public $search="";
     public function render()
     {
-        $datalist=Product::where('title','like','%'.$this->search.'%')->get();
+        $datalist=Product::where('title','like','%'.$this->search.'%')->where('status','true')->get();
         return view('livewire.search',['datalist'=>$datalist,'query'=>$this->search]);
     }
    #return view('livewire.search');

@@ -2,7 +2,7 @@
     $setting=\App\Http\Controllers\HomeController::getsetting();
 @endphp
 @extends('layouts.master')
-@section('title','Replied Messages')
+@section('title','Replyed Messages')
 @section('description', $setting->description)
 @section('keywords',$setting->keywords )
 @section('location', $setting->location)
@@ -20,8 +20,8 @@
     <div class="breadcrumb-wrap">
         <div class="container-fluid">
             <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item"><a href="/">Messages</a></li>
+                <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="">Messages</a></li>
                 <li class="breadcrumb-item active">Replied Messages</li>
             </ul>
         </div>

@@ -1,12 +1,14 @@
+@foreach($children as $pc)
+    @if(count($pc->children))
+        <li class="has-dropdown">
+            <a href="#" class="menu-link">{{$pc->title}}
+                <span class="arrow"></span>
+            </a>
+            <ul class="submenu">
+                @include('layouts.drop1', ['children' => $pc->children])
+            </ul>
+    @else
+        <li><a href="{{route('categoryplaces',['id'=>$pc->id])}}" class="menu-link">{{$pc->title}}</a></li>
 
-
-<li class="has-children">
-    <a href="#0">{{$pc->title}}</a>
-    <ul class="is-hidden">
-        <li class="go-back"><a href="#0">Bottoms</a></li>
-        <li class="see-all"><a href="http://codyhouse.co/?p=748">All Jeans</a></li>
-        @foreach($children as $subc)
-            <li><a href="{{route('categoryplaces',['id'=>$pc->title])}}">{{$pc->title}}</a></li>
-        @endforeach
-    </ul>
-</li>
+    @endif
+@endforeach

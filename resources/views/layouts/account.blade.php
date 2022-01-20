@@ -31,21 +31,20 @@ $setting=\App\Http\Controllers\HomeController::getsetting();
         <div class="container-fluid">
             <!-- *************************************************************** -->
             <!-- Start First Cards -->
+
             <!-- *************************************************************** -->
             <div class="card-group">
                 <div class="card border-right">
-                    <div class="card-body">
-                        <div class="d-flex d-lg-flex d-md-block align-items-center">
-                            <div>
-                                <div class="d-inline-flex align-items-center">
-                                    <h2 class="text-dark mb-1 font-weight-medium">{{$messagesr}}</h2>
-                                    <span
-                                        class="badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none"></span>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex d-lg-flex d-md-block align-items-center">
+                                <div>
+                                    <h4 class="text-dark mb-1 font-weight-medium">{{$messagesn}}</h4>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate"><a href="{{route('user_message_new')}}">New Products</a></h6>
                                 </div>
-                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Read Messages</h6>
-                            </div>
-                            <div class="ml-auto mt-md-3 mt-lg-0">
-                                <span class="opacity-7 text-muted"><i data-feather="user-plus"></i></span>
+                                <div class="ml-auto mt-md-3 mt-lg-0">
+                                    <span class="opacity-7 text-muted"><i data-feather="globe"></i></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -54,8 +53,8 @@ $setting=\App\Http\Controllers\HomeController::getsetting();
                     <div class="card-body">
                         <div class="d-flex d-lg-flex d-md-block align-items-center">
                             <div>
-                                <h2 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup
-                                        class="set-doller"></sup>{{$products}}</h2>
+                                <h4 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup
+                                        class="set-doller"></sup>{{$products}}</h4>
                                 <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">New Products
                                 </h6>
                             </div>
@@ -70,7 +69,7 @@ $setting=\App\Http\Controllers\HomeController::getsetting();
                         <div class="d-flex d-lg-flex d-md-block align-items-center">
                             <div>
                                 <div class="d-inline-flex align-items-center">
-                                    <h2 class="text-dark mb-1 font-weight-medium">{{$messages}}</h2>
+                                    <h4 class="text-dark mb-1 font-weight-medium">{{$messages}}</h4>
                                     <span
                                         class="badge bg-danger font-12 text-white font-weight-medium badge-pill ml-2 d-md-none d-lg-block">-18.33%</span>
                                 </div>
@@ -86,8 +85,8 @@ $setting=\App\Http\Controllers\HomeController::getsetting();
                     <div class="card-body">
                         <div class="d-flex d-lg-flex d-md-block align-items-center">
                             <div>
-                                <h2 class="text-dark mb-1 font-weight-medium">{{$productsn}}</h2>
-                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">New Products</h6>
+                                <h4 class="text-dark mb-1 font-weight-medium">{{$productsn}}</h4>
+                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate"><a href="{{route('user_product_new')}}">New Products</a></h6>
                             </div>
                             <div class="ml-auto mt-md-3 mt-lg-0">
                                 <span class="opacity-7 text-muted"><i data-feather="globe"></i></span>
@@ -99,20 +98,18 @@ $setting=\App\Http\Controllers\HomeController::getsetting();
 
 
 
-            <div class="card-group">
+            <div class="card-group" >
                 <div class="card border-right">
-                    <div class="card-body">
-                        <div class="d-flex d-lg-flex d-md-block align-items-center">
-                            <div>
-                                <div class="d-inline-flex align-items-center">
-                                    <h2 class="text-dark mb-1 font-weight-medium">{{$messagesunr}}</h2>
-                                    <span
-                                        class="badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none"></span>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex d-lg-flex d-md-block align-items-center">
+                                <div>
+                                    <h4 class="text-dark mb-1 font-weight-medium">{{$messagesr}}</h4>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate"><a style="color:green;" href="{{route('user_message_read')}}">Read Messages</h6>
                                 </div>
-                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">UnRead Messages</h6>
-                            </div>
-                            <div class="ml-auto mt-md-3 mt-lg-0">
-                                <span class="opacity-7 text-muted"><i data-feather="user-plus"></i></span>
+                                <div class="ml-auto mt-md-3 mt-lg-0">
+                                    <span class="opacity-7 text-muted"><i data-feather="globe"></i></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -121,8 +118,8 @@ $setting=\App\Http\Controllers\HomeController::getsetting();
                     <div class="card-body">
                         <div class="d-flex d-lg-flex d-md-block align-items-center">
                             <div>
-                                <h2 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup
-                                        class="set-doller"></sup>{{$products}}</h2>
+                                <h4 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup
+                                        class="set-doller"></sup>{{$products}}</h4>
                                 <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Active Products
                                 </h6>
                             </div>
@@ -137,7 +134,7 @@ $setting=\App\Http\Controllers\HomeController::getsetting();
                         <div class="d-flex d-lg-flex d-md-block align-items-center">
                             <div>
                                 <div class="d-inline-flex align-items-center">
-                                    <h2 class="text-dark mb-1 font-weight-medium">{{$messages}}</h2>
+                                    <h4 class="text-dark mb-1 font-weight-medium">{{$messages}}</h4>
                                     <span
                                         class="badge bg-danger font-12 text-white font-weight-medium badge-pill ml-2 d-md-none d-lg-block">-18.33%</span>
                                 </div>
@@ -153,8 +150,73 @@ $setting=\App\Http\Controllers\HomeController::getsetting();
                     <div class="card-body">
                         <div class="d-flex d-lg-flex d-md-block align-items-center">
                             <div>
-                                <h2 class="text-dark mb-1 font-weight-medium">{{$products}}</h2>
-                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Active Products</h6>
+                                <h4 class="text-dark mb-1 font-weight-medium">{{$products}}</h4>
+                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate"><a style="color:green;" href="{{route('user_product_active')}}">Active Products</h6>
+                            </div>
+                            <div class="ml-auto mt-md-3 mt-lg-0">
+                                <span class="opacity-7 text-muted"><i data-feather="globe"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card-group">
+                <div class="card border-right">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex d-lg-flex d-md-block align-items-center">
+                                <div class="align-items-center">
+                                    <h4 class="text-dark mb-1 font-weight-medium">{{$messagesall}}</h4>
+                                    <h6 class="text-muted font-weight-normal mb-2 w-100 text-truncate"> <a class="nav-link" href="{{route('all_message')}}" role="tab">All Messages</a></h6>
+
+                                </div>
+                                <div class="ml-auto mt-md-3 mt-lg-0">
+                                    <span class="opacity-7 text-muted"><i data-feather="globe"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card border-right">
+                    <div class="card-body">
+                        <div class="d-flex d-lg-flex d-md-block align-items-center">
+                            <div>
+                                <h4 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup
+                                        class="set-doller"></sup></h4>
+                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Ne Products
+                                </h6>
+                            </div>
+                            <div class="ml-auto mt-md-3 mt-lg-0">
+                                <span class="opacity-7 text-muted"><i data-feather="dollar-sign"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card border-right">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex d-lg-flex d-md-block align-items-center">
+                                <div class="align-items-center">
+                                    <h4 class="text-dark mb-1 font-weight-medium">{{$messagesall}}</h4>
+                                    <h6 class="text-muted font-weight-normal mb-2 w-100 text-truncate"> <a class="nav-link" href="{{route('user_product')}}" role="tab">All Products</a></h6>
+
+                                </div>
+                                <div class="ml-auto mt-md-3 mt-lg-0">
+                                    <span class="opacity-7 text-muted"><i data-feather="globe"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex d-lg-flex d-md-block align-items-center">
+                            <div class="align-items-center">
+                                <h4 class="text-dark mb-1 font-weight-medium">{{$productsall}}</h4>
+                                <h6 class="text-muted font-weight-normal mb-2 w-100 text-truncate"> <a class="nav-link" href="{{route('user_product')}}" role="tab">All Products</a></h6>
+
                             </div>
                             <div class="ml-auto mt-md-3 mt-lg-0">
                                 <span class="opacity-7 text-muted"><i data-feather="globe"></i></span>
@@ -171,11 +233,11 @@ $setting=\App\Http\Controllers\HomeController::getsetting();
                         <div class="d-flex d-lg-flex d-md-block align-items-center">
                             <div>
                                 <div class="d-inline-flex align-items-center">
-                                    <h2 class="text-dark mb-1 font-weight-medium">{{$messagesall}}</h2>
+                                    <h4 class="text-dark mb-1 font-weight-medium">{{$reviewsnew}}</h4>
                                     <span
                                         class="badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none"></span>
                                 </div>
-                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">All Messages</h6>
+                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">New Reviews</h6>
                             </div>
                             <div class="ml-auto mt-md-3 mt-lg-0">
                                 <span class="opacity-7 text-muted"><i data-feather="user-plus"></i></span>
@@ -187,9 +249,9 @@ $setting=\App\Http\Controllers\HomeController::getsetting();
                     <div class="card-body">
                         <div class="d-flex d-lg-flex d-md-block align-items-center">
                             <div>
-                                <h2 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup
-                                        class="set-doller"></sup></h2>
-                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Ne Products
+                                <h4 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup
+                                        class="set-doller"></sup>{{$reviewsactive}}</h4>
+                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Activate Reviews
                                 </h6>
                             </div>
                             <div class="ml-auto mt-md-3 mt-lg-0">
@@ -203,11 +265,11 @@ $setting=\App\Http\Controllers\HomeController::getsetting();
                         <div class="d-flex d-lg-flex d-md-block align-items-center">
                             <div>
                                 <div class="d-inline-flex align-items-center">
-                                    <h2 class="text-dark mb-1 font-weight-medium">{{$messagesall}}</h2>
+                                    <h4 class="text-dark mb-1 font-weight-medium">{{$reviewsinactive}}</h4>
                                     <span
-                                        class="badge bg-danger font-12 text-white font-weight-medium badge-pill ml-2 d-md-none d-lg-block">-18.33%</span>
+                                        class="badge bg-danger font-12 text-white font-weight-medium badge-pill ml-2 d-md-none d-lg-block"></span>
                                 </div>
-                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">All Messages</h6>
+                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Inactive Reviews</h6>
                             </div>
                             <div class="ml-auto mt-md-3 mt-lg-0">
                                 <span class="opacity-7 text-muted"><i data-feather="file-plus"></i></span>
@@ -219,8 +281,8 @@ $setting=\App\Http\Controllers\HomeController::getsetting();
                     <div class="card-body">
                         <div class="d-flex d-lg-flex d-md-block align-items-center">
                             <div>
-                                <h2 class="text-dark mb-1 font-weight-medium">{{$productsall}}</h2>
-                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">All Products</h6>
+                                <h4 class="text-dark mb-1 font-weight-medium">{{$reviewsall}}</h4>
+                                <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">All Reviews</h6>
                             </div>
                             <div class="ml-auto mt-md-3 mt-lg-0">
                                 <span class="opacity-7 text-muted"><i data-feather="globe"></i></span>
@@ -229,8 +291,7 @@ $setting=\App\Http\Controllers\HomeController::getsetting();
                     </div>
                 </div>
             </div>
-
-
+<br><br>
 
 
         </div>

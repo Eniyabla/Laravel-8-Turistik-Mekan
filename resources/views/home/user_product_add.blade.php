@@ -7,10 +7,10 @@
 @section('keywords',$setting->keywords )
 @section('location', $setting->location)
 @section('header')
-    <link href="{{ asset('assets/home')}}/css/accordion.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- include summernote css/js -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
-  
 @endsection
 
 
@@ -30,7 +30,7 @@
         <div class="container-fluid">
             <div class="row">
                 @include('layouts._user_menu')
-                <div class="col-md-9" style="top:0;">
+                <div class="col-md-10" style="top:0;">
 
                     <div class="container-fluid">
 

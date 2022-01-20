@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Livewire\Like;
 use App\Http\Livewire\Review;
 use App\Models\Message;
 use App\Models\Product;
@@ -23,47 +24,77 @@ class UserController extends Controller
         return view('home.reviews', ['datalist'=> $datalist]);
     }
 
-    public function repliedmessage(){
+    public function replyedmessage(){
         $id=Auth::id();
         $name=User::where('id',$id)->get()->first();
-        $datalist = Message::where('name',$name->name)->where('status','=','Read')->get();
-
-        return view('home.received_message', ['datalist'=> $datalist]);
+        $datalist = Message::where('name',$name->name)->where('note','<>','')->where('status','=','Read')->get();
+        return view('home.user_replyed_message', ['datalist'=> $datalist]);
+    }
+    public function readmessage(){
+        $id=Auth::id();
+        $name=User::where('id',$id)->get()->first();
+        $datalist = Message::where('name',$name->name)->where('note','==','Read')->get();
+        return view('home.user_message_read', ['datalist'=> $datalist]);
+    }
+    public function unread_message(){
+        $id=Auth::id();
+        $name=User::where('id',$id)->get()->first();
+        $datalist = Message::where('name',$name->name)->where('note','<>','')->where('status','<>','Read')->get();
+        return view('home.user_unread_message', ['datalist'=> $datalist]);
     }
     public function allmessages(){
         $id=Auth::id();
         $name=User::where('id',$id)->get()->first();
         $datalist = Message::where('name',$name->name)->get();
 
-        return view('home.sent_message', ['datalist'=> $datalist]);
+        return view('home.all_message', ['datalist'=> $datalist]);
+    }
+    public function wishlist(){
+        $datalist = Product::where('product_id',\App\Models\Like::where('user_id',Auth::id()));
+        return view('home.wishlist',['datalist'=>$datalist]);
     }
 
-    public function index()
-
+    public function user_profile()
     {
+        return view('layouts.userprofile');
+    }
+
+    public function index(){
 
         $name=User::where('id',Auth::id())->get()->first();
 
         $messagesr=Message::where('status','Read')->where('name',$name->name)->count();
+        $messagesrep=Message::where('note','<>','')->where('name',$name->name)->count();
         $messagesunr=Message::where('status','new')->where('name',$name->name)->count();
+        $messages=Message::where('status','false')->count();
+        $messagesn=Message::where('status','false')->count();
+
         $messagesall=Message::where('name',$name->name)->count();
-        $reviews=\App\Models\Review::all()->count();
+        $reviewsactive=\App\Models\Review::Where('status','act')->where('user_id',Auth::id())->count();
+        $reviewsinactive=\App\Models\Review::Where('status','inact')->where('user_id',Auth::id())->count();
+        $reviewsnew=\App\Models\Review::Where('status','new')->where('user_id',Auth::id())->count();
+        $reviewsall=\App\Models\Review::where('user_id',Auth::id())->count();
+
         $productsall=Product::all()->where('user_id',Auth::id())->count();
         $productsn=Product::where('status','false')->where('user_id',Auth::id())->count();
         $products=Product::where('status','true')->where('user_id',Auth::id())->count();
-
-        $messages=Message::where('status','false')->count();
 
         $data=[
             'messagesunr'=>$messagesunr,
             'messagesr'=>$messagesr,
             'messagesall'=>$messagesall,
-            'reviews'=>$reviews,
+            'messagesrep'=>$messagesrep,
+            'messagesn'=>$messagesn,
             'messages'=>$messages,
+
+            'reviewsnew'=>$reviewsnew,
+            'reviewsactive'=>$reviewsactive,
+            'reviewsinactive'=>$reviewsinactive,
+            'reviewsall'=>$reviewsall,
             'products'=>$products,
             'productsn'=>$productsn,
             'productsall'=>$productsall,
-            ];
+        ];
         return view('layouts.account',$data);
     }
 

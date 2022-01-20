@@ -51,20 +51,15 @@
 @section('footer')
 
     <script src="{{ asset('assets')}}/admin/libs/jquery/dist/jquery.min.js"></script>
-    <script src="{{ asset('assets')}}/admin/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="{{ asset('assets')}}/admin/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- apps -->
     <!-- apps -->
-    <script src="{{ asset('assets')}}/admin/dist/js/app-style-switcher.js"></script>
     <script src="{{ asset('assets')}}/admin/dist/js/feather.min.js"></script>
     <script src="{{ asset('assets')}}/admin/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
     <script src="{{ asset('assets')}}/admin/dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="{{ asset('assets')}}/admin/dist/js/custom.min.js"></script>
     <!--This page JavaScript -->
-    <script src="{{ asset('assets')}}/admin/libs/chartist/dist/chartist.min.js"></script>
-    <script src="{{ asset('assets')}}/admin/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-  <script src="{{ asset('assets')}}/admin/dist/js/pages/dashboards/dashboard1.min.js"></script>
 @section('footer')
 @show
 </body>

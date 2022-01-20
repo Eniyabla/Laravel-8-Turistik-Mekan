@@ -22,7 +22,6 @@
                                 <th>Name</th>
                                 <th >Email</th>
                                 <th>Subject</th>
-                                <th>Messages</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -34,7 +33,6 @@
                                     <td>{{ $data->name }}</td>
                                     <td>{{ $data->email}}</td>
                                     <td>{{ $data->subject }}</td>
-                                    <td>{{ $data->message}}</td>
                                     <td>{{ $data->status}}</td>
                                     <td colspan="2" style="text-align:center;">
                                         <a href="{{route('admin_message_edit',['id'=>$data->id])}}" onclick="return !window.open(this.href,'','top=50 left=100 width=800,height=600') " >

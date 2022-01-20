@@ -64,7 +64,7 @@
                                             <img src="{{Storage::url($img->image)}}" style="display: block;margin-left: auto;margin-right: auto;width: 100px;" alt="">
                                         @endif
                                     </td>
-                                    <td><a href="{{route('admin_image_delete', ['id'=> $img->id,'product_id'=>$data->id])}}" onclick="return confirm('Are You Sure to delete this image?')" class=""><i class="fas fa-trash"></i></a></td>
+                                    <td><a href="{{route('admin_image_delete', ['id'=> $img->id,'product_id'=>$data->id])}}" onclick="return confirm('Are You Sure to delete this image?')" class=""><i style="color: red;" class="fas fa-trash"></i></a></td>
                                 </tr>
                             @endforeach
                             </tbody>

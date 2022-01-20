@@ -1,11 +1,22 @@
+@extends('layouts.master')
 @php
     use App\Http\Controllers\HomeController;$setting=HomeController::getsetting();
 @endphp
-@extends('layouts.master')
-
 @section('title', 'References')
 @section('content')
-    <strong>References </strong><br>
-    @if(!Empty($setting->references)) {!!($setting->references )!!} @endif
-    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                @if(!Empty($setting->references)) {!!($setting->references )!!} @endif
+                <br>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
 @endsection

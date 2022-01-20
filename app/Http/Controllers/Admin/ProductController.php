@@ -12,23 +12,13 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
-     */
+
     public function index()
     {
         $datalist = Product::all();
         $data = Category::all();
         return view('admin.product', ['datalist'=> $datalist,'data'=>$data]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
-     */
     public function create()
     {
 
@@ -36,12 +26,7 @@ class ProductController extends Controller
         return view('admin.product_add',['datalist'=> $datalist]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
+
     public function store(Request $request)
     {
         $data= new Product;
@@ -61,37 +46,13 @@ class ProductController extends Controller
         return redirect()->route('admin_product');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
-     */
     public function edit(Product $product,$id)
     {
         $data = Product::find($id);
         $datalist= Category::with('children')->get();
         return view('admin.product_edit',['datalist'=>$datalist, 'data'=>$data]);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
-     */
 
 
     public function update(Request $request, Product $product,$id)
@@ -103,7 +64,7 @@ class ProductController extends Controller
         $data->description=$request->Input('description');
 
         if($request->file('image')!=null){
-        $data->image=Storage::putFile('images',$request->file('image'));
+            $data->image=Storage::putFile('images',$request->file('image'));
         }
         $data->category_id=$request->Input('category_id');
         $data->user_id=Auth::id();
@@ -114,9 +75,8 @@ class ProductController extends Controller
         $data->slug=$request->Input('slug');
         $data->status=$request->Input('status');
         $data->save();
-        return redirect()->route('admin_product');
+        return redirect()->route('admin_product')->with('success','An Item has been successfully updated');;
     }
-
     /**
      * Remove the specified resource from storage.
      *

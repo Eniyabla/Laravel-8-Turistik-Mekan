@@ -30,7 +30,7 @@
         <div class="container-fluid">
             <div class="row">
                 @include('layouts._user_menu')
-                <div class="col-md-9" style="top:0;">
+                <div class="col-md-10" style="top:0;">
                     <div class="container-fluid">
 
                         <div class="row">

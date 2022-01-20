@@ -5,7 +5,7 @@
 
 @section('title', 'CONTACT US')
 @section('content')
-    <strong> </strong><br>
+    <br>
 
     <br>
     <div class="container-fluid">

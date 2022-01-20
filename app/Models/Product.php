@@ -28,7 +28,10 @@ class Product extends \Illuminate\Database\Eloquent\Model {
         return $this->belongsToMany(Review::class);
     }
 
-
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 
 
 }

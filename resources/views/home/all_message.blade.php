@@ -20,9 +20,8 @@
     <div class="breadcrumb-wrap">
         <div class="container-fluid">
             <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item"><a href="/">Messages</a></li>
-                <li class="breadcrumb-item active">Sent Messages</li>
+                <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                <li class="breadcrumb-item active">All Messages</li>
             </ul>
         </div>
     </div>
@@ -40,7 +39,7 @@
                                         <div class="table-responsive">
                                             <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                                 <thead>
-                                                <tr style="width: 80%">
+                                                <tr>
                                                     <th>Subject</th>
                                                     <th>Messages</th>
                                                     <th>Status</th>

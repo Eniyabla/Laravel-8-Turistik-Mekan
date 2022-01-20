@@ -11,4 +11,9 @@ class Like extends Model
     protected $table = 'likes';
     protected $fillable = ['user_id', 'product_id'];
     public $timestamps = false;
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

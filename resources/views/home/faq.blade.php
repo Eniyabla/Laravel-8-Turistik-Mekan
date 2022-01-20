@@ -29,7 +29,7 @@
         <div class="container-fluid">
             <div class="row">
                 @include('layouts._user_menu')
-                <div class="col-md-9">
+                <div class="col-md-10">
                     <div class="tab-content" style="top: 0;">
                         <div class="tab-pane fade show active" id="dashboard-tab" role="tabpanel" aria-labelledby="dashboard-nav">
 

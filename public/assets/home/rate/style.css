@@ -9,26 +9,26 @@
 }
 .rate:not(:checked) > input {
     position:absolute;
-    top:-30px;
+    top:-40px;
 }
 .rate:not(:checked) > label {
     float:right;
-    width:1em;
+    width:1.5em;
     overflow:hidden;
     white-space:nowrap;
     cursor:progress;
     font-size:30px;
-    color:#ccc;
+    color: #0c0b0b;
 }
 .rate:not(:checked) > label:before {
-    content: '★ ';
+    content: '★';
 }
 .rate > input:checked ~ label {
     color: #ffc700;
 }
 .rate:not(:checked) > label:hover,
 .rate:not(:checked) > label:hover ~ label {
-    color: #deb217;
+    color: orangered;
 }
 .rate > input:checked + label:hover,
 .rate > input:checked + label:hover ~ label,

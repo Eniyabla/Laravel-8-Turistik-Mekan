@@ -1,4 +1,6 @@
 /**********************************/
+
+
 /********** General CSS ***********/
 /**********************************/
 body {
@@ -526,7 +528,7 @@ h2 {
     height: 100%;
     display: flex;
     align-items: center;
-    background: rgba(255, 111, 97, .7);
+    background: rgba(180, 82, 15, 0.7);
     transition: all 0.3s;
     opacity: 0;
 }
@@ -808,7 +810,7 @@ color: orangered;
 
 .product-item .product-price {
     padding: 20px;
-    background: #000000;
+    background: #fff;
     transition: all .3s;
 }
 
@@ -829,8 +831,8 @@ color: orangered;
 .product-item .product-price .btn {
     float: right;
     border: none;
-    color: #000000;
-    background: orangered;
+    color: orangered;
+    background: white;
 }
 
 .product-item:hover .product-price .btn,
