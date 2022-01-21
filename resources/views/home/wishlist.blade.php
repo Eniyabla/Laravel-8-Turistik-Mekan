@@ -23,6 +23,8 @@
         <div class="container-fluid">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{route('myaccount')}}">Account</a></li>
+
                 <li class="breadcrumb-item active">Wishlist</li>
             </ul>
         </div>
@@ -44,6 +46,7 @@
                                                 <thead>
                                                 <tr>
                                                     <th># Id</th>
+                                                    <th>Category</th>
                                                     <th>Title</th>
                                                     <th>Country</th>
                                                     <th>City</th>

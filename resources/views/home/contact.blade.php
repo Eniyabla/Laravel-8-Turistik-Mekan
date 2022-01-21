@@ -5,10 +5,16 @@
 
 @section('title', 'CONTACT US')
 @section('content')
-    <br>
-
-    <br>
-    <div class="container-fluid">
+    <div class="breadcrumb-wrap">
+        <div class="container-fluid">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                <li class="breadcrumb-item active">Contact Us</li>
+            </ul>
+        </div>
+    </div>
+    <div class="my-account">
+        <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
                 @if(!Empty($setting->contact)){!!$setting->contact!!}@endif<br>
@@ -47,4 +53,5 @@
             </div>
         </div>
     </div>
+    <br><br>
 @endsection

@@ -20,16 +20,18 @@
     <div class="breadcrumb-wrap">
         <div class="container-fluid">
             <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
                 <li class="breadcrumb-item active">FAQ</li>
             </ul>
         </div>
     </div>
     <div class="my-account">
+
+
+
         <div class="container-fluid">
             <div class="row">
-                @include('layouts._user_menu')
-                <div class="col-md-10">
+                <div class="col-md-12">
                     <div class="tab-content" style="top: 0;">
                         <div class="tab-pane fade show active" id="dashboard-tab" role="tabpanel" aria-labelledby="dashboard-nav">
 
@@ -52,6 +54,9 @@
                 </div>
             </div>
         </div>
+
+
+
     </div>
     <script>
         const accordion = document.getElementsByClassName('container');

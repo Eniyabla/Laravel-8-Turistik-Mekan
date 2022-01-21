@@ -36,7 +36,7 @@
                                     <div class="card-body">
                                         <div class="d-flex d-lg-flex d-md-block align-items-center">
                                             <div>
-                                                <h4 class="text-dark mb-1 font-weight-medium">{{$messagesn}}</h4>
+                                                <h4 class="text-dark mb-1 font-weight-medium">{{$messagesunr}}</h4>
                                                 <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate"><a href="{{route('user_message_new')}}">Unread Messages</a></h6>
                                             </div>
                                             <div class="ml-auto mt-md-3 mt-lg-0">
@@ -128,7 +128,7 @@
                                         <div>
                                             <h4 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup
                                                     class="set-doller"></sup>{{$reviewsactive}}</h4>
-                                            <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate"><a style="color:green;" href="{{route('user_inactive_review')}}">Active Reviews</a>
+                                            <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate"><a style="color:green;" href="{{route('user_active_review')}}">Active Reviews</a>
                                             </h6>
                                         </div>
                                         <div class="ml-auto mt-md-3 mt-lg-0">

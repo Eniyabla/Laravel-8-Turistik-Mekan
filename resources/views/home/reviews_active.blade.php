@@ -53,7 +53,6 @@
                                                         <td>{{ $data->id }}</td>
                                                             <td>{{ $data->place_id }}</td>
                                                         <td>{{ $data->user->name}}</td>
-                                                        <td>{{ $data->ip }}</td>
                                                         <td>{{ $data->subject }}</td>
                                                         <td>{{ $data->comment }}</td>
                                                         <td>{{ $data->rate }}</td>

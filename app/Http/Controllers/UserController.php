@@ -39,7 +39,7 @@ class UserController extends Controller
     public function unreadmessage(){
         $id=Auth::id();
         $name=User::where('id',$id)->get()->first();
-        $datalist = Message::where('name',$name->name)->where('status','<>','Read')->get();
+        $datalist = Message::where('name',$name->name)->where('status','=','New')->get();
         return view('home.user_message_unread', ['datalist'=> $datalist]);
     }
     public function newmessage(){
@@ -63,8 +63,9 @@ class UserController extends Controller
     }
 
     public function wishlist(){
-        $datalist = Product::where('product_id',\App\Models\Like::where('user_id',Auth::id()));
-        return view('home.wishlist',['datalist'=>$datalist]);
+       // $datalist = Product::where('product_id',Auth::id())->where(\App\Models\Like::where('product_id',Auth::id())->get('user_id'),Auth::id())->get();
+       // return view('home.wishlist',['datalist'=>$datalist]);
+        echo "wishlist";
     }
 
     public function user_profile()
@@ -104,6 +105,7 @@ class UserController extends Controller
             'reviewsactive'=>$reviewsactive,
             'reviewsinactive'=>$reviewsinactive,
             'reviewsall'=>$reviewsall,
+
             'products'=>$products,
             'productsn'=>$productsn,
             'productsall'=>$productsall,

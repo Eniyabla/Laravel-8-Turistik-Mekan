@@ -92,7 +92,7 @@
         <div class="container-fluid">
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Places</a></li>
+                <li class="breadcrumb-item"><a href="{{route('categoryplaces',['id'=>$data->category->id])}}">{{$data->category->title}}</a></li>
                 <li class="breadcrumb-item active">{{$data->title}} </li>
             </ul>
         </div>
@@ -105,7 +105,7 @@
                     <div class="product-detail-top">
                         <div class="row " >
 
-                            <div class="col-md-6" style="top: 50px;padding-left: 0;padding-right: 0;">
+                            <div class="col-md-6">
                                 <div class="product-slider-single normal-slider">
                                     <img src="{{Storage::url($data->image)}}" style="height: 400px;width: 550px;" alt="Product Image">
                                     @foreach($datalist as $dat)
@@ -127,11 +127,11 @@
                                 <div class="product-content" style="top: 20px;">
                                     <div class="title" ><h2  style="margin-top: 0;padding-bottom: 30px;">{{$data->title}}</h2></div>
                                     <div class="d-flex align-items-start justify-content-start mb-1">
-                                        <small class="@if($average>=1) fa fa-star text-warning mr-1 @elseif($average<1 &&$average>0) fas fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
-                                        <small class="@if($average>=2) fa fa-star text-warning mr-1 @elseif($average<2 &&$average>1) fas fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
-                                        <small class="@if($average>=3) fa fa-star text-warning mr-1 @elseif($average<3 &&$average>2) fas fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
-                                        <small class="@if($average>=4) fa fa-star text-warning mr-1 @elseif($average<4 &&$average>3) fas fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
-                                        <small class="@if($average>=5) fa fa-star text-warning mr-1 @elseif($average<5 &&$average>4) fas fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=1) fa fa-star text-warning mr-1 @elseif($average<1 &&$average>0) fas fa-star-half-alt text-warning mr-1 @else fas fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=2) fa fa-star text-warning mr-1 @elseif($average<2 &&$average>1) fas fa-star-half-alt text-warning mr-1 @else fas fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=3) fa fa-star text-warning mr-1 @elseif($average<3 &&$average>2) fas fa-star-half-alt text-warning mr-1 @else fas fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=4) fa fa-star text-warning mr-1 @elseif($average<4 &&$average>3) fas fa-star-half-alt text-warning mr-1 @else fas fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=5) fa fa-star text-warning mr-1 @elseif($average<5 &&$average>4) fas fa-star-half-alt text-warning mr-1 @else fas fa-star text-dark mr-1 @endif"></small>
 
                                     </div>
                                     <!----------------------------------------------->

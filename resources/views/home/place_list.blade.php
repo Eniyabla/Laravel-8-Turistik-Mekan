@@ -79,14 +79,14 @@
                                 <div class="product-item">
                                     <div class="product-title">
                                         <a href="{{route('product_detail',['id'=>$dat->id])}}">{{$dat->title}}</a>
-                                        <div class="d-flex align-items-center justify-content-center mb-1">
-                                            <small class="@if($average>=1) fa fa-star text-warning mr-1 @elseif($average<1 &&$average>0) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
-                                            <small class="@if($average>=2) fa fa-star text-warning mr-1 @elseif($average<2 &&$average>1) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
-                                            <small class="@if($average>=3) fa fa-star text-warning mr-1 @elseif($average<3 &&$average>2) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
-                                            <small class="@if($average>=4) fa fa-star text-warning mr-1 @elseif($average<4 &&$average>3) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
-                                            <small class="@if($average>=5) fa fa-star text-warning mr-1 @elseif($average<5 &&$average>4) fa fa-star-half-alt text-warning mr-1 @else fa fa-star text-dark mr-1 @endif"></small>
-                                            <small style="color:white;">({{$average}})</small>
-                                        </div>
+                                     <div class="d-flex align-items-start justify-content-start mb-1">
+                                        <small class="@if($average>=1) fa fa-star text-warning mr-1 @elseif($average<1 &&$average>0) fas fa-star-half-alt text-warning mr-1 @else fas fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=2) fa fa-star text-warning mr-1 @elseif($average<2 &&$average>1) fas fa-star-half-alt text-warning mr-1 @else fas fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=3) fa fa-star text-warning mr-1 @elseif($average<3 &&$average>2) fas fa-star-half-alt text-warning mr-1 @else fas fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=4) fa fa-star text-warning mr-1 @elseif($average<4 &&$average>3) fas fa-star-half-alt text-warning mr-1 @else fas fa-star text-dark mr-1 @endif"></small>
+                                        <small class="@if($average>=5) fa fa-star text-warning mr-1 @elseif($average<5 &&$average>4) fas fa-star-half-alt text-warning mr-1 @else fas fa-star text-dark mr-1 @endif"></small>
+
+                                    </div>
                                     </div>
                                     <div class="product-image">
                                         <a href="{{route('product_detail',['id'=>$dat->id])}}">

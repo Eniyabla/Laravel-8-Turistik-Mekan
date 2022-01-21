@@ -53,6 +53,7 @@
     <script src="{{ asset('assets')}}/admin/libs/jquery/dist/jquery.min.js"></script>
     <script src="{{ asset('assets')}}/admin/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- apps -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <!-- apps -->
     <script src="{{ asset('assets')}}/admin/dist/js/feather.min.js"></script>
     <script src="{{ asset('assets')}}/admin/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>

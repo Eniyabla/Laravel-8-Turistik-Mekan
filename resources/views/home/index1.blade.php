@@ -67,7 +67,7 @@
     <!-- Feature Start-->
 
 
-    <div class="featured-product product">
+    <div class="featured-product product" id="#nproducts">
         <div class="container-fluid">
             <div class="section-header">
                 <h1>Recent Places</h1>

@@ -16,7 +16,7 @@
         <input type="checkbox" id="input-hamburger" hidden>
         <ul class="menu">
             <li><a href="{{route('home')}}" class="menu-link">Home</a></li>
-            <li><a href="#products" class="menu-link">Products</a></li>
+            <li><a href="{{route('FaQ')}}" class="menu-link">FaQ</a></li>
             <li><a href="{{route('aboutus')}}" class="menu-link">About Us</a></li>
             <li><a href="{{route('contactus')}}" class="menu-link">Contact Us</a></li>
             <li><a href="{{route('refernces')}}" class="menu-link">References</a></li>
@@ -42,7 +42,11 @@
                 </ul>
 
             </li>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
             @auth
+            &emsp;&emsp;&emsp;&emsp;&emsp;
             <li class="has-dropdown">
                 <a href="#" class="menu-link">
                    Hi, {{Auth::user()->name}}
@@ -51,7 +55,7 @@
                     <span class="arrow"></span>
                 </a>
                 <ul class="submenu">
-                    <li><a href="{{route('myaccount')}}" class="menu-link"><span><i class="fa fa-user"></i> </span>&nbsp; Account</a></li>
+                    <li><a href="{{route('myaccount')}}" class="menu-link"><span><i class="fa fa-user"></i> </span>&nbsp Account</a></li>
                     <li><a href="{{route('user_profile')}}" class="menu-link"><span><i class="fas fa-user"></i>  </span>&nbsp; Profile</a></li>
                     <li><a href="{{route('user_product')}}" class="menu-link"><i class="fab fa-product-hunt"></i>&nbsp; Products</a></li>
                     <li><a href="{{route('all_message')}}" class="menu-link"><i class="fa fa-envelope"></i>&nbsp;Messages</a></li>
