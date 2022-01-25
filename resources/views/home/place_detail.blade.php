@@ -158,6 +158,12 @@
                                             {{$data->location}}
                                         </div>
                                     @endif
+                                    <div class="price">
+                                        @php
+                                    $likes=\App\Http\Controllers\HomeController::likes($data->id);
+                                    @endphp
+                                       Likes: {{$likes}}
+                                    </div>
                                 </div>
                             </div>
 

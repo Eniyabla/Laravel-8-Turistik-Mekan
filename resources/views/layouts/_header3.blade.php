@@ -60,7 +60,14 @@
                     <li><a href="{{route('user_product')}}" class="menu-link"><i class="fab fa-product-hunt"></i>&nbsp; Products</a></li>
                     <li><a href="{{route('all_message')}}" class="menu-link"><i class="fa fa-envelope"></i>&nbsp;Messages</a></li>
                     <li><a href="{{route('user_review')}}" class="menu-link"><i class="fas fa-hourglass-start"></i>&nbsp;Reviews</a></li>
-                    <li><a href="#" class="{{route('wishlist')}}"><i class="fa fa-heart"></i>&nbsp;Wishlist</a></li>
+                    <li><a href="{{route('wishlist')}}"" class="{{route('wishlist')}}"><i class="fa fa-heart"></i>&nbsp;Wishlist</a></li>
+                           @php
+                 $role=Auth::user()->roles->pluck('name');
+            @endphp
+                    @if($role->contains('admin'))
+                <li><a class="menu-link" href="{{route('admin_home')}}"><i class="fas fa-tasks"></i>&nbsp;Admin Panel</a></li>
+            @endif
+
                     <li><a href="{{route('logout')}}" class="menu-link"><i class="fas fa-sign-out-alt"></i>&nbsp;logout</a></li>
 
                 </ul>

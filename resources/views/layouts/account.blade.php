@@ -112,8 +112,8 @@
                                     <div class="d-flex d-lg-flex d-md-block align-items-center">
                                         <div>
                                             <h4 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup
-                                                    class="set-doller"></sup>{{$products}}</h4>
-                                            <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Active Products
+                                                    class="set-doller"></sup>{{$wishlist}}</h4>
+                                            <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate"><a style="color:green;" href="{{route('wishlist')}}">Wishlist</a>
                                             </h6>
                                         </div>
                                         <div class="ml-auto mt-md-3 mt-lg-0">
@@ -175,8 +175,8 @@
                                     <div class="d-flex d-lg-flex d-md-block align-items-center">
                                         <div>
                                             <h4 class="text-dark mb-1 w-100 text-truncate font-weight-medium"><sup
-                                                    class="set-doller"></sup></h4>
-                                            <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Ne Products
+                                                    class="set-doller"></sup>{{$likedproducts}}</h4>
+                                            <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate"><a style="color:blue;" href="{{route('likedproducts')}}">Liked products</a>
                                             </h6>
                                         </div>
                                         <div class="ml-auto mt-md-3 mt-lg-0">

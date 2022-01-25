@@ -51,34 +51,36 @@
                                                     <th>Country</th>
                                                     <th>City</th>
                                                     <th>Image</th>
+                                                    <th>Detail</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach ($datalist as $data)
-                                                    <tr>
-                                                        <td>{{ $data->id }}</td>
-                                                        <td>{{ App\Http\Controllers\Admin\CategoryController::getParentsTree($data->category,$data->category->title)}}</td>
+                                                @foreach ($datalist as $dat)
+                                                    @php
+                                                        $data=\App\Models\Product::where('id',$dat->product_id)->get()->first();
+                                                    @endphp
 
-                                                        <td style="width: 20px;">{{ $data->title }} </td>
-                                                        <td>{{ $data->country }}</td>
-                                                        <td>{{ $data->city }}</td>
-                                                        <td>
-                                                            @if($data->image)
-                                                                <img src="{{Storage::url($data->image)}}" height="36">
+                                                        <tr>
+                                                            <td>{{ $data->id }}</td>
+                                                            <td>{{ $data->category->title }}</td>
+                                                            <td style="width: 20px;">{{ $data->title }} </td>
+                                                            <td>{{ $data->country }}</td>
+                                                            <td>{{ $data->city }}</td>
+                                                            <td>
+                                                                @if($data->image)
+                                                                    <img src="{{Storage::url($data->image)}}" height="36">
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                            @if($data->status=='true')
+                                                                <a href="{{route('product_detail',['id'=>$data->id])}}">detail</a>
+                                                            @else
+                                                            Inactif Now
                                                             @endif
-                                                        </td>
-                                                        <td style="justify-content:center"><a href="{{route('user_image_add',['product_id'=>$data->id])}}"><i class="fas fa-images"></i></a></td>
-                                                        <td>{{ $data->status }}</td>
-                                                        <td colspan="2" style="text-align:center;">
-                                                            <a href="{{route('user_product_edit',['id'=>$data->id])}}" >
-                                                                <img rel="icon"  width="20px" src="{{ asset('assets')}}/admin/images/edit.png">
-                                                            </a>
-                                                            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            <a href="{{route('user_product_delete',['id'=>$data->id])}}" onclick="return confirm('Are you sure to delete this record?') ">
-                                                                <img rel="icon"  width="20px" src="{{ asset('assets')}}/admin/images/del.png">
-                                                            </a>
-                                                        </td>
-                                                    </tr>
+                                                            </td>
+
+                                                        </tr>
+
                                                 @endforeach
                                                 </tbody>
                                             </table>

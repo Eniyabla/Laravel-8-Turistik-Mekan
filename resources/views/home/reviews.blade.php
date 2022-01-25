@@ -40,7 +40,7 @@
                                                 <thead>
                                                 <tr>
                                                     <th># Id</th>
-                                                    <th>Place_id</th>
+                                                    <th>Place</th>
                                                     <th>Subject</th>
                                                     <th>Rate</th>
                                                     <th>Status</th>
@@ -51,7 +51,15 @@
                                                 @foreach ($datalist as $data)
                                                     <tr>
                                                         <td>{{ $data->id }}</td>
-                                                            <td>{{ $data->place_id }}</td>
+
+                                                        <td>
+                                                            @php
+$dat=DB::table('products')->where('id',$data->place_id)->select('title')->first();
+echo $dat->title;
+                                                            @endphp
+
+                                                        </td>
+
                                                         <td>{{ $data->subject }}</td>
                                                         <td>{{ $data->rate }}</td>
                                                         <td>{{ $data->status }}</td>
@@ -70,10 +78,10 @@
                                     </div>
                                 </div>
 
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
             </div>
         </div>

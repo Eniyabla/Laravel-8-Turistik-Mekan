@@ -8,6 +8,7 @@
 @section('location', $setting->location)
 @section('header')
     <link href="{{ asset('assets/home')}}/css/accordion.css" rel="stylesheet">
+
 @endsection
 
 @section('footer')
@@ -26,9 +27,6 @@
         </div>
     </div>
     <div class="my-account">
-
-
-
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">

@@ -3,7 +3,6 @@
 @section('content')
 @section('header')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-
 @endsection
 <div class="container-fluid">
 
@@ -17,10 +16,10 @@
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                         <thead>
-                                            <tr style="width: 80%">
+                                            <tr >
                                                 <th># Id</th>
                                                 <th>Catgory</th>
-                                                <th style="width: 20px;">Title</th>
+                                                <th >Title</th>
                                                 <th>City</th>
                                                 <th>Image</th>
                                                 <th>Galery</th>

@@ -65,9 +65,22 @@ class UserController extends Controller
     public function wishlist(){
        // $datalist = Product::where('product_id',Auth::id())->where(\App\Models\Like::where('product_id',Auth::id())->get('user_id'),Auth::id())->get();
        // return view('home.wishlist',['datalist'=>$datalist]);
-        echo "wishlist";
-    }
+        $data=DB::table('likes')->where('user_id',Auth::id())->select('product_id')->get();
+           //->select('product_id')->where('user_id',Auth::id())->get();
 
+        //$datalist = Product::where('id',$data)->get();
+           // DB::table('products')
+           // ->whereIn('id',$data)->get();
+
+          // ->whereIn
+        return view('home.wishlist',['datalist'=>$data]);
+    }
+public function likedproducts(){
+    $data=DB::table('products')->where('user_id',Auth::id())->select('id');
+    $data=DB::table('likes')->whereIn('product_id',$data)->select('product_id')->get();
+
+    return view('home.likedproducts',['datalist'=>$data]);
+}
     public function user_profile()
     {
         return view('layouts.userprofile');
@@ -93,6 +106,12 @@ class UserController extends Controller
         $productsn=Product::where('status','false')->where('user_id',Auth::id())->count();
         $products=Product::where('status','true')->where('user_id',Auth::id())->count();
 
+
+        $likedproducts=DB::table('products')->where('user_id',Auth::id())->select('id');
+        $likedproducts=DB::table('likes')->whereIn('product_id',$likedproducts)->count();
+        $wishlist=DB::table('likes')->where('user_id',Auth::id())->count();
+
+
         $data=[
             'messagesunr'=>$messagesunr,
             'messagesr'=>$messagesr,
@@ -109,6 +128,9 @@ class UserController extends Controller
             'products'=>$products,
             'productsn'=>$productsn,
             'productsall'=>$productsall,
+
+            'likedproducts'=>$likedproducts,
+            'wishlist'=>$wishlist,
         ];
         return view('layouts.account',$data);
     }

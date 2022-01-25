@@ -51,8 +51,9 @@ Route::middleware('auth')->prefix('userreviews')->group(function (){
 
 
 #♥♥♥♥♥♥♥♥whislist♥♥♥♥♥♥♥♥
-Route::middleware('auth')->prefix('')->group(function (){
+Route::middleware('auth')->prefix('user')->group(function (){
     Route::get('/wishlist', [App\Http\Controllers\UserController::class,'wishlist'])->name('wishlist');
+    Route::get('/likedproducts', [App\Http\Controllers\UserController::class,'likedproducts'])->name('likedproducts');
 });
 
 #*********************************User-Product**********************************#

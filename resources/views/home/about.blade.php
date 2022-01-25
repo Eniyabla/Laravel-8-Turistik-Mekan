@@ -5,6 +5,7 @@
 
 @section('title', 'About Us')
 @section('content')
+<div class="header">
   <div class="breadcrumb-wrap">
         <div class="container-fluid">
             <ul class="breadcrumb">
@@ -15,7 +16,9 @@
     </div>
     <div class="my-account">
         <div class="container-fluid">
+            
     @if(!Empty($setting->aboutus)){!!$setting->aboutus!!}@endif<br><br><br>
+</div>
 </div>
 </div>
 @endsection

@@ -38,7 +38,7 @@
                                                 <thead>
                                                 <tr>
                                                     <th># Id</th>
-                                                    <th>Place_id</th>
+                                                    <th>Place</th>
                                                     <th>User</th>
                                                     <th>Subject</th>
                                                     <th>Review</th>
@@ -51,7 +51,13 @@
                                                 @foreach ($datalist as $data)
                                                     <tr>
                                                         <td>{{ $data->id }}</td>
-                                                            <td>{{ $data->place_id }}</td>
+                                                        <td>
+                                                            @php
+                                                                $dat=DB::table('products')->where('id',$data->place_id)->select('title')->first();
+                                                                echo $dat->title;
+                                                            @endphp
+
+                                                        </td>
                                                         <td>{{ $data->user->name}}</td>
                                                         <td>{{ $data->subject }}</td>
                                                         <td>{{$data->comment }}</td>

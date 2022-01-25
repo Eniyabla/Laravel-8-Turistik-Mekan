@@ -43,7 +43,7 @@ class HomeController extends Controller
         return view('home.faq',['datalist'=>$datalist]);
     }
     public static function slider(){
-        $slider=Product::select('id','title','image','country','slug')->where('status','true')->orderby('country')->limit(4)->get();
+        $slider=Product::select('id','title','image','country','slug')->where('status','true')->orderby('created_at','ASC')->limit(4)->get();
         return $slider;
     }
     public static function countreviews($id)
