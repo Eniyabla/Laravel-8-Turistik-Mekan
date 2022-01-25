@@ -179,7 +179,7 @@
                                     <a class="nav-link active" data-toggle="pill" href="#description">Description</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="pill" href="#specification">Specification</a>
+                                    <a class="nav-link" data-toggle="pill" href="#specification">Liked by({{$likes}})</a>
                                 </li>
                                 <li class="nav-item" id="addreviews">
                                     <a class="nav-link" data-toggle="pill" href="#reviews">Reviews ({{$count}})</a>
@@ -195,12 +195,22 @@
                                 <div id="specification" class="container tab-pane fade">
                                     <div class="row">
                                         <div class="col-md-6">
+                                            @livewire('like',['product_id'=>$data->id])
                                         </div>
                                         <div class="col-md-6">
                                             <div class="reviews-submit">
-                                                <h4>Specification</h4>
+                                                <h4>liked by </h4>
 
-                                                {{$data->description }}
+                                                @php
+                                                    $liked=\App\Models\Like::where('product_id',$data->id)->select('user_id')->get();
+$names=DB::table('users')->whereIn('id',$liked)->select('name')->get();
+
+                                                @endphp
+                                                <ul>
+                                                    @foreach($names as $n)
+                                                        <li>{{$n->name}}</li>
+                                                    @endforeach
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>

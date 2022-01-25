@@ -7,8 +7,6 @@
 <div class="container-fluid">
 
     <h3 class="card-title">Message List</h3>
-    <a href=""><button style="width:20%;" type="button" class="btn btn-block btn-primary">Add message</button></a>
-
     <div class="row">
         <div class="col-12">
             <div class="card">
